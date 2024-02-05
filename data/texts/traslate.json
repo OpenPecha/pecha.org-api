@@ -1,0 +1,370 @@
+{
+    "source": {
+        "categories": [
+            {
+                "name": "Buddha's teaching", 
+                "enDesc": "english description",
+                "enShortDesc": "english description"
+            },
+            {
+                "name": "Words of the Buddha",
+                "enDesc": "english description",
+                "enShortDesc": "english description"
+            },
+            {
+                "name": "Prayer for the Future of the Dharma",
+                "enDesc": "english description",
+                "enShortDesc": "english description"
+            }
+        ],
+        "books": [
+            {
+                "title": "Prayer for the Future of the Dharma",
+                "language": "en",
+                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "content": [
+                    [
+                        "To the buddhas: Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni, and Kāśyapa",
+                        "And Śākyamuni—Gautama, deity of all deities",
+                        "To the seven warrior-like buddhas, I pay homage!"
+                    ],
+                    [
+                        "In the past, to benefit being",
+                        "I bore all kinds of hardship",
+                        "And gave up my own happiness, through this",
+                        "May the teachings blaze, long into the future!"
+                    ], 
+                    [
+                        "In the past, for the sake of the sick",
+                        "I gave my life away",
+                        "So, to protect the needy and the poor,",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "By my giving up sons, daughters, and wives",
+                        "Riches and elephants and chariots",
+                        "For the sake of the treasure of enlightenment",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through the offerings I made to the buddhas, pratyekabuddhas",
+                        "Śrāvakas, male and female",
+                        "And to the great sages",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through the sufferings I endured",
+                        "For many millions of aeons",
+                        "Seeking instruction for the sake of enlightenment",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through my conduct of discipline",
+                        "And age-long asceticism",
+                        "And my offerings to the buddhas of ten directions",
+                        "May the teachings blaze, long into the future"
+                    ],
+                    [
+                        "Through my diligence in the past",
+                        "Constantly stable, and overcoming others’ disruption",
+                        "So as to liberate all beings",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through my constant practice of patience",
+                        "And my tolerance of beings’ harmful acts",
+                        "Caused by the degeneration of their negative emotions",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through my concentration, perfect freedoms,2 formless absorptions",
+                        "And samādhis as many as the grains of sand in the river Ganges",
+                        "Through the power of my meditation",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through seeking wisdom in the past",
+                        "By practising austerities in the forest",
+                        "And teaching countless śāstras to others",
+                        "May the teachings blaze, long into the future!"
+                    ],
+                    [
+                        "Through giving, out of love, my flesh and blood",
+                        "Giving my life away entirely",
+                        "And giving arms and legs and every part of my body",
+                        "May the way of the Dharma flourish and expand!"
+                    ],
+                    [
+                        "In the past, with loving kindness, I caused",
+                        "Harmful sentient beings to mature completely,",
+                        "And I led them to the three vehicles; through this",
+                        "May the gift of Dharma thrive and grow!"
+                    ],
+                    [
+                        "In the past, with skilful means and wisdom",
+                        "I liberated sentient beings from perverse views",
+                        "And led them to the correct view; through this",
+                        "May the Dharma increase in every way!"
+                    ],
+                    [
+                        "With the four means of attracting disciples",
+                        "I released beings from the fire of the emotions",
+                        "And vanquished rampant negativity; through this",
+                        "May my followers remain, long into the future!"
+                    ],
+                    [
+                        "I freed tīrthikas and others",
+                        "From the rivers of different views",
+                        "And led them to the correct view; through this",
+                        "May my followers always have devotion!",
+                        "May the teachings blaze, long into the future!”"
+                    ]
+                
+                ]
+
+            },
+            {
+                "title": "Una oración para el futuro del Dharma [es]",
+                "language": "es",
+                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "content": [["Ante los budas: Vipaśyin, Śikhin, Viśvabhukra", "Krakucchanda, Kanakamuni, and Kāśyapa", "y Śākyamuni Gautama, el dios de dioses", "¡ante estos siete budas que son como guerreros nos postramos!"], ["En el pasado, para el beneficio de los seres", "soporté todo tipo de adversidades", "dejé de lado mi propia felicidad. Por estas acciones", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["En el pasado, para el beneficio de los enfermos", "ofrecí mi vida;", "¡que las enseñanzas permanezcan y brillen largo tiempo", "para proteger a los necesitados y a los pobres!"], ["Por haber dejado atrás a mis hijos, hijas, parejas", "riquezas, elefantes y carruajes", "en busca del tesoro de la iluminación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber hecho ofrendas a los budas, a los pratyekabudas,", "a los shravakas, hombres y mujeres,", "así como a los grandes sabios,", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber soportado sufrimientos", "durante millones de eones", "en busca de instrucciones para alcanzar la iluminación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber tenido una conducta disciplinada", "haber hecho largos periodos de ascetismo", "y haber presentado ofrendas a los budas de las diez direcciones", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por el esfuerzo constante que hice en el pasado", "superando cualquier interrupción de los demás;", "con el fin de liberar a todos los seres", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por mi práctica constante de paciencia", "soportando la degeneración de las emociones negativas de los seres", "y con paciencia todas sus acciones dañinas", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por mi concentración, mi completa liberación y mi absorción sin forma", "en tantos samadis como granos de arena hay en el río Ganges", "por la fuerza de mi meditación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber buscado la sabiduría en el pasado", "practicado de manera austera en los bosques", "y enseñado incontables shastras a otros", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber ofrecido, por amor, mi propia carne y sangre", "mi vida entera", "mis brazos y piernas y todas las partes de mi cuerpo", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber hecho en el pasado, movido por la bondad amorosa", "que seres dañinos maduraran por completo", "y haberlos conducido a los tres vehículos", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["En el pasado, con medios hábiles y sabiduría", "liberé a los seres de visiones erróneas", "y los orienté hacia la visión correcta. Por estas acciones", "¡que el Dharma florezca y aumente en todos los sentidos!"], ["Con los cuatro medios para atraer discípulos", "liberé a los seres del fuego de las emociones", "eliminando así la negatividad desenfrenada. Por estas acciones", "¡que mis seguidores permanezcan por mucho tiempo en el futuro!"], ["Liberé a tirthikas y a otros", "de los ríos de las diferentes visiones", "conduciéndolos a la visión correcta. Por estas acciones", "¡que mis seguidores tengan siempre devoción", "y que brillen las enseñanzas durante mucho tiempo en el futuro!"]]
+            },
+            {
+                "title": "Prière pour l’avenir du Dharma [fr]",
+                "language": "fr",
+                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "content":  [
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ],
+                    [
+                        "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
+                        "Krakucchanda, Kanakamuni et Kāśyapa",                       
+                        "Et Śākyamuni – Gautama, déité de toutes les déités :",                     
+                        "Je rends hommage aux sept bouddhas héroïques !"
+                    ]
+                    
+                ]
+            }
+        ]            
+    },
+    "target": {
+        "categories": [
+            {
+                "name": "སངས་རྒྱས་ཀྱི་གསུང་རབ", 
+                "heDesc": "hebrew description",
+                "heShortDesc": "he description"
+            },
+            {
+                "name": "སངས་རྒྱས་ཀྱི་བཀའ།",
+                "heDesc": "english description",
+                "heShortDesc": "english description"
+            },
+            {
+                "name": "བསྟན་འབར་མ་བཞུགས་སོ། །",
+                "heDesc": "hebrew description",
+                "heShortDesc": "he description"
+            }
+        ],
+        "books": [
+
+            {
+                "title": "བསྟན་འབར་མ་བཞུགས་སོ། །",
+                "language": "he",
+                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "content":  [
+                    [
+                    "སངས་རྒྱས་རྣམ་གཟིགས་གཙུག་ཏོར་ཐམས་ཅད་སྐྱོབ། །",
+                    "འཁོར་བ་འཇིག་དང་གསེར་ཐུབ་འོད་སྲུང་དང་། །",
+                    "ཤཱཀྱ་ཐུབ་པ་གོའུ་ཏཾ་ལྷ་ཡི་ལྷ། །",
+                    "སངས་རྒྱས་དཔའ་བོ་བདུན་ལ་ཕྱག་འཚལ་ལོ། །"
+                    ],
+                    [
+                        "སེམས་ཅན་དོན་དུ་བདག་གིས་སྔོན། །",
+                        "དཀའ་བ་གང་ཞིག་སྤྱད་གྱུར་དང་། །",
+                        "བདག་གི་བདེ་བ་བཏང་བ་ཡིས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ], 
+                    [
+                        "ངས་སྔོན་ནད་པའི་ཆེད་དག་ཏུ། །",
+                        "རང་གི་འཚོ་བ་ཡོངས་བཏང་བས། །",
+                        "སེམས་ཅན་ཕོངས་པ་བསྐྱབ་པའི་ཕྱིར། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བུ་དང་བུ་མོ་ཆུང་མ་དང་། །",
+                        "ནོར་དང་གླང་ཆེན་ཤིང་རྟ་དང་། །",
+                        "རིན་ཆེན་བྱང་ཆུབ་ཕྱིར་བཏང་བས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་གིས་སངས་རྒྱས་རང་སངས་རྒྱས། །",
+                        "ཉན་ཐོས་ཕ་དང་མ་དང་ནི། །",
+                        "དྲང་སྲོང་དག་ལ་མཆོད་བྱས་པས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བསྐལ་པ་བྱེ་བ་དུ་མར་བདག །",
+                        "སྡུག་བསྔལ་སྣ་ཚོགས་མྱོང་གྱུར་ཅིང་། །",
+                        "བྱང་ཆུབ་དོན་དུ་ཐོས་བཙལ་བས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་གིས་ཚུལ་ཁྲིམས་བརྟུལ་ཞུགས་དང་། །",
+                        "དཀའ་ཐུབ་ཡུན་རིང་བསྟེན་བྱས་ཤིང་། །",
+                        "ཕྱོགས་བཅུའི་སངས་རྒྱས་ངས་མཆོད་པས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་སྔོན་བརྩོན་འགྲུས་དང་ལྡན་པས། །",
+                        "རྟག་ཏུ་བརྟན་ཅིང་ཕ་རོལ་གནོན། །",
+                        "སེམས་ཅན་ཐམས་ཅད་བསྒྲལ་དོན་དུ། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བཟོད་བརྟུལ་རྟག་ཏུ་བསྟེན་བྱས་ཤིང་། །",
+                        "སེམས་ཅན་ཉོན་མོངས་སྙིགས་མ་ཡིས། །",
+                        "སེམས་ཅན་ངན་བྱས་བཟོད་གྱུར་པས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བསམ་གཏན་རྣམ་ཐར་གཟུགས་མེད་དང་། །",
+                        "ཏིང་འཛིན་གང་གཱའི་བྱེ་སྙེད་པ། །",
+                        "བསྒོམས་པས་དེ་མཐུས་བདག་གི་ནི། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "ཡེ་ཤེས་དོན་དུ་བདག་གིས་སྔོན། །",
+                        "དཀའ་ཐུབ་ནགས་དག་བསྟེན་བྱས་ཤིང་། །",
+                        "བསྟན་བཅོས་དུ་མ་ཉེར་བསྟེན་པས། །",
+                        "བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བརྩེ་བའི་རྒྱུ་ཡིས་ཤ་ཁྲག་དང་། །",
+                        "འཚོ་བ་ཡོངས་སུ་བཏང་གྱུར་ཅིང་། །",
+                        "ཡན་ལག་ཉིང་ལག་བཏང་པ་ཡིས། །",
+                        "ཆོས་ཚུལ་རྣམ་པར་འཕེལ་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་སྔོན་སྡིག་པའི་སེམས་ཅན་རྣམས། །",
+                        "བྱམས་པས་གསལ་བར་སྨིན་བྱས་ཤིང་། །",
+                        "ཐེག་པ་གསུམ་ལ་རབ་བཀོད་པས། །",
+                        "ཆོས་ཀྱི་མཆོད་སྦྱིན་རྒྱས་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་སྔོན་ཐབས་ཤེས་གྱུར་པ་ན།",
+                        "སེམས་ཅན་ལྟ་ངན་ལས་བསྒྲལ་ཞིང་། །",
+                        "ཡང་དག་ལྟ་ལ་བཀོད་བྱས་པས། །",
+                        "ཆོས་ནི་རྣམ་པར་འཕེལ་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་གིས་སེམས་ཅན་བསྡུ་དངོས་བཞིས། །",
+                        "ཉོན་མོངས་མེ་ལས་ཐར་བྱས་ཤིང་། །",
+                        "བདག་གིས་འཕེལ་སྡིག་ཕམ་བྱས་པས། །",
+                        "བདག་འཁོར་ཡུན་རིང་གནས་གྱུར་ཅིག །"
+                    ],
+                    [
+                        "བདག་གིས་མུ་སྟེགས་ཅན་གཞན་དག །",
+                        "ལྟ་བའི་ཆུ་ལས་བསྒྲལ་བྱས་ཏེ། །",
+                        "ཡང་དག་ལྟ་ལ་བཀོད་གྱུར་པས། །",
+                        "བདག་འཁོར་རྟག་ཏུ་གུས་གྱུར་ཅིག །",
+                        "ཡུན་རིང་བསྟན་པ་འབར་གྱུར་ཅིག །"
+                    ]
+
+                ]
+            }
+        ]
+    }
+}
+
+
+
+
