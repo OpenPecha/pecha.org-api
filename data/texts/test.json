@@ -2,12 +2,12 @@
     "source": {
         "categories": [
             {
-                "name": "Buddha's teaching", 
-                "enDesc": "The first verse would appear to be taken from the Pratimokṣa-sūtra (so sor thar pa'i mdo), while the remainder of the prayer, from the second verse onwards, is found in Atiśa Dīpaṃkaraśrījñāna's Great Compendium of the Sūtras (Mahāsūtrasamuccaya; mdo kun las btus pa chen po)",
-                "enShortDesc": "The first verse would appear to be taken from the Pratimokṣa-sūtra (so sor thar pa'i mdo), while the remainder of the prayer, from the second verse onwards, is found in Atiśa Dīpaṃkaraśrījñāna's Great Compendium of the Sūtras (Mahāsūtrasamuccaya; mdo kun las btus pa chen po)"
+                "name": "Liturgy",
+                "enDesc": "Prayers and rituals",
+                "enShortDesc": "Prayers and rituals"
             },
             {
-                "name": "Words of the Buddha",
+                "name": "Prayers",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -129,19 +129,19 @@
     "target": {
         "categories": [
             {
-                "name": "སངས་རྒྱས་ཀྱི་གསུང་རབ", 
-                "heDesc": "hebrew description",
-                "heShortDesc": "he description"
+                "name": "ཆོ་ག", 
+                "heDesc": "ཆོ་ག་དང་འདོན་ཆ།",
+                "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
             },
             {
-                "name": "སངས་རྒྱས་ཀྱི་བཀའ།",
-                "heDesc": "english description",
-                "heShortDesc": "english description"
+                "name": "སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": ""
             },
             {
                 "name": "བསྟན་འབར་མ་བཞུགས་སོ། །",
-                "heDesc": "hebrew description",
-                "heShortDesc": "he description"
+                "heDesc": "བསྟན་འབར་མ་ཞེས་ཡོངས་སུ་གྲགས་པའི་བསྟན་རྒྱས་སྨོན་ལམ་འདི་དགེ་ལུགས་པའི་ཁྲོད་དུ་ལྷག་པར་དུ་དར་ཁྱབ་ཆེ།",
+                "heShortDesc": "བསྟན་འབར་མ་ཞེས་ཡོངས་སུ་གྲགས་པའི་བསྟན་རྒྱས་སྨོན་ལམ་འདི་དགེ་ལུགས་པའི་ལུགས་ལ་ལྷག་པར་དུ་དར་ཁྱབ་ཆེ། ཚིགས་བཅད་དང་པོ་སོ་ཐར་ཐར་པའི་མདོ་ལས་བླངས་པ་ལྟར་སྣང་ཞིང་། ཚིགས་བཅད་གཉིས་པ་ནས་བཟུང་མདོ་ཀུན་ལས་བཏུས་པ་ཆེན་པོའི་ནང་དུ་ཡོད།"
             }
         ],
         "books": [

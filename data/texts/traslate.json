@@ -2,19 +2,19 @@
     "source": {
         "categories": [
             {
-                "name": "Buddha's teaching", 
-                "enDesc": "english description",
-                "enShortDesc": "english description"
+                "name": "Liturgy",
+                "enDesc": "Prayers and rituals",
+                "enShortDesc": "Prayers and rituals"
             },
             {
-                "name": "Words of the Buddha",
-                "enDesc": "english description",
-                "enShortDesc": "english description"
+                "name": "Prayers",
+                "enDesc": "",
+                "enShortDesc": ""
             },
             {
                 "name": "Prayer for the Future of the Dharma",
-                "enDesc": "english description",
-                "enShortDesc": "english description"
+                "enDesc": "Popularly known as 'The Teachings Blaze' (bstan 'bar ma), this prayer for the spread of the teachings (bstan rgyas smon lam) is especially popular in the Gelug tradition. The first verse appears to be taken from the Pratimokṣa-sūtra (so sor thar pa'i mdo), while the remainder of the prayer, from the second verse onwards, is to be found in Atiśa Dīpaṃkara's Great Compendium of the Sūtras (Mahāsūtrasamuccaya; mdo kun las btus pa chen po).",
+                "enShortDesc": "Popularly known as 'The Teachings Blaze' (bstan 'bar ma), this prayer for the spread of the teachings (bstan rgyas smon lam) is especially popular in the Gelug tradition."
             }
         ],
         "books": [
@@ -125,15 +125,32 @@
 
             },
             {
-                "title": "Una oración para el futuro del Dharma [es]",
-                "language": "es",
+                "title": "Prayer for the Future of the Dharma [sw]",
+                "language": "sw",
                 "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
-                "content": [["Ante los budas: Vipaśyin, Śikhin, Viśvabhukra", "Krakucchanda, Kanakamuni, and Kāśyapa", "y Śākyamuni Gautama, el dios de dioses", "¡ante estos siete budas que son como guerreros nos postramos!"], ["En el pasado, para el beneficio de los seres", "soporté todo tipo de adversidades", "dejé de lado mi propia felicidad. Por estas acciones", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["En el pasado, para el beneficio de los enfermos", "ofrecí mi vida;", "¡que las enseñanzas permanezcan y brillen largo tiempo", "para proteger a los necesitados y a los pobres!"], ["Por haber dejado atrás a mis hijos, hijas, parejas", "riquezas, elefantes y carruajes", "en busca del tesoro de la iluminación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber hecho ofrendas a los budas, a los pratyekabudas,", "a los shravakas, hombres y mujeres,", "así como a los grandes sabios,", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber soportado sufrimientos", "durante millones de eones", "en busca de instrucciones para alcanzar la iluminación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber tenido una conducta disciplinada", "haber hecho largos periodos de ascetismo", "y haber presentado ofrendas a los budas de las diez direcciones", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por el esfuerzo constante que hice en el pasado", "superando cualquier interrupción de los demás;", "con el fin de liberar a todos los seres", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por mi práctica constante de paciencia", "soportando la degeneración de las emociones negativas de los seres", "y con paciencia todas sus acciones dañinas", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por mi concentración, mi completa liberación y mi absorción sin forma", "en tantos samadis como granos de arena hay en el río Ganges", "por la fuerza de mi meditación", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber buscado la sabiduría en el pasado", "practicado de manera austera en los bosques", "y enseñado incontables shastras a otros", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber ofrecido, por amor, mi propia carne y sangre", "mi vida entera", "mis brazos y piernas y todas las partes de mi cuerpo", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["Por haber hecho en el pasado, movido por la bondad amorosa", "que seres dañinos maduraran por completo", "y haberlos conducido a los tres vehículos", "¡que brillen las enseñanzas durante mucho tiempo en el futuro!"], ["En el pasado, con medios hábiles y sabiduría", "liberé a los seres de visiones erróneas", "y los orienté hacia la visión correcta. Por estas acciones", "¡que el Dharma florezca y aumente en todos los sentidos!"], ["Con los cuatro medios para atraer discípulos", "liberé a los seres del fuego de las emociones", "eliminando así la negatividad desenfrenada. Por estas acciones", "¡que mis seguidores permanezcan por mucho tiempo en el futuro!"], ["Liberé a tirthikas y a otros", "de los ríos de las diferentes visiones", "conduciéndolos a la visión correcta. Por estas acciones", "¡que mis seguidores tengan siempre devoción", "y que brillen las enseñanzas durante mucho tiempo en el futuro!"]]
+                "content": [    [        "Kwa mabuddha: Vipaśyin, Śikhin, Viśvabhū",        "Krakucchanda, Kanakamuni, na Kāśyapa",        "Na Śākyamuni—Gautama, mungu wa miungu wote",        "Kwa mabuddha saba kama wapiganaji, nawasujudu!"    ],
+                [        "Zamani, kwa manufaa ya viumbe",        "Nilibeba mateso yote aina mbalimbali",        "Na nikajiachia furaha yangu mwenyewe, kupitia hii",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Zamani, kwa ajili ya wagonjwa",        "Nilitoa uhai wangu",        "Hivyo, kulinda wanyonge na maskini,",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kwa kutoa watoto, binti, na wake",        "Utajiri na tembo na magari",        "Kwa ajili ya hazina ya ufahamu",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia kutoa kwangu kwa mabuddha, pratyekabuddhas",        "Śrāvakas, wanaume na wanawake",        "Na kwa mababu wakuu",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia mateso niliyoyavumilia",        "Kwa mamilioni mengi ya zama",        "Nikitafuta mafundisho kwa ajili ya ufahamu",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia tabia yangu ya nidhamu",        "Na asili ya asili ya umonaki wa umri mrefu",        "Na kwa kutoa kwa mabuddha wa mwelekeo wa kumi",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo"    ],
+                [        "Kupitia juhudi zangu zamani",        "Daima thabiti, na kuwashinda wengine wanaoleta vurugu",        "Ili kuwakomboa viumbe vyote",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia mazoezi yangu ya kuvumilia daima",        "Na uvumilivu wa vitendo viovu vya viumbe",        "Vilivyosababishwa na kuzorota kwa hisia hasi",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia umakini wangu, uhuru kamili,",        "Kuingiza fomu bila fomu",        "Na samādhis kama idadi ya punje za mchanga katika mto Ganges",        "Kupitia nguvu ya mawazo yangu",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kupitia kutafuta hekima zamani",        "Kwa kufanya nidhamu katika msitu",        "Na kufundisha mafundisho yasiyohesabika kwa wengine",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Kwa kutoa, kwa upendo, nyama yangu na damu",        "Kutoa uhai wangu kikamilifu",        "Na kutoa mikono na miguu na kila sehemu ya mwili wangu",        "Ninaomba njia ya Dharma ifanikiwe na kupanuka!"    ],
+                [        "Zamani, kwa upendo na wema, nilisababisha",        "Viumbe wenye madhara kukua kabisa,",        "Na kuwaongoza kwenye magari matatu; kupitia hii",        "Ninaomba zawadi ya Dharma ifanikiwe na kukua!"    ],
+                [        "Zamani, kwa njia za werevu na hekima",        "Nilikomboa viumbe kutoka kwa mitazamo mibaya",        "Na kuwaongoza kwenye mtazamo sahihi; kupitia hii",        "Ninaomba Dharma iongezeke kwa kila njia!"    ],
+                [        "Kwa njia nne za kuwavuta wanafunzi",        "Niliwaokoa viumbe kutoka kwa moto wa hisia",        "Na kuangamiza hasira isiyo na kizuizi; kupitia hii",        "Ninaomba wafuasi wangu waendelee, kwa muda mrefu katika siku zijazo!"    ],
+                [        "Niliwaokoa tīrthikas na wengine",        "Kutoka kwa mito ya mitazamo tofauti",        "Na kuwaongoza kwenye mtazamo sahihi; kupitia hii",        "Ninaomba wafuasi wangu wawe na uaminifu daima!",        "Ninaomba mafundisho yateketeze, kwa muda mrefu katika siku zijazo!"    ]
+            ]
+            
             },
             {
                 "title": "Prière pour l’avenir du Dharma [fr]",
-                "language": "fr",
-                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "language": "en",
+                "versionSource": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/prayer-for-future-of-dharma",
                 "content":  [
                     [
                         "Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū",
@@ -239,27 +256,26 @@
     "target": {
         "categories": [
             {
-                "name": "སངས་རྒྱས་ཀྱི་གསུང་རབ", 
-                "heDesc": "hebrew description",
-                "heShortDesc": "he description"
+                "name": "ཆོ་ག", 
+                "heDesc": "ཆོ་ག་དང་འདོན་ཆ།",
+                "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
             },
             {
-                "name": "སངས་རྒྱས་ཀྱི་བཀའ།",
-                "heDesc": "english description",
-                "heShortDesc": "english description"
+                "name": "སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": ""
             },
             {
                 "name": "བསྟན་འབར་མ་བཞུགས་སོ། །",
-                "heDesc": "hebrew description",
-                "heShortDesc": "he description"
+                "heDesc": "བསྟན་འབར་མ་ཞེས་ཡོངས་སུ་གྲགས་པའི་བསྟན་རྒྱས་སྨོན་ལམ་འདི་དགེ་ལུགས་པའི་ཁྲོད་དུ་ལྷག་པར་དུ་དར་ཁྱབ་ཆེ།",
+                "heShortDesc": "བསྟན་འབར་མ་ཞེས་ཡོངས་སུ་གྲགས་པའི་བསྟན་རྒྱས་སྨོན་ལམ་འདི་དགེ་ལུགས་པའི་ལུགས་ལ་ལྷག་པར་དུ་དར་ཁྱབ་ཆེ། ཚིགས་བཅད་དང་པོ་སོ་ཐར་ཐར་པའི་མདོ་ལས་བླངས་པ་ལྟར་སྣང་ཞིང་། ཚིགས་བཅད་གཉིས་པ་ནས་བཟུང་མདོ་ཀུན་ལས་བཏུས་པ་ཆེན་པོའི་ནང་དུ་ཡོད།"
             }
         ],
         "books": [
-
             {
                 "title": "བསྟན་འབར་མ་བཞུགས་སོ། །",
                 "language": "he",
-                "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "versionSource": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/prayer-for-future-of-dharma",
                 "content":  [
                     [
                     "སངས་རྒྱས་རྣམ་གཟིགས་གཙུག་ཏོར་ཐམས་ཅད་སྐྱོབ། །",

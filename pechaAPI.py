@@ -156,7 +156,6 @@ def get_index(indexSTR):
 
 
 def post_index(indexSTR, pathLIST, titleLIST):
-    print("key : ", indexSTR)
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -176,13 +175,12 @@ def post_index(indexSTR, pathLIST, titleLIST):
             "titles" : titleLIST,
             "key" : indexSTR,
             "nodeType" : "JaggedArrayNode",
-            #"lengths" : [4, 50],
+            # "lengths" : [4, 50],
             "depth" : len(pathLIST) - 1 ,
-            "sectionNames" : ["Chapter", "Paragraph"],
+            "sectionNames" : ["Chapter", "Verse"],
             "addressTypes" : ["Integer", "Integer"],
         }
     }    
-    print("hehe: ", pathLIST)
     indexJSON = json.dumps(index)
     values = {
         'json': indexJSON, 
@@ -598,7 +596,6 @@ def add_by_file(fileSTR):
         
     # 先新增每一個路徑
     print("==post_category==")
-    print("data : ", payload["categoryEn"])
     for i in range(len(payload["categoryEn"])):
         response = post_term(payload["categoryEn"][i][-1]["name"], payload["categoryHe"][i][-1]["name"])
         if not response["status"]:
@@ -614,8 +611,6 @@ def add_by_file(fileSTR):
     titleLIST = []
     
     for i in range(len(payload["textEn"])):
-        print("enBookName", payload["textEn"][i]["title"])
-
         if i == 0:
             titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True, })
         else:   # 如果有不只一個版本
