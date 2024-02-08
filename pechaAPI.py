@@ -7,14 +7,12 @@ from time import sleep
 from datetime import datetime
 from bson import json_util
 
-apikey = "DTtpkMoBgRQuXkZ2k9C9tqWHfd7vjA51hA8hbjkfwbs"
+apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
 #baseURL = "https://pecha.org/"
 baseURL = "http://127.0.0.1:8000/"
 
-baseURL = "https://pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
 #region APIs
 def get_term(termSTR):
     """
@@ -65,7 +63,6 @@ def post_term(termEnSTR, termHeSTR):
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
         # term conflict
         if "error" in res and "A Term with the title" in res and "in it already exists" in res:
             return {"status": False, "term_conflict": res}
@@ -99,7 +96,7 @@ def get_category(pathSTR):
         return False
 
 
-def post_category(pathLIST):
+def post_category(enPathList, hePathList):
     """
     Post path for article categorizing.
     You MUST use post_term() before using post_category().
@@ -111,9 +108,13 @@ def post_category(pathLIST):
     """
     url = baseURL + "api/category"
     category = {
-        "sharedTitle": pathLIST[-1],
-        "path": pathLIST
-    }
+         "sharedTitle": list(map(lambda x: x["name"], enPathList))[-1],
+         "path": list(map(lambda x: x["name"], enPathList)),
+         "enDesc" : list(map(lambda x: x["enDesc"], enPathList))[-1],
+         "heDesc" : list(map(lambda x: x["heDesc"], hePathList))[-1],
+         "enShortDesc": list(map(lambda x: x["enShortDesc"], enPathList))[-1],
+         "heShortDesc": list(map(lambda x: x["heShortDesc"], hePathList))[-1]
+     }
     indexJSON = json.dumps(category)
     values = {
         'json': indexJSON, 
@@ -155,7 +156,7 @@ def get_index(indexSTR):
 
 
 def post_index(indexSTR, pathLIST, titleLIST):
-    """
+    """"
     Post index value for article settings.
         `indexSTR`: str, article title,
         `catLIST`: list of str, category list (see post_category() for example),
@@ -169,15 +170,15 @@ def post_index(indexSTR, pathLIST, titleLIST):
     url =  baseURL + "api/v2/raw/index/" + urllib.parse.quote(indexSTR.replace(" ", "_"))
     index = {
         "title" : indexSTR,
-        "categories": pathLIST,
+        "categories": list(map(lambda x: x["name"], pathLIST)),
         "schema" : {
             "titles" : titleLIST,
             "key" : indexSTR,
             "nodeType" : "JaggedArrayNode",
-            #"lengths" : [4, 50],
-            "depth" : 2,
-            "sectionNames" : ["Chapter", "Paragraph"],
-            "addressTypes" : ["Integer", "Integer"]
+            # "lengths" : [4, 50],
+            "depth" : len(pathLIST) - 1 ,
+            "sectionNames" : ["Chapter", "Verse"],
+            "addressTypes" : ["Integer", "Integer"],
         }
     }    
     indexJSON = json.dumps(index)
@@ -216,6 +217,7 @@ def get_text(indexSTR):
 
 
 def post_text(indexSTR, textDICT):
+    
     """
     Post text to article `indexSTR`.
         `indexSTR`: str, article name,
@@ -573,102 +575,77 @@ def add_by_file(fileSTR):
         "categoryHe": [],
         "textEn": [],
         "textHe": [],
+        "bookDepth": 0
     }
+
     for lang in data:
-        if lang == "source":
-            for lv1 in data[lang]:
-                payload["categoryEn"].append([lv1])
-                for lv2 in data[lang][lv1]:
-                    payload["categoryEn"].append([lv1, lv2])
-                    for lv3 in data[lang][lv1][lv2]:
-                        payload["categoryEn"].append([lv1, lv2, lv3])
-                        for book in data[lang][lv1][lv2][lv3]:
-                            thisType = type(data[lang][lv1][lv2][lv3][book])
-                            if thisType == dict:    # 要再往下追一層
-                                payload["categoryEn"].append([lv1, lv2, lv3, book])
-                                for version in data[lang][lv1][lv2][lv3][book]:
-                                    if type(data[lang][lv1][lv2][lv3][book][version]) != list:
-                                        print("[Error] version is not list")
-                                        return
-                                    else:
-                                        payload["bookKey"] = book
-                                        payload["textEn"].append(data[lang][lv1][lv2][lv3][book])
-                            elif thisType == list:  # 已經是內文了
-                                payload["bookKey"] = lv3
-                                payload["textEn"].append(data[lang][lv1][lv2][lv3])
-        elif lang == "target":  # 藏文
-            for lv1 in data[lang]:
-                payload["categoryHe"].append([lv1])
-                for lv2 in data[lang][lv1]:
-                    payload["categoryHe"].append([lv1, lv2])
-                    for lv3 in data[lang][lv1][lv2]:
-                        payload["categoryHe"].append([lv1, lv2, lv3])
-                        for book in data[lang][lv1][lv2][lv3]:
-                            thisType = type(data[lang][lv1][lv2][lv3][book])
-                            if thisType == dict:    # 要再往下追一層
-                                payload["categoryHe"].append([lv1, lv2, lv3, book])
-                                for version in data[lang][lv1][lv2][lv3][book]:
-                                    if type(data[lang][lv1][lv2][lv3][book][version]) != list:
-                                        print("[Error] version is not list")
-                                        return
-                                    else:
-                                        payload["textHe"].append(data[lang][lv1][lv2][lv3][book])
-                            elif thisType == list:  # 已經是內文了
-                                payload["textHe"].append(data[lang][lv1][lv2][lv3])
+        if lang == "source":   
+            for i in range(len(data[lang]["categories"])):
+                payload["categoryEn"].append(data[lang]["categories"][:i+1])
+            for book in data[lang]["books"]:
+                payload["bookKey"] = payload["categoryEn"][-1][-1]["name"]
+                payload["textEn"].append(book)
+        elif lang == "target":   
+            for i in range(len(data[lang]["categories"])):
+                payload["categoryHe"].append(data[lang]["categories"][:i+1])
+            for book in data[lang]["books"]:
+                payload["textHe"].append(book)   
         else:
             print("[Error] Unknown language")
-            return
-
+            return 
+        
     # 先新增每一個路徑
     print("==post_category==")
     for i in range(len(payload["categoryEn"])):
-        response = post_term(payload["categoryEn"][i][-1], payload["categoryHe"][i][-1])
+        response = post_term(payload["categoryEn"][i][-1]["name"], payload["categoryHe"][i][-1]["name"])
         if not response["status"]:
             if "term_conflict" in response:
                 with open("{}/data/texts/conflict.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
                     f.write(fileSTR+": "+response["term_conflict"]+"\n")
             success = False
-        if not post_category(payload["categoryEn"][i]):
+        if not post_category(payload["categoryEn"][i], payload["categoryHe"][i]):
             success = False
 
-    # 新增書的資料
+    # # 新增書的資料
     print("==post_index==")
     titleLIST = []
-
+    
     for i in range(len(payload["textEn"])):
         if i == 0:
-            titleLIST.append({"lang": "en", "text": list(payload["textEn"][0].keys())[i], "primary": True, })
+            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True, })
         else:   # 如果有不只一個版本
-            titleLIST.append({"lang": "en", "text": list(payload["textEn"][0].keys())[i], })
+            titleLIST.append({"lang": "en", "text": payload["textEn"][i]["title"], })
     for i in range(len(payload["textHe"])):
         if i == 0:
-            titleLIST.append({"lang": "he", "text": list(payload["textHe"][0].keys())[i], "primary": True,})
+            titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
         else:   # 如果有不只一個版本
-            titleLIST.append({"lang": "he", "text": list(payload["textHe"][0].keys())[i], })
+            titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
     if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST):
-        success = False
+       success = False
 
     # 新增內文
     print("==post_text==")
     for i in range(len(payload["textEn"])):
-        enKey = list(payload["textEn"][0].keys())[i]
+        enKey = payload["textEn"][i]["title"]
         enText = {
             "versionTitle": enKey,
-            "versionSource": "http://www.example.com/{}".format(enKey.replace(" ", "_")),
+            "versionSource": payload["textEn"][i]["versionSource"],
             "language": "en",
-            "text": payload["textEn"][0][enKey]
+            "actualLanguage": payload["textEn"][i]["language"],
+            "text": payload["textEn"][i]["content"]
         }
         if i == 0:
             enText["isBaseText"] = True
         if not post_text(payload["bookKey"], enText):
             success = False
     for i in range(len(payload["textHe"])):
-        heKey = list(payload["textHe"][0].keys())[i]
+        heKey = payload["textHe"][i]["title"]
         heText = {
             "versionTitle": heKey,
-            "versionSource": "http://www.example.com/{}".format(heKey.replace(" ", "_")),
+            "versionSource": payload["textHe"][i]["versionSource"],
             "language": "he",
-            "text": payload["textHe"][0][heKey]
+            "actualLanguage": payload["textEn"][i]["language"],
+            "text":payload["textHe"][i]["content"]
         }
         if i == 0:
             heText["isBaseText"] = True
