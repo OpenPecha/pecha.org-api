@@ -3,8 +3,20 @@
 
 Using pechaAPI.py upload data to Pecha.org.
 
+
+## Useful links
+- [Text classifications]()
+
+
 ---------------------------
 ## To Do
+- [ ] Check if we can use UUIDs for texts
+- [ ] Share tjh
+
+
+
+
+
 
 Put data files with JSON format into `/data` and execute pechaAPI.py
 
