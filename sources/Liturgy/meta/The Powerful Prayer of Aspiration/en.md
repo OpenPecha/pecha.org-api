@@ -1,4 +1,6 @@
-#test
+Source: https://www.lotsawahouse.org/tibetan-masters/rigdzin-godem/prayer-of-kuntuzangpo
+
+# Prayer of Kuntuzangpo 
 
 Ho! All that appears and exists, saṃsāra and nirvāṇa,
 Has one ground, two paths and two forms of fruition,
