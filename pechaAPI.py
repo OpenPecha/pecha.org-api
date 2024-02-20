@@ -554,7 +554,7 @@ def test_webpage():
 
 #region Add file
 """
-Data-adding directory default in `Pecha.org/tools/data`
+Data-adding directory default in `Pecha.org/tools/jsondata`
 """
 def add_by_file(fileSTR):
     """
@@ -563,7 +563,7 @@ def add_by_file(fileSTR):
     success = True
     print("==========={}===========".format(fileSTR))
     try:
-        with open("{}/data/texts/{}".format(BASEPATH, fileSTR), mode='r', encoding='utf-8') as f:
+        with open("{}/jsondata/texts/{}".format(BASEPATH, fileSTR), mode='r', encoding='utf-8') as f:
             data = json.load(f)
     except Exception as e:
         print('[Error] opening file: ', e)
@@ -600,7 +600,7 @@ def add_by_file(fileSTR):
         response = post_term(payload["categoryEn"][i][-1]["name"], payload["categoryHe"][i][-1]["name"])
         if not response["status"]:
             if "term_conflict" in response:
-                with open("{}/data/texts/conflict.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
+                with open("{}/jsondata/texts/conflict.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
                     f.write(fileSTR+": "+response["term_conflict"]+"\n")
             success = False
         if not post_category(payload["categoryEn"][i], payload["categoryHe"][i]):
@@ -632,7 +632,8 @@ def add_by_file(fileSTR):
             "versionSource": payload["textEn"][i]["versionSource"],
             "language": "en",
             "actualLanguage": payload["textEn"][i]["language"],
-            "text": payload["textEn"][i]["content"]
+            "text": payload["textEn"][i]["content"], 
+            "direction": payload["textEn"][i]["direction"]
         }
         if i == 0:
             enText["isBaseText"] = True
@@ -645,7 +646,8 @@ def add_by_file(fileSTR):
             "versionSource": payload["textHe"][i]["versionSource"],
             "language": "he",
             "actualLanguage": payload["textEn"][i]["language"],
-            "text":payload["textHe"][i]["content"]
+            "text":payload["textHe"][i]["content"],
+            "direction": payload["textHe"][i]["direction"]
         }
         if i == 0:
             heText["isBaseText"] = True
@@ -653,7 +655,7 @@ def add_by_file(fileSTR):
             success = False
 
     if success:
-        with open("{}/data/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
+        with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(fileSTR+"\n")
         return True
     else:
@@ -662,11 +664,11 @@ def add_by_file(fileSTR):
 
 def add_texts():
     """
-    Add all text files in `/data/texts`.
+    Add all text files in `/jsondata/texts`.
     """
-    dataLIST = os.listdir("{}/data/texts".format(BASEPATH))
+    dataLIST = os.listdir("{}/jsondata/texts".format(BASEPATH))
     try:    # Added text save to `success.txt`
-        with open("{}/data/texts/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
+        with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
     except:
         successLIST = []
@@ -689,12 +691,12 @@ def add_texts():
 
 def add_sheets():
     """
-    Add all sheet files in `/data/sheets`.
+    Add all sheet files in `/jsondata/sheets`.
     """
     print("============ add_sheets ============")
-    fileLIST = os.listdir("{}/data/sheets".format(BASEPATH))
+    fileLIST = os.listdir("{}/jsondata/sheets".format(BASEPATH))
     try:    # Added sheets save to `success.txt`
-        with open("{}/data/sheets/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
+        with open("{}/jsondata/sheets/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
     except:
         successLIST = []
@@ -705,7 +707,7 @@ def add_sheets():
         elif file == "success.txt":
             continue
         
-        with open("{}/data/sheets/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
+        with open("{}/jsondata/sheets/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             sheet= json.load(f)
         post_sheet(sheet["title"], sheet["sheet"])
         sleep(3)
@@ -713,12 +715,12 @@ def add_sheets():
 
 def add_refs():
     """
-    Add all ref files in `/data/refs`.
+    Add all ref files in `/jsondata/refs`.
     """
     print("============ add_refs ============")
-    fileLIST = os.listdir("{}/data/refs".format(BASEPATH))
+    fileLIST = os.listdir("{}/jsondata/refs".format(BASEPATH))
     try:    # Added refs save to `success.txt`
-        with open("{}/data/refs/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
+        with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
     except:
         successLIST = []
@@ -732,7 +734,7 @@ def add_refs():
         elif file == "failed.txt":
             continue
         
-        with open("{}/data/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
+        with open("{}/jsondata/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             refLIST = json.load(f)
         for ref in refLIST:
             # Separate refs since the API only support adding 2 refs at the same time.
@@ -742,20 +744,20 @@ def add_refs():
                     # Failed
                     if not successBOOL:
                         failedLIST.append({[ref["refs"][i], ref["refs"][j]], ref["type"]})
-        with open("{}/data/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
+        with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
         sleep(3)
-    with open("{}/data/refs/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
+    with open("{}/jsondata/refs/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
 def add_webpages():
     """
-    Add all webpage files in `/data/webpages`.
+    Add all webpage files in `/jsondata/webpages`.
     """
     print("============ add_webpages ============")
-    fileLIST = os.listdir("{}/data/webpages".format(BASEPATH))
+    fileLIST = os.listdir("{}/jsondata/webpages".format(BASEPATH))
     try:
-        with open("{}/data/webpages/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
+        with open("{}/jsondata/webpages/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
     except:
         successLIST = []
@@ -770,7 +772,7 @@ def add_webpages():
         elif file == "success.txt":
             continue
         
-        with open("{}/data/webpages/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
+        with open("{}/jsondata/webpages/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             webpageLIST = json.load(f)
         for webpage in webpageLIST:
             webpage["lastUpdated"] = datetime.now()
@@ -778,11 +780,11 @@ def add_webpages():
             # 失敗
             if not successBOOL:
                 failedLIST.append(webpage)
-        with open("{}/data/webpages/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
+        with open("{}/jsondata/webpages/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
         sleep(5)
-    with open("{}/data/webpages/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
+    with open("{}/jsondata/webpages/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
 
 
@@ -795,52 +797,52 @@ def categorizeData():
     """
     Separate files by file name.
     """
-    if not os.path.exists("{}/data".format(BASEPATH)):
-        print("'/data' not exist！")
+    if not os.path.exists("{}/jsondata".format(BASEPATH)):
+        print("'/jsondata' not exist！")
         return
     
-    if not os.path.exists("{}/data/toBeAdd".format(BASEPATH)):
+    if not os.path.exists("{}/jsondata/toBeAdd".format(BASEPATH)):
         print("There's no data to be add！")
         return
     
-    categoryLIST = os.listdir("{}/data/toBeAdd".format(BASEPATH))
+    categoryLIST = os.listdir("{}/jsondata/toBeAdd".format(BASEPATH))
     for category in categoryLIST:
-        fileLIST = os.listdir("{}/data/toBeAdd/{}".format(BASEPATH, category))
+        fileLIST = os.listdir("{}/jsondata/toBeAdd/{}".format(BASEPATH, category))
         for file in fileLIST:
             # webpages
             if "_webpg.json" in file:
-                os.replace("{}/data/toBeAdd/{}/{}".format(BASEPATH, category, file), "{}/data/webpages/{}".format(BASEPATH, file))
+                os.replace("{}/jsondata/toBeAdd/{}/{}".format(BASEPATH, category, file), "{}/jsondata/webpages/{}".format(BASEPATH, file))
             # refs
                 # not using yet
             # sheets 
                 # not using yet
             # texts
             else:
-                os.replace("{}/data/toBeAdd/{}/{}".format(BASEPATH, category, file), "{}/data/webpages/{}".format(BASEPATH, file))
+                os.replace("{}/jsondata/toBeAdd/{}/{}".format(BASEPATH, category, file), "{}/jsondata/webpages/{}".format(BASEPATH, file))
 
 
 def main():
     """
-    Add all files in `/data`
+    Add all files in `/jsondata`
     """
     print("========= texts =========")
-    if not os.path.exists("{}/data/texts".format(BASEPATH)):
-        os.mkdir("{}/data/texts".format(BASEPATH))
+    if not os.path.exists("{}/jsondata/texts".format(BASEPATH)):
+        os.mkdir("{}/jsondata/texts".format(BASEPATH))
     add_texts()
     
     print("========= sheets =========")
-    if not os.path.exists("{}/data/sheets".format(BASEPATH)):
-        os.mkdir("{}/data/sheets".format(BASEPATH))
+    if not os.path.exists("{}/jsondata/sheets".format(BASEPATH)):
+        os.mkdir("{}/jsondata/sheets".format(BASEPATH))
     add_sheets()
     
     print("========= refs =========")
-    if not os.path.exists("{}/data/refs".format(BASEPATH)):
-        os.mkdir("{}/data/refs".format(BASEPATH))
+    if not os.path.exists("{}/jsondata/refs".format(BASEPATH)):
+        os.mkdir("{}/jsondata/refs".format(BASEPATH))
     add_refs()
     
     print("========= webpages =========")
-    if not os.path.exists("{}/data/webpages".format(BASEPATH)):
-        os.mkdir("{}/data/webpages".format(BASEPATH))
+    if not os.path.exists("{}/jsondata/webpages".format(BASEPATH)):
+        os.mkdir("{}/jsondata/webpages".format(BASEPATH))
     add_webpages()
 
 

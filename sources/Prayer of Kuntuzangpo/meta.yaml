@@ -1,0 +1,24 @@
+# every text should have a category, and the last category should be the name of the book
+#every category have a name in English, a name in Tibetan, a description in English, a short description in English, a description in Tibetan, and a short description in Tibetan
+
+categories:
+  - enName: "Liturgy" # first category
+    boName: "ཆོ་ག" # name in Tibetan
+    enDesc: "Prayers and rituals"
+    enShortDesc: "Prayers and rituals"
+    boDesc: "ཆོ་ག་དང་འདོན་ཆ།"
+    boShortDesc: "ཆོ་ག་དང་འདོན་ཆ།"
+
+  - enName: "Prayers" # second category
+    boName: "སྨོན་ལམ།" # name in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "Prayer of Kuntuzangpo" # last category should be the name of the book
+    boName: "ཀུན་ཏུ་བཟང་པོ།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""

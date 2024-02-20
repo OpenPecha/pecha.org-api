@@ -1,4 +1,6 @@
+source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma
 
+direction: rtl
 
 # Prière pour l’avenir du Dharma
 

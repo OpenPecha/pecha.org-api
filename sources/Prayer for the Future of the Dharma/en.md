@@ -1,4 +1,6 @@
+source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma
 
+direction: ltr
 
 # Prayer for the Future of the Dharma
 
@@ -6,12 +8,12 @@ To the buddhas: Vipaśyin, Śikhin, Viśvabhū,
 Krakucchanda, Kanakamuni, and Kāśyapa,
 And Śākyamuni—Gautama, deity of all deities,
 To the seven warrior-like buddhas, I pay homage!
-                              
+
 In the past, to benefit being,
 I bore all kinds of hardship,
 And gave up my own happiness, through this,
 May the teachings blaze, long into the future!
-        
+
 In the past, for the sake of the sick,
 I gave my life away,
 So, to protect the needy and the poor

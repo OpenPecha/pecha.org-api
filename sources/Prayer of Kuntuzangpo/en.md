@@ -1,5 +1,7 @@
 Source: https://www.lotsawahouse.org/tibetan-masters/rigdzin-godem/prayer-of-kuntuzangpo
 
+direction: rtl
+
 # Prayer of Kuntuzangpo 
 
 Ho! All that appears and exists, saṃsāra and nirvāṇa,
@@ -173,7 +175,6 @@ May all sentient beings without exception
 Awaken within the dharmadhātu, the absolute sphere.
 
 Aho!
-
 Henceforth, whenever a powerful yogi,
 With naturally clear, undeluded awareness,
 Recites this powerful aspiration,

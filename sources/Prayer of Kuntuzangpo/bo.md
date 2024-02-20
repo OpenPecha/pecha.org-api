@@ -1,4 +1,6 @@
-Source: https://www.lotsawahouse.org/bo/tibetan-masters/rigdzin-godem/prayer-of-kuntuzangpo
+source: https://www.lotsawahouse.org/bo/tibetan-masters/rigdzin-godem/prayer-of-kuntuzangpo
+
+direction: ltr
 
 # ཀུན་བཟང་སྨོན་ལམ།
 

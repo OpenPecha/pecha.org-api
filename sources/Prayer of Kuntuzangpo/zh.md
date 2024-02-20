@@ -1,5 +1,7 @@
 Source: http://www.suttaworld.org/master/20110706.htm
 
+direction: ltr
+
 # 普賢王如來祈禱能顯自然智根本願文
 
 法界輪涅諸幻相，
@@ -171,7 +173,6 @@ Source: http://www.suttaworld.org/master/20110706.htm
 我普賢王廣大願，
 令諸眾生一無餘，
 無盡法界成正覺，
-
 
 具慈瑜珈大力者，
 了知自明離惑幻，

@@ -1,4 +1,6 @@
+source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma
 
+direction: ltr
 
 # Una oración para el futuro del Dharma
 
@@ -82,5 +84,3 @@ de los ríos de las diferentes visiones
 conduciéndolos a la visión correcta. Por estas acciones
 ¡que mis seguidores tengan siempre devoción
 y que brillen las enseñanzas durante mucho tiempo en el futuro!
-
-
