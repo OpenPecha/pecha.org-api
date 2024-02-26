@@ -21,7 +21,7 @@ def parseBook(url, file):
         'content': []
     }
     content = []
-    try: 
+    try:
         with open(f'{url}/{file}', mode='r', encoding='utf-8') as f:
             text = f.read()
             # Split the text into paragraphs
