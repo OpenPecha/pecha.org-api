@@ -1,0 +1,25 @@
+# every text should have a category, and the last category should be the name of the book
+#every category have a name in English, a name in Tibetan, a description in English, a short description in English, a description in Tibetan, and a short description in Tibetan
+
+categories:
+  - enName: "Encyclopedic Works"
+    boName: "ཤེས་བྱ་ཀུན་བཏུས་ཀྱི་གཞུང་།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "Treasury of Knowledge"
+    boName: "ཤེས་བྱ་མཛོད།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+
+  - enName: "The characteristics of the master and disciple" # last category should be the name of the book
+    boName: "སློབ་དཔོན་དང་སློབ་མའི་མཚན་ཉིད་བསྟེན་ཚུལ་འཆད་ཉན་བཅས་བཤད་པ།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""

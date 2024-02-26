@@ -154,7 +154,7 @@ def get_index(indexSTR):
         print(e.read().decode('utf-8'))
 
 
-def post_index(indexSTR, pathLIST, titleLIST):
+def post_index(indexSTR, pathLIST, titleLIST, nodes):
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -177,68 +177,39 @@ def post_index(indexSTR, pathLIST, titleLIST):
             # "depth" : 2,
             # "sectionNames" : ["Chapter", "Verse"],
                         # "addressTypes" : ["Integer", "Integer"],
-    index = {
-        "title" : indexSTR,
-        "categories": list(map(lambda x: x["name"], pathLIST)),
-        "schema" : {
-            "key": indexSTR,
-            "titles": titleLIST,
-            "nodes": [
-                {
-                    "key": "How to seek a spiritual teacher",
-                    "titles": [
-                        {
-                            "lang": "en",
-                            "text": "How to seek a spiritual teacher",
-                            "primary": True
-                        },
-                        {
-                            "lang": "he",
-                            "text": "དགེ་བའི་བཤེས་གཉེན་ཇི་ལྟར་འཚོལ་བ།",
-                            "primary": True
-                        }
-                    ],
-                    "nodeType": "JaggedArrayNode",
-                    "depth": 1,
-                    "sectionNames": [
-                        "Paragraph"
-                    ],
-                    "addressTypes": [
-                        "Integer"
-                    ]
-                },
-                {
-                    "key": "The reasons for following a spiritual teacher",
-                    "titles": [
-                        {
-                            "lang": "en",
-                            "text": "The reasons for following a spiritual teacher",
-                            "primary": True
-                        },
-                        {
-                            "lang": "he",
-                            "text": "བཤེས་གཉེན་བསྟེན་པའི་འཐད་པ།",
-                            "primary": True
-                        }
-                    ],
-                    "nodeType": "JaggedArrayNode",
-                    "depth": 1,
-                    "sectionNames": [
-                        "Paragraph"
-                    ],
-                    "addressTypes": [
-                        "Integer"
-                    ]
-                }
-            ]
+    index = {}
+    if len(nodes) == 0:
+        index = {
+            "title" : indexSTR,
+            "categories": list(map(lambda x: x["name"], pathLIST)),
+            "schema" : {
+                "key": indexSTR,
+                "titles": titleLIST,
+                "nodeType": 'JaggedArrayNode',
+                "depth": 2,
+                "sectionNames": [
+                    "Chapter",
+                    "Paragraph"
+                ],
+                "addressTypes": [
+                    "Integer",
+                    "Integer"
+                ]        
+            }
         }
-    }
+    else: 
+        
+        index = {
+            "title" : indexSTR,
+            "categories": list(map(lambda x: x["name"], pathLIST)),
+            "schema" : {
+                "key": indexSTR,
+                "titles": titleLIST,
+                "nodes": nodes,
+            }
+        }
     
-  
-
-
-
-    indexJSON = json.dumps(index)
+    indexJSON = json.dumps(index, indent=4, ensure_ascii=False)
     values = {
         'json': indexJSON, 
         'apikey': apikey,
@@ -300,7 +271,8 @@ def post_text(indexSTR, textDICT):
     """
     textJSON = json.dumps(textDICT)
     indexSTR = indexSTR.replace(" ", "_")
-    url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(f'{indexSTR}, The reasons for following a spiritual teacher'))
+    
+    url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(indexSTR))
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
@@ -634,9 +606,11 @@ def add_by_file(fileSTR):
         "textHe": [],
         "bookDepth": 0
     }
+    schemaNodes = []
 
     for lang in data:
-        if lang == "source":   
+        
+        if lang == "source":  
             for i in range(len(data[lang]["categories"])):
                 payload["categoryEn"].append(data[lang]["categories"][:i+1])
             for book in data[lang]["books"]:
@@ -650,7 +624,6 @@ def add_by_file(fileSTR):
         else:
             print("[Error] Unknown language")
             return 
-        
     # 先新增每一個路徑
     print("==post_category==")
     for i in range(len(payload["categoryEn"])):
@@ -663,53 +636,112 @@ def add_by_file(fileSTR):
         if not post_category(payload["categoryEn"][i], payload["categoryHe"][i]):
             success = False
 
-    # # 新增書的資料
     print("==post_index==")
     titleLIST = []
+    subTitles = []
     
     for i in range(len(payload["textEn"])):
         if i == 0:
-            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True, })
+            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True })
         else:   # 如果有不只一個版本
             titleLIST.append({"lang": "en", "text": payload["textEn"][i]["title"], })
+        if isinstance(payload['textEn'][i]['content'], dict):
+            for key in payload['textEn'][i]['content']:
+                subTitles.append({"lang": "en", "text": key, "primary": True})
+                schemaNodes.append({
+                    "key": key,
+                    "titles": subTitles,
+                    "nodeType": "JaggedArrayNode",
+                    "depth": 1,
+                    "sectionNames": ["Paragraph"],
+                    "addressTypes": ["Integer"]
+                })
+                subTitles = []
     for i in range(len(payload["textHe"])):
         if i == 0:
             titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
         else:   # 如果有不只一個版本
             titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
-    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST):
+        if isinstance(payload['textHe'][i]['content'], dict):
+            keys = list(payload['textHe'][i]['content'].keys())
+            for j in range(len(keys)):
+                subTitles = {"lang": "he", "text": keys[j], "primary": True}
+                schemaNodes[j]['titles'].append(subTitles)
+                subTitles = []
+    
+    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST, schemaNodes):
        success = False
 
-    # 新增內文
+    # # 新增內文
     print("==post_text==")
+    
     for i in range(len(payload["textEn"])):
         enKey = payload["textEn"][i]["title"]
-        enText = {
-            "versionTitle": enKey,
-            "versionSource": payload["textEn"][i]["versionSource"],
-            "language": "en",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text": payload["textEn"][i]["content"], 
-            "direction": payload["textEn"][i]["direction"]
-        }
-        if i == 0:
-            enText["isBaseText"] = True
-        if not post_text(payload["bookKey"], enText):
-            success = False
+        if isinstance(payload['textEn'][i]['content'], dict):
+            
+            enText = {
+                "versionTitle": enKey,
+                "versionSource": payload["textEn"][i]["versionSource"],
+                "language": "en",
+                "actualLanguage": payload["textEn"][i]["language"],
+                "text": []
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+
+            keys = list(payload['textEn'][i]['content'].keys())
+
+            for key in keys:
+                enText['text'] = payload['textEn'][i]['content'][key]
+                if not post_text(f'{payload["bookKey"]}, {key}', enText):
+                    success = False
+
+        else:
+            enText = {
+                "versionTitle": enKey,
+                "versionSource": payload["textEn"][i]["versionSource"],
+                "language": "en",
+                "actualLanguage": payload["textEn"][i]["language"],
+                "text": payload["textEn"][i]["content"]
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+            if not post_text(payload["bookKey"], enText):
+                success = False
     for i in range(len(payload["textHe"])):
         heKey = payload["textHe"][i]["title"]
-        heText = {
-            "versionTitle": heKey,
-            "versionSource": payload["textHe"][i]["versionSource"],
-            "language": "he",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text":payload["textHe"][i]["content"],
-            "direction": payload["textHe"][i]["direction"]
-        }
-        if i == 0:
-            heText["isBaseText"] = True
-        if not post_text(payload["bookKey"], heText):
-            success = False
+        if isinstance(payload['textHe'][i]['content'], dict):
+            heText = {
+                "versionTitle": heKey,
+                "versionSource": payload["textHe"][i]["versionSource"],
+                "language": "he",
+                "actualLanguage": payload["textHe"][i]["language"],
+                "text": []
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+
+            keys = list(payload['textHe'][i]['content'].keys())
+            enKeys = list(payload['textEn'][i]['content'].keys())
+            for j in range(len(keys)):
+                heText['text'] = payload['textHe'][i]['content'][keys[j]]
+                if not post_text(f'{payload["bookKey"]}, {enKeys[j]}', heText):
+                    success = False
+
+        else:
+            heKey = payload["textHe"][i]["title"]
+            heText = {
+                "versionTitle": heKey,
+                "versionSource": payload["textHe"][i]["versionSource"],
+                "language": "he",
+                "actualLanguage": payload["textHe"][i]["language"],
+                "text": payload["textHe"][i]["content"], 
+                "direction": payload["textHe"][i]["direction"]
+            }
+            if i == 0:
+                heText["isBaseText"] = True
+            if not post_text(payload["bookKey"], heText):
+                success = False
 
     if success:
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
