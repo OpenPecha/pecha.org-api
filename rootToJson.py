@@ -27,13 +27,16 @@ def parseBook(url, file):
             # Split the text into paragraphs
             paragraphs = text.split('\n\n')
 
-            book['versionSource'] = paragraphs[0].replace('source: ', '')
+            book['versionSource'] = paragraphs[0].replace('source:', '')
             book['direction'] = paragraphs[1].replace('direction: ', '')
             book['title'] = paragraphs[2].replace('# ', '') if file.startswith('bo') or file.startswith('en') else paragraphs[2].replace('# ', '')+f'[{file.replace(".md", "")}]'
             book['language'] = file.replace('.md', '')
 
             for paragraph in paragraphs[3:]:
+                print(paragraph)
                 # Split the stanza into lines, remove spaces and tabs from each line, then join back with a space
+                if "|" in paragraph:
+                    paragraph = paragraph.replace('|', ' <br> ')
                 processed_lines = [line.strip().replace('\t', '') + ' <br>' for line in paragraph.replace('\t', '').split('\n') if line.strip()]
                 processed_stanza = ' '.join(processed_lines)
                 content.append(processed_stanza)

@@ -33,29 +33,15 @@ def parseBook(url, file):
             book['language'] = file.replace('.md', '')
 
             for paragraph in paragraphs[3:]:
-                # Split the stanza into lines, remove spaces and tabs from each line, then join back with a space
-                if "|" in paragraph:
-                    l = [item.strip() for item in paragraph.split("|")]
-                    print
-                # if paragraph.startswith('##'):
-                #     paragraph_line = ['<u>'+line.replace('## ', '')+'</u>' + ' <br>' for line in paragraph.split('\n') if line.strip()]
-                #     processed_stanza = ' '.join(paragraph_line)
-                #     content.append(processed_stanza)
-                # elif paragraph.startswith('>> '):
-                #     paragraph_line = ['<b>'+line.replace('>> ', '')+'</b>' + ' <br>' for line in paragraph.split('\n') if line.strip()]
-                #     processed_stanza = ' '.join(paragraph_line)
-                #     content.append(processed_stanza)
-                # elif paragraph.startswith('> '):
-                #     paragraph_line = ['<i>'+line.replace('> ', '')+'</i>' + ' <br>' for line in paragraph.split('\n') if line.strip()]
-                #     processed_stanza = ' '.join(paragraph_line)
-                #     content.append(processed_stanza)
-                # else:
-                #     paragraph_line = [line+ ' <br>' for line in paragraph.split('\n') if line.strip()]
-                #     processed_stanza = ' '.join(paragraph_line)
-                #     content.append(processed_stanza)
-                # book['content'] = [content]
-        
-                
+                if "/" in paragraph:
+                    split_text = paragraph.replace('/', ' <br><br style=“width: 50%” /> ')
+                    # Remove any empty strings resulting from consecutive slashes
+                    #split_text = [substring.strip() for substring in split_text if substring.strip()]
+                    content.append([split_text])
+                else:
+                    content.append([paragraph])
+
+            book['content'] = [content]    
             return book
     except FileNotFoundError:
         print("File not found")

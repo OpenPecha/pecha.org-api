@@ -9,8 +9,8 @@ from datetime import datetime
 apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-#baseURL = "https://pecha.org/"
-baseURL = "http://127.0.0.1:8000/"
+baseURL = "https://pecha.org/"
+#baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -154,7 +154,7 @@ def get_index(indexSTR):
         print(e.read().decode('utf-8'))
 
 
-def post_index(indexSTR, pathLIST, titleLIST, nodes):
+def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -177,24 +177,25 @@ def post_index(indexSTR, pathLIST, titleLIST, nodes):
             # "depth" : 2,
             # "sectionNames" : ["Chapter", "Verse"],
                         # "addressTypes" : ["Integer", "Integer"],
+    
+    sectionNames = ['Chapters', 'Verses', 'Paragrahs', 'Lines']
+    print("path : ", pathLIST)
     index = {}
     if len(nodes) == 0:
         index = {
             "title" : indexSTR,
+            "base_text_titles": pathLIST[-1]['base_text_titles'],
+            "base_text_mapping": pathLIST[-1]['base_text_mapping'],
+            "collective_title": indexSTR,
+            "dependence": pathLIST[-1]['link'],
             "categories": list(map(lambda x: x["name"], pathLIST)),
             "schema" : {
                 "key": indexSTR,
                 "titles": titleLIST,
                 "nodeType": 'JaggedArrayNode',
-                "depth": 2,
-                "sectionNames": [
-                    "Chapter",
-                    "Paragraph"
-                ],
-                "addressTypes": [
-                    "Integer",
-                    "Integer"
-                ]        
+                "depth": text_depth,
+                "sectionNames": sectionNames[:text_depth],
+                "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth]))        
             }
         }
     else: 
@@ -660,7 +661,7 @@ def add_by_file(fileSTR):
     for i in range(len(payload["textHe"])):
         if i == 0:
             titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
-        else:   # 如果有不只一個版本
+        else: 
             titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
         if isinstance(payload['textHe'][i]['content'], dict):
             keys = list(payload['textHe'][i]['content'].keys())
@@ -668,8 +669,9 @@ def add_by_file(fileSTR):
                 subTitles = {"lang": "he", "text": keys[j], "primary": True}
                 schemaNodes[j]['titles'].append(subTitles)
                 subTitles = []
+        text_depth = get_list_depth(payload['textHe'][i]['content'])
     
-    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST, schemaNodes):
+    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST, schemaNodes, text_depth):
        success = False
 
     # # 新增內文
@@ -749,6 +751,20 @@ def add_by_file(fileSTR):
         return True
     else:
         return False
+    
+def get_list_depth(lst):
+    """
+    Function to calculate the depth of a nested list.
+    """
+    if not isinstance(lst, list):  # Base case: not a list, no depth
+        return 0
+    else:
+        max_depth = 0
+        for item in lst:
+            max_depth = max(max_depth, get_list_depth(item))  # Recurse and update max depth
+        return max_depth + 1  # Add one to include the current depth level
+
+
 
 
 def add_texts():
