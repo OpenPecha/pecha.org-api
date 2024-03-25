@@ -127,15 +127,14 @@ def post_category(enPathList, hePathList):
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
+        print("categories response: ", res)
         if "error" not in res:
             return True
         elif "already exists" in res:
             return True
         return False
     except HTTPError as e:
-        print('Error code: ', e.code)
-        print(e.read())
+        print('Error code: ', e)
         return False
 
 
@@ -856,7 +855,7 @@ def add_refs():
                     successBOOL = post_link([ref["refs"][i], ref["refs"][j]], ref["type"])
                     # Failed
                     if not successBOOL:
-                        failedLIST.append({[ref["refs"][i], ref["refs"][j]], ref["type"]})
+                        failedLIST.append({(ref["refs"][i], ref["refs"][j]), ref["type"]})
         with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))

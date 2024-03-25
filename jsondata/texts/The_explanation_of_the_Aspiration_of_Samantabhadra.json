@@ -22,7 +22,15 @@
                 "link": "Commentary"
             }
         ],
-        "books": []
+        "books": [
+            {
+                "title": "The explanation of the Aspiration of Samantabhadra",
+                "language": "en",
+                "versionSource": "source:",
+                "content": [],
+                "direction":"ltr"
+            }
+        ]
     },
     "target": {
         "categories": [

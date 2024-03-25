@@ -86,13 +86,44 @@ def txtToJson():
                 
             # Create the JSON file for each text
             createJson(jsonPayload)
+            create_links(jsonPayload)
+
             # reset the jsonPayload after creating the json file for each text
             jsonPayload["target"]["categories"], jsonPayload["source"]["categories"] = [], []
             jsonPayload["target"]["books"], jsonPayload["source"]["books"] = [], []
         # j = json.dumps(jsonPayload, indent=4, ensure_ascii=False)
         # print(j)
                 
-                
+
+def create_links(text):
+    
+    commentary_content = text['target']['books'][0]['content']
+    #title of root text
+    root_text_title = text['source']['categories'][-1]['base_text_titles'][0]
+    commentary_title = text['source']['categories'][-1]['name']
+    link_type = text['source']['categories'][-1]['link']
+    total_link = []
+    
+    print(root_text_title)
+    for i in range(len(commentary_content)):
+        ref = {}
+        for j in range(len(commentary_content[i])):
+            map_list = []
+            total_map = len(commentary_content[i][j])
+            map_list.append(f'{root_text_title} {i+1}:{j+1}')
+            if(total_map > 1):
+                map_list.append(f'{commentary_title} {i+1}:{j+1}:1-{total_map}')
+            else: 
+                map_list.append(f'{commentary_title} {i+1}:{j+1}:1')
+            ref['refs'] = map_list
+            ref['type'] = link_type.lower()
+            total_link.append(ref)
+            ref = {}
+    # create json
+    with open(f'{BASEPATH}/jsondata/refs/{commentary_title}.json', 'w') as file:
+        json.dump(total_link,file, indent=4, ensure_ascii=False) 
+     
+
 def main():
     print("------ TXT TO JSON -----")
     txtToJson()
