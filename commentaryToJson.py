@@ -34,10 +34,10 @@ def parseBook(url, file):
 
             for paragraph in paragraphs[3:]:
                 if "/" in paragraph:
-                    split_text = paragraph.replace('/', ' <br><br style=“width: 50%” /> ')
+                    split_text = paragraph.split('/')
                     # Remove any empty strings resulting from consecutive slashes
-                    #split_text = [substring.strip() for substring in split_text if substring.strip()]
-                    content.append([split_text])
+                    split_text = [substring.strip() for substring in split_text if substring.strip()]
+                    content.append(split_text)
                 else:
                     content.append([paragraph])
 

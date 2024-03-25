@@ -9,8 +9,8 @@ from datetime import datetime
 apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -179,15 +179,11 @@ def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
                         # "addressTypes" : ["Integer", "Integer"],
     
     sectionNames = ['Chapters', 'Verses', 'Paragrahs', 'Lines']
-    print("path : ", pathLIST)
-    index = {}
+    index = {}    
+
     if len(nodes) == 0:
         index = {
             "title" : indexSTR,
-            "base_text_titles": pathLIST[-1]['base_text_titles'],
-            "base_text_mapping": pathLIST[-1]['base_text_mapping'],
-            "collective_title": indexSTR,
-            "dependence": pathLIST[-1]['link'],
             "categories": list(map(lambda x: x["name"], pathLIST)),
             "schema" : {
                 "key": indexSTR,
@@ -198,6 +194,12 @@ def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
                 "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth]))        
             }
         }
+        if 'base_text_mapping' in pathLIST[-1].keys(): 
+            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+            index["collective_title"] = indexSTR
+            index["dependence"] = pathLIST[-1]['link']
+        
     else: 
         
         index = {
@@ -209,6 +211,12 @@ def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
                 "nodes": nodes,
             }
         }
+        if 'base_text_mapping' in pathLIST[-1].keys(): 
+            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+            index["collective_title"] = indexSTR
+            index["dependence"] = pathLIST[-1]['link']
+            
     
     indexJSON = json.dumps(index, indent=4, ensure_ascii=False)
     values = {
