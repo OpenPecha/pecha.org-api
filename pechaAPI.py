@@ -1,11 +1,11 @@
 import urllib.request, urllib.error, urllib.parse
 from urllib.error import HTTPError
 import json
+import re
 import os
 from pprint import pprint
 from time import sleep
 from datetime import datetime
-from bson import json_util
 
 apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
@@ -128,15 +128,14 @@ def post_category(enPathList, hePathList):
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
+        print("categories response: ", res)
         if "error" not in res:
             return True
         elif "already exists" in res:
             return True
         return False
     except HTTPError as e:
-        print('Error code: ', e.code)
-        print(e.read())
+        print('Error code: ', e)
         return False
 
 
@@ -155,7 +154,7 @@ def get_index(indexSTR):
         print(e.read().decode('utf-8'))
 
 
-def post_index(indexSTR, pathLIST, titleLIST):
+def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -168,20 +167,58 @@ def post_index(indexSTR, pathLIST, titleLIST):
             }
     """
     url =  baseURL + "api/v2/raw/index/" + urllib.parse.quote(indexSTR.replace(" ", "_"))
-    index = {
-        "title" : indexSTR,
-        "categories": list(map(lambda x: x["name"], pathLIST)),
-        "schema" : {
-            "titles" : titleLIST,
-            "key" : indexSTR,
-            "nodeType" : "JaggedArrayNode",
-            # "lengths" : [4, 50],
-            "depth" : len(pathLIST) - 1 ,
-            "sectionNames" : ["Chapter", "Verse"],
-            "addressTypes" : ["Integer", "Integer"],
+
+
+
+     # "titles" : titleLIST,
+            # "key" : indexSTR,
+            # "nodeType" : "JaggedArrayNode",
+            # # "lengths" : [4, 50],
+            # "depth" : 2,
+            # "sectionNames" : ["Chapter", "Verse"],
+                        # "addressTypes" : ["Integer", "Integer"],
+    
+    sectionNames = ['Chapters', 'Verses', 'Paragrahs', 'Lines']
+    index = {}    
+
+    if len(nodes) == 0:
+        index = {
+            "title" : indexSTR,
+            "categories": list(map(lambda x: x["name"], pathLIST)),
+            "schema" : {
+                "key": indexSTR,
+                "titles": titleLIST,
+                "nodeType": 'JaggedArrayNode',
+                "depth": text_depth,
+                "sectionNames": sectionNames[:text_depth],
+                "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth]))        
+            }
         }
-    }    
-    indexJSON = json.dumps(index)
+        if 'base_text_mapping' in pathLIST[-1].keys(): 
+            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+            index["collective_title"] = indexSTR
+            index["dependence"] = pathLIST[-1]['link']
+        
+    else: 
+        
+        index = {
+            "title" : indexSTR,
+            "categories": list(map(lambda x: x["name"], pathLIST)),
+            "schema" : {
+                "key": indexSTR,
+                "titles": titleLIST,
+                "nodes": nodes,
+            }
+        }
+        if 'base_text_mapping' in pathLIST[-1].keys(): 
+            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+            index["collective_title"] = indexSTR
+            index["dependence"] = pathLIST[-1]['link']
+            
+    
+    indexJSON = json.dumps(index, indent=4, ensure_ascii=False)
     values = {
         'json': indexJSON, 
         'apikey': apikey,
@@ -243,6 +280,7 @@ def post_text(indexSTR, textDICT):
     """
     textJSON = json.dumps(textDICT)
     indexSTR = indexSTR.replace(" ", "_")
+    
     url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(indexSTR))
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
@@ -577,9 +615,11 @@ def add_by_file(fileSTR):
         "textHe": [],
         "bookDepth": 0
     }
+    schemaNodes = []
 
     for lang in data:
-        if lang == "source":   
+        
+        if lang == "source":  
             for i in range(len(data[lang]["categories"])):
                 payload["categoryEn"].append(data[lang]["categories"][:i+1])
             for book in data[lang]["books"]:
@@ -593,7 +633,6 @@ def add_by_file(fileSTR):
         else:
             print("[Error] Unknown language")
             return 
-        
     # 先新增每一個路徑
     print("==post_category==")
     for i in range(len(payload["categoryEn"])):
@@ -606,53 +645,113 @@ def add_by_file(fileSTR):
         if not post_category(payload["categoryEn"][i], payload["categoryHe"][i]):
             success = False
 
-    # # 新增書的資料
     print("==post_index==")
     titleLIST = []
+    subTitles = []
     
     for i in range(len(payload["textEn"])):
         if i == 0:
-            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True, })
+            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True })
         else:   # 如果有不只一個版本
             titleLIST.append({"lang": "en", "text": payload["textEn"][i]["title"], })
+        if isinstance(payload['textEn'][i]['content'], dict):
+            for key in payload['textEn'][i]['content']:
+                subTitles.append({"lang": "en", "text": key, "primary": True})
+                schemaNodes.append({
+                    "key": key,
+                    "titles": subTitles,
+                    "nodeType": "JaggedArrayNode",
+                    "depth": 1,
+                    "sectionNames": ["Paragraph"],
+                    "addressTypes": ["Integer"]
+                })
+                subTitles = []
     for i in range(len(payload["textHe"])):
         if i == 0:
             titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
-        else:   # 如果有不只一個版本
+        else: 
             titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
-    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST):
+        if isinstance(payload['textHe'][i]['content'], dict):
+            keys = list(payload['textHe'][i]['content'].keys())
+            for j in range(len(keys)):
+                subTitles = {"lang": "he", "text": keys[j], "primary": True}
+                schemaNodes[j]['titles'].append(subTitles)
+                subTitles = []
+        text_depth = get_list_depth(payload['textHe'][i]['content'])
+    
+    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST, schemaNodes, text_depth):
        success = False
 
-    # 新增內文
+    # # 新增內文
     print("==post_text==")
+    
     for i in range(len(payload["textEn"])):
         enKey = payload["textEn"][i]["title"]
-        enText = {
-            "versionTitle": enKey,
-            "versionSource": payload["textEn"][i]["versionSource"],
-            "language": "en",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text": payload["textEn"][i]["content"], 
-            "direction": payload["textEn"][i]["direction"]
-        }
-        if i == 0:
-            enText["isBaseText"] = True
-        if not post_text(payload["bookKey"], enText):
-            success = False
+        if isinstance(payload['textEn'][i]['content'], dict):
+            
+            enText = {
+                "versionTitle": enKey,
+                "versionSource": payload["textEn"][i]["versionSource"],
+                "language": "en",
+                "actualLanguage": payload["textEn"][i]["language"],
+                "text": []
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+
+            keys = list(payload['textEn'][i]['content'].keys())
+
+            for key in keys:
+                enText['text'] = payload['textEn'][i]['content'][key]
+                if not post_text(f'{payload["bookKey"]}, {key}', enText):
+                    success = False
+
+        else:
+            enText = {
+                "versionTitle": enKey,
+                "versionSource": payload["textEn"][i]["versionSource"],
+                "language": "en",
+                "actualLanguage": payload["textEn"][i]["language"],
+                "text": payload["textEn"][i]["content"]
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+            if not post_text(payload["bookKey"], enText):
+                success = False
     for i in range(len(payload["textHe"])):
         heKey = payload["textHe"][i]["title"]
-        heText = {
-            "versionTitle": heKey,
-            "versionSource": payload["textHe"][i]["versionSource"],
-            "language": "he",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text":payload["textHe"][i]["content"],
-            "direction": payload["textHe"][i]["direction"]
-        }
-        if i == 0:
-            heText["isBaseText"] = True
-        if not post_text(payload["bookKey"], heText):
-            success = False
+        if isinstance(payload['textHe'][i]['content'], dict):
+            heText = {
+                "versionTitle": heKey,
+                "versionSource": payload["textHe"][i]["versionSource"],
+                "language": "he",
+                "actualLanguage": payload["textHe"][i]["language"],
+                "text": []
+            }
+            if i == 0:
+                enText["isBaseText"] = True
+
+            keys = list(payload['textHe'][i]['content'].keys())
+            enKeys = list(payload['textEn'][i]['content'].keys())
+            for j in range(len(keys)):
+                heText['text'] = payload['textHe'][i]['content'][keys[j]]
+                if not post_text(f'{payload["bookKey"]}, {enKeys[j]}', heText):
+                    success = False
+
+        else:
+            heKey = payload["textHe"][i]["title"]
+            heText = {
+                "versionTitle": heKey,
+                "versionSource": payload["textHe"][i]["versionSource"],
+                "language": "he",
+                "actualLanguage": payload["textHe"][i]["language"],
+                "text": payload["textHe"][i]["content"], 
+                "direction": payload["textHe"][i]["direction"]
+            }
+            if i == 0:
+                heText["isBaseText"] = True
+            if not post_text(payload["bookKey"], heText):
+                success = False
 
     if success:
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
@@ -660,6 +759,20 @@ def add_by_file(fileSTR):
         return True
     else:
         return False
+    
+def get_list_depth(lst):
+    """
+    Function to calculate the depth of a nested list.
+    """
+    if not isinstance(lst, list):  # Base case: not a list, no depth
+        return 0
+    else:
+        max_depth = 0
+        for item in lst:
+            max_depth = max(max_depth, get_list_depth(item))  # Recurse and update max depth
+        return max_depth + 1  # Add one to include the current depth level
+
+
 
 
 def add_texts():
@@ -736,6 +849,7 @@ def add_refs():
         
         with open("{}/jsondata/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             refLIST = json.load(f)
+            remove_links(refLIST[0]["refs"][1])
         for ref in refLIST:
             # Separate refs since the API only support adding 2 refs at the same time.
             for i in range(0, len(ref["refs"])-1):
@@ -743,13 +857,36 @@ def add_refs():
                     successBOOL = post_link([ref["refs"][i], ref["refs"][j]], ref["type"])
                     # Failed
                     if not successBOOL:
-                        failedLIST.append({[ref["refs"][i], ref["refs"][j]], ref["type"]})
+                        failedLIST.append({(ref["refs"][i], ref["refs"][j]), ref["type"]})
         with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
         sleep(3)
     with open("{}/jsondata/refs/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
+
+def remove_links(textTitle):
+    #remove section range number from text title. e.g Prayer 1:1, Prayer 1:1-2 
+    pattern = r"\s\d+:\d+(-\d+)?"
+    clean_title = re.sub(pattern, "", textTitle)
+
+    ref = clean_title.replace(' ', '_')
+    url = baseURL + f"api/links/{ref}"
+    values = { 
+        'apikey': apikey
+    }
+    data = urllib.parse.urlencode(values)
+    binary_key = data.encode('ascii')
+    req = urllib.request.Request(url, binary_key, method="DELETE")
+    try:
+        response = urllib.request.urlopen(req)
+        linkData = response.read().decode("utf-8")
+        print(linkData)
+
+    except (HTTPError) as e:
+        print('Error code: ', e.code)
+        print("error",e.read())
+
 def add_webpages():
     """
     Add all webpage files in `/jsondata/webpages`.

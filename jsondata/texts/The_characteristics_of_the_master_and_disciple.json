@@ -19,9 +19,10 @@
         ],
         "books": [
             {
-                "title": "སློབ་དཔོན་དང་སློབ་མའི་མཚན་ཉིད་བསྟེན་ཚུལ་འཆད་ཉན་བཅས་བཤད་པ།",
-                "language": "bo",
-                "versionSource": "source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+                "title": "The characteristics of the master and disciple",
+                "language": "en",
+                "versionSource": "",
+                "direction": "ltr",
                 "content": {
                     "1 Comment rechercher un ami de vertu": [
                         "<b>L’enseignement du Vainqueur est source de bienfait et de bonheur.</b> <br><b>Ceux qui s’y engagent pour donner du sens à leur existence humaine, dotée des libertés et de ses richesses</b> <br><b>Commenceront par la recherche d’un ami de vertu auquel ils s’en remettront.</b> <br>",
@@ -141,6 +142,8 @@
             {
                 "title": "སློབ་དཔོན་དང་སློབ་མའི་མཚན་ཉིད་བསྟེན་ཚུལ་འཆད་ཉན་བཅས་བཤད་པ།",
                 "language": "bo",
+                "direction": "ltr",
+
                 "versionSource": "source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
                 "content": {
                     "1 སློབ་དཔོན་དང་སློབ་མའི་མཚན་ཉིད་བསྟེན་ཚུལ་འཆད་ཉན་བཅས་བཤད་པ།": [
