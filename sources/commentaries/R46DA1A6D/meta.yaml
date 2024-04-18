@@ -1,0 +1,31 @@
+categories:
+  - enName: "Madyamika"
+    boName: "དབུ་མ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "Commentaries"
+    boName: "འགྲེལ་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+  
+  - enName: "The Way of the Buddhisattva"
+    boName: "སྤྱོད་འཇུག"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "A Teaching from Manjughosa Guru" # last category should be the name of the book
+    boName: "སྤྱོད་འཇུག་ཟིན་བྲིས་དང་ཚིག་འགྲེལ་འཇམ་དབྱངས་བླ་མའི་ཞལ་ལུང་བདུད་རྩིའི་ཐིག་པ།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    base_text_titles: ["The Way of the Buddhisattva"]
+    base_text_mapping: "many_to_one"
+    link: "Commentary"

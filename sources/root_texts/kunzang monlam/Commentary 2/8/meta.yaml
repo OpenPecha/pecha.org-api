@@ -1,0 +1,81 @@
+# every text should have a category, and the last category should be the name of the book
+#every category have a name in English, a name in Tibetan, a description in English, a short description in English, a description in Tibetan, and a short description in Tibetan
+
+categories:
+  - enName: "Liturgy"
+    boName: "ཆོ་ག"
+    enDesc: ""
+    enShortDesc: "Prayers and rituals"
+    boDesc: ""
+    boShortDesc: "ཆོ་ག་དང་འདོན་ཆ།"
+    
+  - enName: "Commentaries"
+    boName: "འགྲེལ་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: ""
+    boName: "བྱང་གཏེར་དགོངས་པ་ཟང་ཐལ་ལས་བྱུང་བའི་ཀུན་བཟང་སྨོན་ལམ་གྱི་དོན་འགྲེལ་ཉུང་ངུ་མཆན་བུའི་ཚུལ་གྱིས་གསལ་བར་བཀོད་པ་རྣམ་བཤད་ཀེ་ཏ་ཀ"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "གཞུང་དོན་དངོས་བཤད་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "འཁོར་འདས་གཞི་ལ་དག་པའི་སྨོན་ལམ་ཁྱད་པར་ཅན་འདེབས་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "རང་བཞིན་རྒྱས་པར་དབྱེ་བ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "འཁོར་འདས་ཀྱི་གྱེས་ཚུལ་རྒྱས་པར་བཤད་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "མ་རིག་སེམས་ཅན་འཁྲུལ་ཚུལ་ལ་བརྟེན་ནས་འཁོར་བ་དོང་ནས་སྤྲུགས་པའི་སྨོན་ལམ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "མཚན་ཉིད་རྒྱས་པར་བཤད་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "སྲིད་རྩེའི་ཉེས་དམིགས་མ་རིག་པ་ལས་བྱུང་བར་བསྟན་སྟེ་རིག་པ་ཡེ་ཤེས་སུ་གྲོལ་བའི་སྨོན་ལམ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    
+  - enName: ""
+    boName: "མ་རིག་གཉིས་ཀྱི་རྣམ་བཞག་གསལ་བར་བསྟན་ནས་དེ་ཉིད་རིག་པ་ཡེ་ཤེས་ཀྱི་ངོ་བོར་ཤེས་པར་སྨོན་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    

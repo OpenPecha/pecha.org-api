@@ -1,6 +1,7 @@
 import os
 import json
 import yaml
+import re
 
 BASEPATH = os.path.dirname(os.path.abspath(__file__))  
 
@@ -11,7 +12,6 @@ def createJson(jsonPayload):
     with open(f'{BASEPATH}/jsondata/texts/{filename}.json', 'w') as file:
         json.dump(jsonPayload,file, indent=4, ensure_ascii=False) 
 
-
 def parseBook(url, file): 
 
     book = {
@@ -20,7 +20,9 @@ def parseBook(url, file):
         'versionSource': '',
         'content': []
     }
+    chapter = []
     content = []
+    emptyLine = []
     try:
         with open(f'{url}/{file}', mode='r', encoding='utf-8') as f:
             text = f.read()
@@ -32,16 +34,26 @@ def parseBook(url, file):
             book['title'] = paragraphs[2].replace('# ', '') if file.startswith('bo') or file.startswith('en') else paragraphs[2].replace('# ', '')+f'[{file.replace(".md", "")}]'
             book['language'] = file.replace('.md', '')
 
+
             for paragraph in paragraphs[3:]:
-                if "/" in paragraph:
-                    split_text = paragraph.split('/')
-                    # Remove any empty strings resulting from consecutive slashes
-                    split_text = [substring.strip() for substring in split_text if substring.strip()]
-                    content.append(split_text)
-                else:
+                
+                if paragraph.startswith("CH"):
+                    
+                    if "/" in paragraph:
+                        split_text = paragraph.split('/')
+                        # Remove any empty strings resulting from consecutive slashes
+                        split_text = [substring.strip() for substring in split_text if substring.strip()]
+                        content.append(split_text)
+                    
+
+                    processed_stanza = re.sub("CH-\d+", "", paragraph)
+                    content = []
+                    content.append([processed_stanza.strip()])
+                    chapter.append(content)
+                    book['content'] = chapter
+                else: 
                     content.append([paragraph])
 
-            book['content'] = [content]    
             return book
     except FileNotFoundError:
         print("File not found")
@@ -65,7 +77,6 @@ def txtToJson():
     # Walk through the source directory
     for root, dirs, files in os.walk(sourcePATH):
         if(os.path.basename(root) != "commentaries"):
-            print(dirs)
             #BOOKS: 
             for file in files:
                 if(file.endswith('.md')):
@@ -86,7 +97,7 @@ def txtToJson():
                 
             # Create the JSON file for each text
             createJson(jsonPayload)
-            create_links(jsonPayload)
+            #create_links(jsonPayload)
 
             # reset the jsonPayload after creating the json file for each text
             jsonPayload["target"]["categories"], jsonPayload["source"]["categories"] = [], []
@@ -96,15 +107,13 @@ def txtToJson():
                 
 
 def create_links(text):
-    
     commentary_content = text['target']['books'][0]['content']
     #title of root text
-    root_text_title = text['source']['categories'][-1]['base_text_titles'][0]
     commentary_title = text['source']['categories'][-1]['name']
     link_type = text['source']['categories'][-1]['link']
+    root_text_title = text['source']['categories'][-1]['base_text_titles'][0]
     total_link = []
-    
-    print(root_text_title)
+
     for i in range(len(commentary_content)):
         ref = {}
         for j in range(len(commentary_content[i])):
