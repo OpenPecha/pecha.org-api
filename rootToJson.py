@@ -23,7 +23,7 @@ def parseBook(url, file):
     }
     content = []
     chapter = []
-    line_breaker = ["། །","ག །","ག།","།།","ཤ །","ཤ།","ཀ།","ཀ །","༔"]
+    line_breaker = ["། །","ག །","ག།","།།","ཤ །","ཤ།","ཀ།","ཀ །"]
     try:
         with open(f'{url}/{file}', mode='r', encoding='utf-8') as f:
             text = f.read()
@@ -39,21 +39,25 @@ def parseBook(url, file):
                 found_breaker = [breaker for breaker in line_breaker if breaker in paragraph]
 
                 # Split the stanza into lines, remove spaces and tabs from each line, then join back with a space
-                if len(found_breaker) > 0:
-                    for breaker in found_breaker:
-                        paragraph = paragraph.replace(breaker, breaker+' <br> ')
+                if "|" in paragraph:
+                    paragraph = paragraph.replace('|',' <br> ')
+                #if len(found_breaker) > 0:
+                #    for breaker in found_breaker:
+                #       paragraph = paragraph.replace(breaker, breaker+' <br> ')
                 processed_lines = [line.strip().replace('\t', '') + ' <br>' for line in paragraph.replace('\t', '').split('\n') if line.strip()]
                 processed_stanza = ' '.join(processed_lines)
                 #chapter
                 if paragraph.startswith("CH"):
                     processed_stanza = re.sub("CH-\d+ ", "", processed_stanza)
+                    processed_stanza = re.sub("<\d+> ", "", processed_stanza)
                     content = []
-                    print(processed_stanza)
                     content.append(processed_stanza)
                     chapter.append(content)
                     book['content'] = chapter
                 else: 
+                    processed_stanza = re.sub("<\d+> ", "", processed_stanza)
                     content.append(processed_stanza)
+
                 
 
 

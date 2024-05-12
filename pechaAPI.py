@@ -10,8 +10,8 @@ from datetime import datetime
 apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -154,7 +154,7 @@ def get_index(indexSTR):
         print(e.read().decode('utf-8'))
 
 
-def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
+def post_index(indexSTR, pathLIST, nodes, text_depth):
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -179,43 +179,21 @@ def post_index(indexSTR, pathLIST, titleLIST, nodes, text_depth):
                         # "addressTypes" : ["Integer", "Integer"],
     
     sectionNames = ['Chapters', 'Verses', 'Paragrahs', 'Lines']
-    index = {}    
-
-    if len(nodes) == 0:
-        index = {
-            "title" : indexSTR,
-            "categories": list(map(lambda x: x["name"], pathLIST)),
-            "schema" : {
-                "key": indexSTR,
-                "titles": titleLIST,
-                "nodeType": 'JaggedArrayNode',
-                "depth": text_depth,
-                "sectionNames": sectionNames[:text_depth],
-                "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth]))        
-            }
-        }
-        if 'base_text_mapping' in pathLIST[-1].keys(): 
-            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
-            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
-            index["collective_title"] = indexSTR
-            index["dependence"] = pathLIST[-1]['link']
-        
-    else: 
-        
-        index = {
-            "title" : indexSTR,
-            "categories": list(map(lambda x: x["name"], pathLIST)),
-            "schema" : {
-                "key": indexSTR,
-                "titles": titleLIST,
-                "nodes": nodes,
-            }
-        }
-        if 'base_text_mapping' in pathLIST[-1].keys(): 
-            index["base_text_titles"] = pathLIST[-1]['base_text_titles']
-            index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
-            index["collective_title"] = indexSTR
-            index["dependence"] = pathLIST[-1]['link']
+    index = {
+        "title" : '',
+        "categories": [],
+        "schema" : {}
+    }     
+    index["title"] = indexSTR
+    index["categories"] = list(map(lambda x: x["name"], pathLIST))
+    index["schema"] = nodes
+    
+    # if text is commentary
+    if 'base_text_mapping' in pathLIST[-1].keys(): 
+        index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+        index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+        index["collective_title"] = indexSTR
+        index["dependence"] = pathLIST[-1]['link']
             
     
     indexJSON = json.dumps(index, indent=4, ensure_ascii=False)
@@ -279,7 +257,7 @@ def post_text(indexSTR, textDICT):
         }
     """
     textJSON = json.dumps(textDICT)
-    indexSTR = indexSTR.replace(" ", "_")
+    # indexSTR = indexSTR.replace(" ", "_")
     
     url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(indexSTR))
     values = {'json': textJSON, 'apikey': apikey}
@@ -615,6 +593,7 @@ def add_by_file(fileSTR):
         "textHe": [],
         "bookDepth": 0
     }
+    
     schemaNodes = []
 
     for lang in data:
@@ -647,111 +626,137 @@ def add_by_file(fileSTR):
 
     print("==post_index==")
     titleLIST = []
-    subTitles = []
-    
-    for i in range(len(payload["textEn"])):
-        if i == 0:
-            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True })
-        else:   # 如果有不只一個版本
-            titleLIST.append({"lang": "en", "text": payload["textEn"][i]["title"], })
-        if isinstance(payload['textEn'][i]['content'], dict):
-            for key in payload['textEn'][i]['content']:
-                subTitles.append({"lang": "en", "text": key, "primary": True})
-                schemaNodes.append({
-                    "key": key,
-                    "titles": subTitles,
-                    "nodeType": "JaggedArrayNode",
-                    "depth": 1,
-                    "sectionNames": ["Paragraph"],
-                    "addressTypes": ["Integer"]
-                })
-                subTitles = []
-    for i in range(len(payload["textHe"])):
-        if i == 0:
-            titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
-        else: 
-            titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
-        if isinstance(payload['textHe'][i]['content'], dict):
-            keys = list(payload['textHe'][i]['content'].keys())
-            for j in range(len(keys)):
-                subTitles = {"lang": "he", "text": keys[j], "primary": True}
-                schemaNodes[j]['titles'].append(subTitles)
-                subTitles = []
-        text_depth = get_list_depth(payload['textHe'][i]['content'])
-    
-    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST, schemaNodes, text_depth):
-       success = False
+    result = {}
+   
+    '''
+    Generate schema nodes form text and create index.
+    '''
+    schema = generate_schema(payload["textEn"][0],payload["textHe"][0])
+    # j = json.dumps(schema, indent=4, ensure_ascii=False)
+    # print(j)
 
-    # # 新增內文
+    if not post_index(payload["bookKey"], payload["categoryEn"][-1] , schema[0], text_depth=1):
+        success = False
+
+    '''
+    
+    '''
     print("==post_text==")
-    
-    for i in range(len(payload["textEn"])):
-        enKey = payload["textEn"][i]["title"]
-        if isinstance(payload['textEn'][i]['content'], dict):
+    for i, book in enumerate(payload["textEn"]):
+        enText = {
+                "versionTitle": book['title'],
+                "versionSource": book["versionSource"],
+                "language": "en",
+                "actualLanguage": book["language"],
+                "text": []
+            }
+        if i == 0:
+            enText["isBaseText"] = True
+        # for complex text
+        if isinstance(book['content'], dict):
+            result = generate_chapters(book['content'], book["language"])
+            for key, value in result.items():
+                enText['text'] = value
+                if not post_text(key, enText):
+                    success = False
+                
+        if isinstance(book['content'], list):
+            enText['text'] = book['content']
+
+            if not post_text(book['title'], enText):
+                success = False
+
+    for i, book in enumerate(payload["textHe"]):
+        enText = {
+                "versionTitle": book['title'],
+                "versionSource": book["versionSource"],
+                "language": "he",
+                "actualLanguage": book["language"],
+                "text": []
+            }
+        if i == 0:
+            enText["isBaseText"] = True
+        # for complex text
+        if isinstance(book['content'], dict):
+            result = generate_chapters(book['content'], book["language"])
+            for key, value in result.items():
+                enText['text'] = value
+                if not post_text(key, enText):
+                    success = False
+                
+        if isinstance(book['content'], list):
+            enText['text'] = book['content']
+
+            if not post_text(book['title'], enText):
+                success = False
+
+    # for i in range(len(payload["textEn"])):
+    #     enKey = payload["textEn"][i]["title"]
+    #     if isinstance(payload['textEn'][i]['content'], dict):
             
-            enText = {
-                "versionTitle": enKey,
-                "versionSource": payload["textEn"][i]["versionSource"],
-                "language": "en",
-                "actualLanguage": payload["textEn"][i]["language"],
-                "text": []
-            }
-            if i == 0:
-                enText["isBaseText"] = True
+    #         enText = {
+    #             "versionTitle": enKey,
+    #             "versionSource": payload["textEn"][i]["versionSource"],
+    #             "language": "en",
+    #             "actualLanguage": payload["textEn"][i]["language"],
+    #             "text": []
+    #         }
+    #         if i == 0:
+    #             enText["isBaseText"] = True
 
-            keys = list(payload['textEn'][i]['content'].keys())
+    #         keys = list(payload['textEn'][i]['content'].keys())
 
-            for key in keys:
-                enText['text'] = payload['textEn'][i]['content'][key]
-                if not post_text(f'{payload["bookKey"]}, {key}', enText):
-                    success = False
+    #         for key in keys:
+    #             enText['text'] = payload['textEn'][i]['content'][key]
+    #             if not post_text(f'{payload["bookKey"]}, {key}', enText):
+    #                 success = False
 
-        else:
-            enText = {
-                "versionTitle": enKey,
-                "versionSource": payload["textEn"][i]["versionSource"],
-                "language": "en",
-                "actualLanguage": payload["textEn"][i]["language"],
-                "text": payload["textEn"][i]["content"]
-            }
-            if i == 0:
-                enText["isBaseText"] = True
-            if not post_text(payload["bookKey"], enText):
-                success = False
-    for i in range(len(payload["textHe"])):
-        heKey = payload["textHe"][i]["title"]
-        if isinstance(payload['textHe'][i]['content'], dict):
-            heText = {
-                "versionTitle": heKey,
-                "versionSource": payload["textHe"][i]["versionSource"],
-                "language": "he",
-                "actualLanguage": payload["textHe"][i]["language"],
-                "text": []
-            }
-            if i == 0:
-                enText["isBaseText"] = True
+    #     else:
+    #         enText = {
+    #             "versionTitle": enKey,
+    #             "versionSource": payload["textEn"][i]["versionSource"],
+    #             "language": "en",
+    #             "actualLanguage": payload["textEn"][i]["language"],
+    #             "text": payload["textEn"][i]["content"]
+    #         }
+    #         if i == 0:
+    #             enText["isBaseText"] = True
+    #         if not post_text(payload["bookKey"], enText):
+    #             success = False
+    # for i in range(len(payload["textHe"])):
+    #     heKey = payload["textHe"][i]["title"]
+    #     if isinstance(payload['textHe'][i]['content'], dict):
+    #         heText = {
+    #             "versionTitle": heKey,
+    #             "versionSource": payload["textHe"][i]["versionSource"],
+    #             "language": "he",
+    #             "actualLanguage": payload["textHe"][i]["language"],
+    #             "text": []
+    #         }
+    #         if i == 0:
+    #             enText["isBaseText"] = True
 
-            keys = list(payload['textHe'][i]['content'].keys())
-            enKeys = list(payload['textEn'][i]['content'].keys())
-            for j in range(len(keys)):
-                heText['text'] = payload['textHe'][i]['content'][keys[j]]
-                if not post_text(f'{payload["bookKey"]}, {enKeys[j]}', heText):
-                    success = False
+    #         keys = list(payload['textHe'][i]['content'].keys())
+    #         enKeys = list(payload['textEn'][i]['content'].keys())
+    #         for j in range(len(keys)):
+    #             heText['text'] = payload['textHe'][i]['content'][keys[j]]
+    #             if not post_text(f'{payload["bookKey"]}, {enKeys[j]}', heText):
+    #                 success = False
 
-        else:
-            heKey = payload["textHe"][i]["title"]
-            heText = {
-                "versionTitle": heKey,
-                "versionSource": payload["textHe"][i]["versionSource"],
-                "language": "he",
-                "actualLanguage": payload["textHe"][i]["language"],
-                "text": payload["textHe"][i]["content"], 
-                "direction": payload["textHe"][i]["direction"]
-            }
-            if i == 0:
-                heText["isBaseText"] = True
-            if not post_text(payload["bookKey"], heText):
-                success = False
+    #     else:
+    #         heKey = payload["textHe"][i]["title"]
+    #         heText = {
+    #             "versionTitle": heKey,
+    #             "versionSource": payload["textHe"][i]["versionSource"],
+    #             "language": "he",
+    #             "actualLanguage": payload["textHe"][i]["language"],
+    #             "text": payload["textHe"][i]["content"], 
+    #             "direction": payload["textHe"][i]["direction"]
+    #         }
+    #         if i == 0:
+    #             heText["isBaseText"] = True
+    #         if not post_text(payload["bookKey"], heText):
+    #             success = False
 
     if success:
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
@@ -759,7 +764,145 @@ def add_by_file(fileSTR):
         return True
     else:
         return False
-    
+
+def generate_schema(enbook, bobook, en_key="", bo_key=""):
+
+    nodes = []
+    # generate schema node for complex text
+    if 'content' in bobook:
+        botext = bobook["content"]
+        entext = enbook["content"]
+    else:
+        botext = bobook
+        entext = enbook
+
+    if isinstance(entext, dict):
+        for (enkey, envalue), (bokey, bovalue) in zip(entext.items(), botext.items()):
+            en_full_key = enkey.strip() if en_key else enkey
+            bo_full_key = bokey.strip() if bo_key else bokey
+            if isinstance(envalue, dict) and enkey != "data":
+                # Check if the dictionary has any children other than 'data'
+
+                has_children = any(sub_key != 'data' for sub_key in envalue.keys())
+                child_nodes = generate_schema(envalue, bovalue, en_full_key, bo_full_key)
+                # if data is only 
+                if not has_children:
+                    data_node = create_data_node(en_full_key, bo_full_key, envalue['data'], bovalue['data'])
+                    nodes.append(data_node)
+                else:
+                    node = {
+                        "nodes": child_nodes,
+                        "titles": [
+                            {"lang": "he", "text": bo_full_key, "primary": True},
+                            {"lang": "en", "text": en_full_key, "primary": True}
+                        ],
+                        "key": en_full_key
+                    }
+                    nodes.append(node)
+
+            elif enkey == "data":
+                data_node = create_data_node(enkey, 'དོན་བསྡུས།', envalue, bovalue)
+                nodes.append(data_node)
+    if isinstance(entext, list):
+        data_node = create_data_node(enbook['title'], ['title'], entext, botext)
+        nodes.append(data_node)
+    return nodes
+
+def create_data_node(en_key, bo_key, envalue, bovalue):
+    print(en_key, bo_key)
+    text_depth = None
+    sectionNames = ['Chapters', 'Verses', 'Paragraphs']
+
+    if len(envalue) > 0:
+        text_depth = get_list_depth(envalue) 
+    if len(bovalue) > 0:
+        text_depth = get_list_depth(bovalue)
+
+    return {
+        "nodeType": "JaggedArrayNode",
+        "depth": text_depth,
+        "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth])),
+        "sectionNames": sectionNames[:text_depth],
+        "titles": [
+            {"lang": "he", "text": bo_key, "primary": True},
+            {"lang": "en", "text": en_key, "primary": True}
+        ],
+        "key": en_key
+    }
+def clean_content(value):
+    result = []
+    for val in value:
+        if isinstance(val, list):
+            chapters = []
+            for v in val:
+                if "|" in v:
+                    v = v.replace('|',' <br> ')
+                # Quotation
+                if "[" in v:
+                    v = v.replace('[',' <i> ')
+                    v = v.replace(']',' </i> ')
+                # Citation
+                if "{" in v:  
+                    v = v.replace('{',' <b> ')
+                    v = v.replace('}',' </b> ')
+                # Sapche
+                if "(" in v:  
+                    v = v.replace("(",' <u> ')
+                    v = v.replace(")",' </u> ')
+                v = re.sub("<\d+>", "", v.strip())
+                chapters.append(v)
+            result.append(chapters)
+        else:
+            if "|" in val:
+                val = val.replace('|',' <br> ')
+            # Quotation
+            if "[" in val:
+                val = val.replace('[',' <i> ')
+                val = val.replace(']',' </i> ')
+            # Citation
+            if "{" in val:  
+                val = val.replace('{',' <b> ')
+                val = val.replace('}',' </b> ')
+            # Sapche
+            if "(" in val:  
+                val = val.replace("(",' <u> ')
+                val = val.replace(")",' </u> ')
+            val = re.sub("<\d+>", "", val.strip())
+            result.append(val)
+
+    return result
+
+
+def generate_chapters(book, language, current_key="", parent_keys=[]):
+    result = {}
+    for key, value in book.items():
+        full_key = key if current_key else key
+        new_parent_keys = parent_keys + [key.strip()]  # Update list of parent key
+        clean_value = []
+        if isinstance(value, dict):
+            
+            # Check if the dictionary has any children other than 'data'
+            has_children = any(sub_key != 'data' for sub_key in value.keys())    
+            child_data = generate_chapters(value, language, full_key, new_parent_keys)
+            result.update(child_data)  # Merge results from children
+            
+            # Determine the key for 'data' depending on whether there are other children
+            if 'data' in value:
+                clean_value = clean_content(value['data'])
+
+                # If there are other children, include 'data' in the key, else exclude it
+            if has_children:
+                if language == 'bo':
+                    data_key = ', '.join(new_parent_keys) + ', དོན་བསྡུས།' 
+                else: 
+                     data_key = ', '.join(new_parent_keys) + ', data'
+            else:
+                data_key = ', '.join(new_parent_keys)  # Exclude 'data' from the key if no other children
+            result[data_key] = clean_value
+
+    return result
+
+
 def get_list_depth(lst):
     """
     Function to calculate the depth of a nested list.
