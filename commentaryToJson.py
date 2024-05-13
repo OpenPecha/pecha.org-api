@@ -263,12 +263,95 @@ def commentaryToRoot():
          for file in files:
             if file.endswith('.json'):
                 try:
-                    with open("{}/jsondata/texts/{}".format(BASEPATH, file), mode='r', encoding='utf-8') as f:
-                        data = json.load(f)
-                        createLinks(data)
+                    if file.endswith('.json'):
+                        with open("{}/jsondata/texts/{}".format(BASEPATH, file), mode='r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            createLinks(data)
                 except Exception as e:
                     print('[Error] opening file: ', e)
                     return
+                
+#                 
+def linkMapper(title, contents, root_detail):
+    links = []
+    refs = {}
+    root_title = root_detail['base_text_titles'][0]
+    if get_list_depth(contents) == 1:
+        #for dept 1
+        range = get_range(contents)
+        for value in range.values():
+            ref = []
+            ref.append(f'{root_title} {value[1][0]}:{value[1][1]}')
+            ref.append(f'{title} {value[0]}')
+            refs['refs'] = ref
+            refs['type'] = 'commentary'
+            links.append(refs)
+            refs = {}
+    else:
+        for i, content in enumerate(contents):
+            if isinstance(content, list):
+                if get_list_depth(content) == 1:
+                    # for dept 2
+                    range = get_range(content)
+                    for value in range.values():
+                        ref = []
+                        ref.append(f'{root_title} {value[1][0]}:{value[1][1]}')
+                        ref.append(f'{title} {i+1}:{value[0]}')
+                        refs['refs'] = ref
+                        refs['type'] = 'commentary'
+                        links.append(refs)
+                        refs = {}
+                else:
+                    for j, data in enumerate(content):
+                        if isinstance(data, list):
+                            #for dept 3
+                            range = get_range(data)
+                            for value in range.values():
+                                ref = []
+                                ref.append(f'{root_title} {value[1][0]}:{value[1][1]}')
+                                ref.append(f'{title} {i+1}:{j+1}:{value[0]}')
+                                refs['refs'] = ref
+                                refs['type'] = 'commentary'
+                                links.append(refs)
+                                refs = {}   
+    if links:
+        j = json.dumps(links, indent=4, ensure_ascii=False)
+        print(j)
+        # create json
+        # commentary_title = title.strip()
+        # with open(f'{BASEPATH}/jsondata/refs/{commentary_title[-30:]}.json', 'w') as file:
+        #    json.dump(links,file, indent=4, ensure_ascii=False) 
+
+    
+    
+
+
+        
+    
+def get_range(data):
+    indices = defaultdict(list)
+    
+    for i, elem in enumerate(data):
+         matches = re.search(r"<\d+><\d+>", elem)
+         if matches:
+            unique_elem = matches.group()
+            indices[unique_elem].append(i)
+
+    output = {}
+    for key, value in indices.items():
+        output[key] = []
+        initial_index = value[0]
+        final_index = value[-1]
+        if initial_index == final_index:
+            output[key].append(str(initial_index + 1))
+            match = re.findall(r'\d+', key)
+            output[key].append( list(map(int, match)))
+        else:
+            output[key].append(f"{initial_index + 1}-{final_index + 1}")
+            match = re.findall(r'\d+', key)
+            output[key].append( list(map(int, match)))
+        
+    return output
 
 def createLinks(data):
     jsonData = data
@@ -276,38 +359,93 @@ def createLinks(data):
 
     #check if jsonData is commentary text or not
     if 'link' in book_last_category:
-        for book in jsonData['source']['books']:
-            chapters = generate_chapters(book['content'])
+
+        # English version
+        for enbook in jsonData['source']['books']:
+            chapters = generate_chapters({}, enbook, enbook['language'])
+
+            for key, value in chapters.items():
+                linkMapper(key, value, book_last_category)
+
+        # Tibetan version
+        for bobook in jsonData['target']['books']:
+            chapters = generate_chapters(bobook, jsonData['source']['books'][0], bobook['language'])
             # j = json.dumps(chapters, indent=4, ensure_ascii=False)
             # print(j)
+
             for key, value in chapters.items():
-                pass
+                linkMapper(key, value, book_last_category)
+        
 
 
-def generate_chapters(book, current_key="", parent_keys=[]):
+def generate_chapters(botext, entext, language, current_key="", parent_keys=[]):
     result = {}
-    for key, value in book.items():
-        full_key = key.strip() if current_key else key
-        new_parent_keys = parent_keys + [key.strip()]  # Update list of parent keys
+    if 'content' in entext:
+        if botext:
+            bobook = botext['content']
+        enbook = entext['content']
+    else:
+        if botext:
+            bobook = botext
+        enbook = entext
+    
+    if isinstance(enbook, dict):
+        if not botext:
+            for key, value in enbook.items():
+                full_key = key if current_key else key
+                new_parent_keys = parent_keys + [key.strip()]
 
-        if isinstance(value, dict):
+                if isinstance(value, dict):
+                    # Check if the dictionary has any children other than 'data'
+                    has_children = any(sub_key != 'data' for sub_key in value.keys())    
+                    child_data = generate_chapters(value, language, full_key, new_parent_keys)
+                    result.update(child_data)  # Merge results from children
+
+                        # If there are other children, include 'data' in the key, else exclude it
+                    if has_children:
+                        if language == 'bo':
+                            data_key = ', '.join(new_parent_keys) + ', དོན་བསྡུས།'
+                        else: 
+                             data_key = ', '.join(new_parent_keys) + ', data'
+                    else:
+                        data_key = ', '.join(new_parent_keys)  # Exclude 'data' from the key if no other children
+                    result[data_key] = value['data']
+        else:
+            for (enkey, envalue), (bokey, bovalue) in zip(enbook.items(), bobook.items()):
+                full_key = enkey if current_key else enkey
+                new_parent_keys = parent_keys + [enkey.strip()]
+                if isinstance(envalue, dict):
+                    # Check if the dictionary has any children other than 'data'
+                    has_children = any(sub_key != 'data' for sub_key in envalue.keys())    
+                    child_data = generate_chapters(bovalue, envalue, language, full_key, new_parent_keys)
+                    result.update(child_data)  # Merge results from children
+                    if has_children:
+                        data_key = ', '.join(new_parent_keys) + ', data'
+                    else:
+                        data_key = ', '.join(new_parent_keys)
+                    if language == 'bo':
+                        result[data_key] = bovalue['data']
+                    else:
+                        result[data_key] = envalue['data']
+
             
-            # Check if the dictionary has any children other than 'data'
-            has_children = any(sub_key != 'data' for sub_key in value.keys())
-            child_data = generate_chapters(value, full_key, new_parent_keys)
-            result.update(child_data)  # Merge results from children
-            
-            # Determine the key for 'data' depending on whether there are other children
-            if 'data' in value:
-                # If there are other children, include 'data' in the key, else exclude it
-                if has_children:
-                    data_key = ', '.join(new_parent_keys) + ', data'  # Include 'data' in key if there are other children
-                else:
-                    data_key = ', '.join(new_parent_keys)  # Exclude 'data' from the key if no other children
-
-                result[data_key] = value['data']
-
+    if isinstance(enbook, list):
+        result[enbook['title']] = enbook['content']
+    
     return result
+
+def get_list_depth(lst):
+    """
+    Function to calculate the depth of a nested list.
+    """
+    if not isinstance(lst, list):  # Base case: not a list, no depth
+        return 0
+    else:
+        max_depth = 0
+        for item in lst:
+            max_depth = max(max_depth, get_list_depth(item))  # Recurse and update max depth
+        return max_depth + 1  # Add one to include the current depth level
+
 
 
 def main():
