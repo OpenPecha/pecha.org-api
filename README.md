@@ -10,15 +10,11 @@ Using pechaAPI.py upload data to Pecha.org.
 
 ---------------------------
 ## To Do
-- [ ] Check if we can use UUIDs for texts
-- [ ] Share tjh
+Put book data files with JSON format into `/json/data/text`
+Put links data files with JSON format into `/json/data/refs`
 
+NOTE: Execute `commentaryToJson.py` script to create links and then execute `pechaAPI`
 
-
-
-
-
-Put data files with JSON format into `/data` and execute pechaAPI.py
 
 The API currently supports 4 types of files:
 1. Texts/Article (Display on the main windows)
@@ -31,17 +27,38 @@ The API currently supports 4 types of files:
 
 Put your JSON files (file name is arbitrary) into `/data/texts` and execute pechaAPI.py
 
-The sample file description:
-
-    {
-        "中文": {
-            "Category 1": {
-                "Category 2": {
-                    "Category 3": {
-                        "The Title of Texts": {
-                            "The Version Title of the Texts": [
+The sample file description for complext text:
+```
+{
+    "source": {
+        "categories": [
+            {
+                "name": "category1",
+                "enDesc": "category1 long description",
+                "enShortDesc": "category1 short description"
+            },
+            {
+                "name": "category2",
+                "enDesc": "category2 long description",
+                "enShortDesc": "category2 short description"
+            },
+            {
+                "name": "book title",
+                "enDesc": "book title long description",
+                "enShortDesc": "book title short description"
+            }
+        ],
+        "books": [
+            {
+                "title": "book title",
+                "language": "en|he(ie. tibetan)|fr etc.",
+                "versionSource": "",
+                "content": {
+                    "book title": {
+                        "level1": {
+                            "data": [
                                 [
-                                    "section 1, sentence 1 (corresponds to the position in the "བོད་ཡིག" data)",
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level1" data)",
                                     "section 1, sentence 2",
                                     "section 1, sentence 3",
                                     "section 1, sentence 4",
@@ -55,157 +72,278 @@ The sample file description:
                                     "section 2, sentence 5"
                                 ]
                             ]
-                        }
+                        },
+                        "level2": {
+                            "The actual benefits of listening to and reading the words of the Great Perfection as they are intended applied and recited by a yogin who has attained stability on the path of the Great Perfection": {
+                                "data": [ 
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
+                            },
+                            "The Key Points of Time": {
+                                "data": [
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level1" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
+                            },
+                            "data": [.
+                            "section 1, sentence 1 (corresponds to the position in the "target>book>data"data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"]
+                        },
+                        "data": [
+                            "section 1, sentence 1 (corresponds to the position in the "target>book>data"data)",
+                                    "section 1, sentence 2",
+                        ]
                     }
                 }
+            },
+            {
+                # version for above book
+                "title": "book title",
+                "language": "en|he(ie. tibetan)|fr etc.",
+                "versionSource": "",
+                "content": {
+                    "same structure as above book"
+                }
             }
-        },
-        "བོད་ཡིག": {
-            "Category 1'": {
-                "Category 2'": {
-                    "Category 3'": {
-                        "The Title of Texts'": {
-                            "The Version Title of the Texts'": [
+        ]
+    },
+    # for tibetan
+    "target": {
+        "categories": [
+            {
+                "name": "category1 in tibetan (bo)",
+                "enDesc": "category1 long description in tibetan (bo)",
+                "enShortDesc": "category1 short description in tibetan (bo)"
+            },
+            {
+                "name": "category2 in tibetan (bo)",
+                "enDesc": "category2 long description in tibetan (bo)",
+                "enShortDesc": "category2 short description in tibetan (bo)"
+            },
+            {
+                "name": "book title in tibetan (bo)",
+                "enDesc": "book title long description in tibetan (bo)",
+                "enShortDesc": "book title short description in tibetan (bo)"
+            }
+        ],
+        "books": [
+            {
+                "title": "book title in tibetan (bo)",
+                "language": "bo",
+                "versionSource": "",
+                "content": {
+                    "book title in tibetan (bo)": {
+                        "level1 book title in tibetan (bo)": {
+                            "data": [
                                 [
-                                    "section 1', sentence 1' (corresponds to the position in the "中文" data)",
-                                    "section 1', sentence 2'",
-                                    "section 1', sentence 3'",
-                                    "section 1', sentence 4'",
-                                    "section 1', sentence 5'"
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level1" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
                                 ],
                                 [
-                                    "section 2', sentence 1'",
-                                    "section 2', sentence 2'",
-                                    "section 2', sentence 3'",
-                                    "section 2', sentence 4'",
-                                    "section 2', sentence 5'"
+                                    "section 2, sentence 1",
+                                    "section 2, sentence 2",
+                                    "section 2, sentence 3",
+                                    "section 2, sentence 4",
+                                    "section 2, sentence 5"
                                 ]
                             ]
-                        }
+                        },
+                        "སྨོན་ལམ་ཀློག་པ་དང་ཐོས་པའི་ཕན་ཡོན་བསྟན་པ།": {
+                            "རྫོགས་ཆེན་གྱི་ལམ་ལ་བརྟན་པ་ཐོབ་པའི་རྣལ་འབྱོར་པས་བསམ་པས་ཇི་ལྟར་སྨོན་པ་དང་སྦྱོར་བ་ཚིག་ཉན་ཀློག་བྱས་པའི་ཕན་ཡོན་དངོས།": {
+                                "data": [ 
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
+                            },
+                            "དུས་གནད་བསྟན་པ།": {
+                                "data": [ 
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
+                            },
+                            "data": [ 
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
+                        },
+                        "data": [ 
+                                    "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
+                                    "section 1, sentence 2",
+                                    "section 1, sentence 3",
+                                    "section 1, sentence 4",
+                                    "section 1, sentence 5"
+                                ]
                     }
                 }
             }
-        }
+        ]
     }
+}
 
-A sample file with parallel texts:
-
-    {
-        "中文": {
-            "佛陀的話": {
-                "經": {
-                    "寶積部": {
-                        "《大寶積經・43 普明菩薩會》[t310_43|toh87]": {
-                            "《大寶積經・43 普明菩薩會》[t310_43|toh87]": [
-                                [
-                                    "大寶積經卷第一百一十二失譯附秦錄勘同編入普明菩薩會第四十三",
-                                    "",
-                                    "如是我聞：一時",
-                                    "佛在王舍城耆闍崛山中，",
-                                    "與大比丘眾八千人俱。 菩薩摩訶薩萬六千人，皆是阿惟越致，從諸佛土而來集會，悉皆一生當成無上正真大道。"
-                                ],
-                                [
-                                    "",
-                                    "答言：「自利不可得故。」",
-                                    "答言：「所作不可得故。」",
-                                    "又問：「汝等煩惱盡耶？」",
-                                    "答言：「一切諸法畢竟無盡相故。」"
-                                ]
-                            ]
-                        }
-                    }
-                }
+```
+A sample file for simple text (ie. booking having only one level): 
+```
+{
+    "source": {
+        "categories": [
+            {
+                "name": "Liturgy",
+                "enDesc": "",
+                "enShortDesc": "Prayers and rituals"
+            },
+            {
+                "name": "Prayers",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "Prayer of Kuntuzangpo",
+                "enDesc": "",
+                "enShortDesc": "The Powerful Aspiration"
             }
-        },
-        "བོད་ཡིག": {
-            "སངས་རྒྱས་གསུམ": {
-                "མདོ་སྡེ་": {
-                    "རིན་བཀུཏ་མདོ་": {
-                        "འཕགས་པ་འོད་སྲུང་གི་ལེའུ་ཞེས་བྱ་བ་ཐེག་པ་ཆེན་པོའི་མདོ [toh87|t310_43]": {
-                            "འཕགས་པ་འོད་སྲུང་གི་ལེའུ་ཞེས་བྱ་བ་ཐེག་པ་ཆེན་པོའི་མདོ [toh87|t310_43]": [
-                                [
-                                    "འཕགས་པ་འོད་སྲུང་གི་ལེའུ་ཞེས་བྱ་བ་ཐེག་པ་ཆེན་པོའི་མདོ། །",
-                                    "སངས་རྒྱས་དང་། བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ། །",
-                                    "འདི་སྐད་བདག་གིས་ཐོས་པ་དུས་གཅིག་ན།",
-                                    "བཅོམ་ལྡན་འདས་རྒྱལ་པོའི་ཁབ་ནི་བྱ་རྒོད་ཀྱི་ཕུང་པོའི་རི་ལ།",
-                                    "དགེ་སློང་བརྒྱད་སྟོང་གི་དགེ་སློང་གི་དགེ་ འདུན་ཆེན་པོ་དང་། བྱང་ཆུབ་སེམས་དཔའ་སངས་རྒྱས་ཀྱི་ཞིང་སྣ་ཚོགས་ནས། འདུས་པ་ཁྲི་དྲུག་སྟོང་ཐམས་ཅད་ཀྱང་འདི་ལྟ་སྟེ། བླ་ན་མེད་པ་ཡང་དག་པར་རྫོགས་པའི་བྱང་ཆུབ་ཏུ་སྐྱེ་བ་གཅིག་གིས་ཐོགས་པ་ཤ་སྟག་དང་ཐབས་ཅིག་ཏུ་བཞུགས་ཏེ།"
-                                ],
-                                [
-                                    "སྨྲས་པ། ངར་འཛིན་པ་དང་། ང་ཡིར་འཛིན་པ་ཡོངས་སུ་ཤེས་པས་སོ། །",
-                                    "",
-                                    "",
-                                    "སྨྲས་པ། ཁྱེད་ཀྱི་ཉོན་མོངས་པ་ཟད་དམ།",
-                                    "སྨྲས་པ། ཆོས་ཐམས་ཅད་གཏན་དུ་ ཟད་པའི་ཕྱིར་རོ། །"
-                                ]
-                            ]
-                        }
-                    }
-                }
+        ],
+        "books": [
+            {
+                "title": "Prayer of Kuntuzangpo",
+                "language": "en",
+                "versionSource": " ",
+                "content": [
+                    [ 
+                        "section 1, sentence 1 (corresponds to the position in the "target>book>" content)",
+                        "section 1, sentence 2",
+                        "section 1, sentence 3",
+                        "section 1, sentence 4",
+                        "section 1, sentence 5"
+                    ]
+                ],
+                "direction": "ltr"
             }
-        }
+        ]
+    },
+    "target": {
+        "categories": [
+            {
+                "name": "ཆོ་ག",
+                "heDesc": "",
+                "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
+            },
+            {
+                "name": "སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": ""
+            },
+            {
+                "name": "ཀུན་བཟང་སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
+            }
+        ],
+        "books": [
+            {
+                "title": "ཀུན་བཟང་སྨོན་ལམ།",
+                "language": "bo",
+                "versionSource": " ",
+                "content": [
+                    [ 
+                        "section 1, sentence 1 (corresponds to the position in the "target>book>" content)",
+                        "section 1, sentence 2",
+                        "section 1, sentence 3",
+                        "section 1, sentence 4",
+                        "section 1, sentence 5"
+                    ]
+                ],
+                "direction": "ltr"
+            }
+        ]
     }
-
+}
+```
 #### Note:
-1. Do not change the 2 keys "中文" and "བོད་ཡིག" in the first-level of dictionary/hash. Other content can be replaced in any language.
 
-2. The level of category can be reduced or increased, but the upper(key="中文") and lower(key="བོད་ཡིག") levels must correspond, and cannot be a null value.
+1. The level of category can be reduced or increased.
 
-3. Category1 corresponding to Category1' will be regarded by the system as a unique key value and Category2 to Category2' and so on. If Category1 to Category X shows in a new file, this file can not be imported into the database.
+2. source>Category1 corresponding to target>Category1' will be regarded by the system as a unique key value and source>Category2 to target>Category2' and so on. If Category1 to Category X shows in a new file, this file can not be imported into the database.
 
 4. "The Title of Texts" and "The Version Title of the Texts" follow the same unique key rule as Categories. And "Categories", "Titles", and "Version Titles" can not be empty.
 
 5. The section and sentence can be empty like this:
     "The Version Title of the Texts'": []
 
-6. Although the default setting divides "categories" and "texts" into two major classes, Chinese("中文") and Tibetan("བོད་ཡིག"), they can also be regarded as a main category and a parallel category, and texts in the same language or various languages ​​can be included as needed.
+6. Although the default setting divides "categories" and "texts" into two major classes, English("source") and Tibetan("target"), they can also be regarded as a main category and a parallel category, and texts in the same language or various languages ​​can be included as needed.
 
 #### 2) Translation
 
 Put your JSON files (file name is arbitrary) into `/data/texts` and execute pechaAPI.py
 
 The sample file description:
-
-    {
-        "中文": {
-            "Category 1": {
-                "Category 2": {
-                    "Category 3": {
-                        "The Title of Texts": {
-                            "The Version Title of the Texts I": [
-                                [
-                                    "section 1, sentence 1",
-                                    "section 1, sentence 2",
-                                    "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"
-                                ]
-                            ],
-                            "The Version Title of the Texts II": [
-                                [
-                                    "section 1, sentence 1",
-                                    "section 1, sentence 2",
-                                    "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"
-                                ]
-                            ]
-                        }
-                    }
-                }
+```
+{
+    "source": {
+        "categories": [...],
+        "books": [
+            {
+                "title": "book title",
+                "language": "two charecters language code (e.g fr | es | zh etc.)",
+                "versionSource": "",
+                "content": [
+                    [ 
+                        "section 1, sentence 1 (corresponds to the position in the "target>book>" content)",
+                        "section 1, sentence 2",
+                        "section 1, sentence 3",
+                        "section 1, sentence 4",
+                        "section 1, sentence 5"
+                    ]
+                ],
+                "direction": "ltr"
             }
-        },
-        "བོད་ཡིག": {
-            "Category 1'": {
-                "Category 2'": {
-                    "Category 3'": {
-                        "The Title of Texts'": {
-                            "The Version Title of the Texts'": []
-                        }
-                    }
-                }
-            }
-        }
+        ]
     }
+    },
+    "target": {
+        "categories": [...],
+        "books": [
+            {
+                "title": "book title",
+                "language": "two charecters language code (e.g fr | es | zh etc.)",
+                "versionSource": "",
+                "content": [
+                    [ 
+                        "section 1, sentence 1 (corresponds to the position in the "target>book>" content)",
+                        "section 1, sentence 2",
+                        "section 1, sentence 3",
+                        "section 1, sentence 4",
+                        "section 1, sentence 5"
+                    ]
+                ],
+                "direction": "ltr"
+            }
+        ]
+    }
+}
+
+```
 
 #### Note:
 Sentences in diferent version will display on the Resource List erea.
@@ -222,7 +360,7 @@ A sample file:
             "url": "https://cbetaonline.dila.edu.tw/zh/T11n0310_p0623b05",
             "title": "CBETA: T0310",
             "refs": [
-                "[The Title of Texts] [section_number]:[sentence_number]"
+                "Prayer of Kuntuzangpo 1:2"
             ],
             "lastUpdated": "2023-11-11"
         },
@@ -231,7 +369,7 @@ A sample file:
             "url": "https://cbetaonline.dila.edu.tw/zh/T11n0310_p0623b06",
             "title": "CBETA: T0310",
             "refs": [
-                "《大寶積經・40 淨信童女會》[t310_40|toh84] 2:1"
+                "Prayer of Kuntuzangpo 1:74"
             ],
             "lastUpdated": "2023-11-11"
         },
@@ -256,10 +394,11 @@ A sample file:
         },
         {
             "refs": [
-                "文章名稱A 2:1-3", 
-                "文章名稱Z 1:3"
+                "Prayer of Kuntuzangpo 1:2", 
+                "The short path of Samantabhadra the lamp that illuminates with light 1:1-6"
+        
             ],
-            "type": "summary",
+            "type": "commentary",
         }
     ]
 
