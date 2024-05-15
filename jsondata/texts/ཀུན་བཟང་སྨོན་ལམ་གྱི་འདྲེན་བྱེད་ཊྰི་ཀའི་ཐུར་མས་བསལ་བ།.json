@@ -7,12 +7,7 @@
                 "enShortDesc": "Prayers and rituals"
             },
             {
-                "name": "Prayers",
-                "enDesc": "",
-                "enShortDesc": ""
-            },
-            {
-                "name": "Commentary",
+                "name": "Commentaries",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -130,11 +125,6 @@
                 "name": "ཆོ་ག",
                 "heDesc": "",
                 "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
-            },
-            {
-                "name": "སྨོན་ལམ།",
-                "heDesc": "",
-                "heShortDesc": ""
             },
             {
                 "name": "འགྲེལ་པ།",

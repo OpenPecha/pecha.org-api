@@ -736,12 +736,11 @@ def generate_schema(enbook, bobook, en_key="", bo_key=""):
                 data_node = create_data_node(enkey, 'དོན་བསྡུས།', envalue, bovalue)
                 nodes.append(data_node)
     if isinstance(entext, list):
-        data_node = create_data_node(enbook['title'], ['title'], entext, botext)
+        data_node = create_data_node(enbook['title'], bobook['title'], entext, botext)
         nodes.append(data_node)
     return nodes
 
 def create_data_node(en_key, bo_key, envalue, bovalue):
-    print(en_key, bo_key)
     text_depth = None
     sectionNames = ['Chapters', 'Verses', 'Paragraphs']
 
