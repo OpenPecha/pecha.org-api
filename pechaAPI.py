@@ -10,7 +10,7 @@ from datetime import datetime
 apikey = "myadminsecretkey"
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://pecha.org/"
+baseURL = "https://staging.pecha.org/"
 #baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
@@ -733,7 +733,7 @@ def generate_schema(enbook, bobook, en_key="", bo_key=""):
                     nodes.append(node)
 
             elif enkey == "data":
-                data_node = create_data_node(enkey, 'དོན་བསྡུས།', envalue, bovalue)
+                data_node = create_data_node(enkey, 'གནས་བབས', envalue, bovalue)
                 nodes.append(data_node)
     if isinstance(entext, list):
         data_node = create_data_node(enbook['title'], bobook['title'], entext, botext)
@@ -824,7 +824,7 @@ def generate_chapters(book, language, current_key="", parent_keys=[]):
                 # If there are other children, include 'data' in the key, else exclude it
             if has_children:
                 if language == 'bo':
-                    data_key = ', '.join(new_parent_keys) + ', དོན་བསྡུས།' 
+                    data_key = ', '.join(new_parent_keys) + ', གནས་བབས' 
                 else: 
                      data_key = ', '.join(new_parent_keys) + ', data'
             else:

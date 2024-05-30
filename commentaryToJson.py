@@ -318,9 +318,9 @@ def linkMapper(title, contents, root_detail):
         j = json.dumps(links, indent=4, ensure_ascii=False)
         print(j)
         # create json
-        # commentary_title = title.strip()
-        # with open(f'{BASEPATH}/jsondata/refs/{commentary_title[-30:]}.json', 'w') as file:
-        #    json.dump(links,file, indent=4, ensure_ascii=False) 
+        commentary_title = title.strip()
+        with open(f'{BASEPATH}/jsondata/refs/{commentary_title[-30:]}.json', 'w') as file:
+           json.dump(links,file, indent=4, ensure_ascii=False) 
 
     
     
@@ -396,26 +396,26 @@ def generate_chapters(botext, entext, language, current_key="", parent_keys=[]):
                 new_parent_keys = parent_keys + [key.strip()]
 
                 if isinstance(value, dict):
-                    # Check if the dictionary has any children other than 'data'
+                    # Check if the dictionary has any children other than data
                     has_children = any(sub_key != 'data' for sub_key in value.keys())    
                     child_data = generate_chapters(value, language, full_key, new_parent_keys)
                     result.update(child_data)  # Merge results from children
 
-                        # If there are other children, include 'data' in the key, else exclude it
+                        # If there are other children, include data in the key, else exclude it
                     if has_children:
                         if language == 'bo':
-                            data_key = ', '.join(new_parent_keys) + ', དོན་བསྡུས།'
+                            data_key = ', '.join(new_parent_keys) + ', གོང་གི་ས་བཅད་ཀྱི་ནང་དོན།'
                         else: 
                              data_key = ', '.join(new_parent_keys) + ', data'
                     else:
-                        data_key = ', '.join(new_parent_keys)  # Exclude 'data' from the key if no other children
+                        data_key = ', '.join(new_parent_keys)  # Exclude data from the key if no other children
                     result[data_key] = value['data']
         else:
             for (enkey, envalue), (bokey, bovalue) in zip(enbook.items(), bobook.items()):
                 full_key = enkey if current_key else enkey
                 new_parent_keys = parent_keys + [enkey.strip()]
                 if isinstance(envalue, dict):
-                    # Check if the dictionary has any children other than 'data'
+                    # Check if the dictionary has any children other than data
                     has_children = any(sub_key != 'data' for sub_key in envalue.keys())    
                     child_data = generate_chapters(bovalue, envalue, language, full_key, new_parent_keys)
                     result.update(child_data)  # Merge results from children
