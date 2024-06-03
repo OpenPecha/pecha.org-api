@@ -1,33 +1,39 @@
 
-## API for Pecha.org 
+# API for Pecha.org 
 
-Using pechaAPI.py upload data to Pecha.org.
+## Overview
+The Pecha.org API is a tool designed to facilitate the uploading and management of textual and reference data. This API supports a structured approach to managing texts, translations, web links, commentaries, references, and additional notes, ensuring that the data is well-organized and easily accessible.
 
+### Key Features:
+1. **Texts/Articles**: Allows uploading and categorizing complex or simple texts, including multiple levels of content and language-specific details.
+2. **Translations**: Supports adding translations of texts, ensuring multilingual accessibility.
+3. **Web Links**: Facilitates the inclusion of web links that reference specific sections and sentences within texts.
+4. **Commentaries and References**: Enables the addition of commentaries and references that provide deeper insights and connections between texts.
+5. **Sheets for Additional Notes**: Allows for the addition of extra notes related to specific sections of the texts.
+
+### Supported File Types:
+- **Texts/Articles**: JSON files containing the primary texts and their hierarchical structure.
+- **Translations**: JSON files with translations of the texts.
+- **Web Links**: JSON files linking to external resources related to specific text sections.
+- **Commentaries and References**: JSON files with commentary and reference details.
+- **Sheets**: JSON files for additional notes and annotations.
+
+### Usage Workflow:
+1. **Prepare JSON Files**: Ensure that the data files follow the specific formats required by the API.
+2. **Organize Files**: Place book json data files in /jsondata/texts and links data files in /jsondata/refs.
+3. **Execute Scripts**: Run the commentaryToJson.py script to create links, followed by executing pechaAPI.py to upload the data to Pecha.org.
 
 ## Useful links
-- [Text classifications]()
+- 
 
 
----------------------------
-## To Do
-Put book data files with JSON format into `/json/data/text`
-Put links data files with JSON format into `/json/data/refs`
+## File Types 
 
-NOTE: Execute `commentaryToJson.py` script to create links and then execute `pechaAPI`
+### 1) Texts/Article
 
+Put your JSON files (file name is arbitrary) into `/jsondata/texts` and execute pechaAPI.py
 
-The API currently supports 4 types of files:
-1. Texts/Article (Display on the main windows)
-2. Translation (Display on the Resource List)
-3. Web Link for Texts (Display on the Resource List)
-4. Commentary, Reference, Summary (Display on the Resource List)
-5. Sheets (Display on the Resource List)
-
-#### 1) Texts/Article
-
-Put your JSON files (file name is arbitrary) into `/data/texts` and execute pechaAPI.py
-
-The sample file description for complext text:
+**The sample/example file description for complext text**:
 ```
 {
     "source": {
@@ -60,16 +66,11 @@ The sample file description for complext text:
                                 [
                                     "section 1, sentence 1 (corresponds to the position in the "target>book>level1" data)",
                                     "section 1, sentence 2",
-                                    "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"
+                                    "section 1, sentence 3"
                                 ],
                                 [
                                     "section 2, sentence 1",
                                     "section 2, sentence 2",
-                                    "section 2, sentence 3",
-                                    "section 2, sentence 4",
-                                    "section 2, sentence 5"
                                 ]
                             ]
                         },
@@ -79,25 +80,19 @@ The sample file description for complext text:
                                     "section 1, sentence 1 (corresponds to the position in the "target>book>level2" data)",
                                     "section 1, sentence 2",
                                     "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"
                                 ]
                             },
                             "The Key Points of Time": {
                                 "data": [
                                     "section 1, sentence 1 (corresponds to the position in the "target>book>level1" data)",
                                     "section 1, sentence 2",
-                                    "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"
                                 ]
                             },
                             "data": [.
-                            "section 1, sentence 1 (corresponds to the position in the "target>book>data"data)",
-                                    "section 1, sentence 2",
-                                    "section 1, sentence 3",
-                                    "section 1, sentence 4",
-                                    "section 1, sentence 5"]
+                                "section 1, sentence 1 (corresponds to the position in the "target>book>data"data)",
+                                        "section 1, sentence 2",
+                                        "section 1, sentence 3",
+                            ]
                         },
                         "data": [
                             "section 1, sentence 1 (corresponds to the position in the "target>book>data"data)",
@@ -293,9 +288,9 @@ A sample file for simple text (ie. booking having only one level):
 
 6. Although the default setting divides "categories" and "texts" into two major classes, English("source") and Tibetan("target"), they can also be regarded as a main category and a parallel category, and texts in the same language or various languages ​​can be included as needed.
 
-#### 2) Translation
+### 2) Translation
 
-Put your JSON files (file name is arbitrary) into `/data/texts` and execute pechaAPI.py
+Put your JSON files (file name is arbitrary) into `/jsondata/texts` and execute pechaAPI.py
 
 The sample file description:
 ```
@@ -348,9 +343,9 @@ The sample file description:
 #### Note:
 Sentences in diferent version will display on the Resource List erea.
 
-#### 3) Web Link for Sentence
+### 3) Web Link for Sentence
 
-Put your JSON files (file name is arbitrary) into `/data/webpages` and execute pechaAPI.py
+Put your JSON files (file name is arbitrary) into `/jsondata/webpages` and execute pechaAPI.py
 
 A sample file:
 
@@ -378,9 +373,9 @@ A sample file:
 #### Note:
 In "refs": [ "[The Title of Texts] [section_number]:[sentence_number]" ], the [section_number]:[sentence_number] refers to the content of "The Version Title of the Texts" under [The Title of Texts].
 
-#### 4) Commentary, Reference, Summary
+### 4) Commentary, Reference, Summary
 
-Put your JSON files (file name is arbitrary) into `/data/refs` and execute pechaAPI.py
+Put your JSON files (file name is arbitrary) into `/jsondata/refs` and execute pechaAPI.py
 
 A sample file:
 
@@ -407,9 +402,9 @@ A sample file:
 
 2. The reference links will display on the Resource List.
 
-#### 5) Sheet for Additional Notes
+### 5) Sheet for Additional Notes
 
-Put your JSON files (file name is arbitrary) into `/data/sheets` and execute pechaAPI.py
+Put your JSON files (file name is arbitrary) into `/jsondata/sheets` and execute pechaAPI.py
 
 A sample file:
 
