@@ -270,9 +270,13 @@ def post_text(indexSTR, textDICT):
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(f"\n\n{res} \n {indexSTR}" )
         if "error" not in res:
+            print(f"\n{res}\n")
             return True
+        elif "Failed to parse sections for ref" in res:
+            print('\n{"status": "ok"}\n')
+            return True
+        
         return False
     except HTTPError as e:
         print('Error code: ', e.code)
@@ -339,14 +343,14 @@ def post_link(refLIST, typeSTR):
         res = response.read().decode('utf-8')
         print(res)
         if "error" not in res:
-            return True
-        # elif "Link already exists" in res["error"]:
-        #     return True
-        return False
+            return {"status": True, "res": res}
+        elif "Link already exists" in res:
+            return {"status": False, "res": res}
+        return {"status": True, "res": res}
     except (HTTPError) as e:
         print('Error code: ', e.code)
         print(e.read())
-        return False
+        return {"status": False, "res": e.read()}
 
 def post_sheet(titleSTR, sourceLIST):
     """
@@ -647,35 +651,36 @@ def add_by_file(fileSTR, textType):
     
     '''
     print("==post_text==")
+    
+    for i, book in enumerate(payload["textHe"]):
+        boText = {
+                "versionTitle": book['title'],
+                "versionSource": book["versionSource"],
+                "language": "he",
+                "actualLanguage": book["language"],
+                "text": []
+            }
+        if i == 0:
+            boText["isBaseText"] = True
+        # for complex text
+        if isinstance(book['content'], dict):
+            result = generate_chapters(book['content'], book["language"])
+            for key, value in result.items():
+                boText['text'] = value
+                if not post_text(key, boText):
+                    success = False
+                
+        if isinstance(book['content'], list):
+            boText['text'] = book['content']
+
+            if not post_text(book['title'], boText):
+                success = False
+    
     for i, book in enumerate(payload["textEn"]):
         enText = {
                 "versionTitle": book['title'],
                 "versionSource": book["versionSource"],
                 "language": "en",
-                "actualLanguage": book["language"],
-                "text": []
-            }
-        if i == 0:
-            enText["isBaseText"] = True
-        # for complex text
-        if isinstance(book['content'], dict):
-            result = generate_chapters(book['content'], book["language"])
-            for key, value in result.items():
-                enText['text'] = value
-                if not post_text(key, enText):
-                    success = False
-                
-        if isinstance(book['content'], list):
-            enText['text'] = book['content']
-
-            if not post_text(book['title'], enText):
-                success = False
-
-    for i, book in enumerate(payload["textHe"]):
-        enText = {
-                "versionTitle": book['title'],
-                "versionSource": book["versionSource"],
-                "language": "he",
                 "actualLanguage": book["language"],
                 "text": []
             }
@@ -879,7 +884,6 @@ def add_texts(textType):
             print("=== [Failed] ===")
             return
         print("=== [Finished] {} ===".format(data))
-        sleep(3)
 
 def add_sheets():
     """
@@ -902,7 +906,6 @@ def add_sheets():
         with open("{}/jsondata/sheets/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             sheet= json.load(f)
         post_sheet(sheet["title"], sheet["sheet"])
-        sleep(3)
     
 
 def add_refs():
@@ -928,19 +931,19 @@ def add_refs():
         
         with open("{}/jsondata/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             refLIST = json.load(f)
-            remove_links(refLIST[0]["refs"][1])
+            #remove_links(refLIST[0]["refs"][1])
         for ref in refLIST:
             # Separate refs since the API only support adding 2 refs at the same time.
             for i in range(0, len(ref["refs"])-1):
                 for j in range(i+1, len(ref["refs"])):
                     successBOOL = post_link([ref["refs"][i], ref["refs"][j]], ref["type"])
+
                     # Failed
-                    if not successBOOL:
-                        failedLIST.append({(ref["refs"][i], ref["refs"][j]), ref["type"]})
+                    if not successBOOL['status']:
+                        failedLIST.append(successBOOL['res'])
         with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
-        sleep(3)
     with open("{}/jsondata/refs/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
 
@@ -999,7 +1002,6 @@ def add_webpages():
         with open("{}/jsondata/webpages/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
-        sleep(5)
     with open("{}/jsondata/webpages/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
 

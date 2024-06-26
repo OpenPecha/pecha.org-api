@@ -16,6 +16,7 @@
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
+                    "ཀུན་བཟང་སྨོན་ལམ།",
                     "Prayer of Kuntuzangpo"
                 ],
                 "base_text_mapping": "many_to_one",
@@ -138,6 +139,7 @@
                 "heDesc": "",
                 "heShortDesc": "ཊྰི་ཀའི་ཐུར་མས་བསལ་བ།",
                 "base_text_titles": [
+                    "ཀུན་བཟང་སྨོན་ལམ།",
                     "Prayer of Kuntuzangpo"
                 ],
                 "base_text_mapping": "many_to_one",
