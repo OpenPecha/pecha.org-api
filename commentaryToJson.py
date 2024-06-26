@@ -257,14 +257,14 @@ BASEPATH = os.path.dirname(os.path.abspath(__file__))
 #        json.dump(total_link,file, indent=4, ensure_ascii=False) 
 
      
-def commentaryToRoot():
+def commentaryToRoot(textType):
     print(BASEPATH)
-    for root, dirs, files in os.walk(f"{BASEPATH}/jsondata/texts/"):
+    for root, dirs, files in os.walk(f"{BASEPATH}/jsondata/texts/{textType}"):
          for file in files:
             if file.endswith('.json'):
                 try:
                     if file.endswith('.json'):
-                        with open("{}/jsondata/texts/{}".format(BASEPATH, file), mode='r', encoding='utf-8') as f:
+                        with open("{}/jsondata/texts/{}/{}".format(BASEPATH, textType, file), mode='r', encoding='utf-8') as f:
                             data = json.load(f)
                             createLinks(data)
                 except Exception as e:
@@ -451,6 +451,7 @@ def get_list_depth(lst):
 def main():
     print("------ TXT TO JSON -----")
     #txtToJson()
-    commentaryToRoot()
+    commentaryToRoot('baseText')
+    commentaryToRoot('commentaryText')
     
 main()

@@ -7,11 +7,14 @@ from pprint import pprint
 from time import sleep
 from datetime import datetime
 
-apikey = "myadminsecretkey"
+apikey = "qqQdIZAFJ03fpUB71eTW4kCIxa7mGgi2indvdkXMzGA"
+headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://staging.pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -20,7 +23,7 @@ def get_term(termSTR):
         `termSTR`: str, term name
     """
     url = baseURL + "api/terms/" + urllib.parse.quote(termSTR)
-    req = urllib.request.Request(url)
+    req = urllib.request.Request(url, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -59,7 +62,7 @@ def post_term(termEnSTR, termHeSTR):
     }
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="POST")
+    req = urllib.request.Request(url, binary_data, method="POST", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -79,7 +82,7 @@ def get_category(pathSTR):
         `pathSTR`: str, example: "Indian Treatises/Madyamika/The way of the bodhisattvas"
     """
     url = baseURL + "api/category/" + urllib.parse.quote(pathSTR)
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
 
     try:
         response = urllib.request.urlopen(req)
@@ -123,7 +126,7 @@ def post_category(enPathList, hePathList):
 
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
 
     try:
         response = urllib.request.urlopen(req)
@@ -145,7 +148,7 @@ def get_index(indexSTR):
         `indexSTR`: str, article en name
     """
     url = "%s/%s?with_content_counts=1" % (baseURL + "api/v2/raw/index", indexSTR.replace(" ", "_"))
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         pprint(json.loads(response.read().decode('utf-8')))
@@ -203,7 +206,7 @@ def post_index(indexSTR, pathLIST, nodes, text_depth):
     }
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -222,7 +225,7 @@ def get_text(indexSTR):
         `indexSTR`: str, article name
     """
     url = "%s/%s?pad=0" % (baseURL + "api/texts", urllib.parse.quote(indexSTR))
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -263,11 +266,11 @@ def post_text(indexSTR, textDICT):
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
+        print(f"\n\n{res} \n {indexSTR}" )
         if "error" not in res:
             return True
         return False
@@ -295,7 +298,7 @@ def get_link(linkSTR, with_text=1):
         else:
             linkURL += c
     url = baseURL + "api/links/%s?with_text=%d" % (linkURL, with_text)
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode("utf-8"))
@@ -330,15 +333,15 @@ def post_link(refLIST, typeSTR):
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
         print(res)
         if "error" not in res:
             return True
-        elif "Link already exists" in res["error"]:
-            return True
+        # elif "Link already exists" in res["error"]:
+        #     return True
         return False
     except (HTTPError) as e:
         print('Error code: ', e.code)
@@ -393,7 +396,7 @@ def post_sheet(titleSTR, sourceLIST):
     values = {'json': sheetDumpJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -427,7 +430,7 @@ def post_webpage(webpage):
     values = {'json': webpageJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="POST")
+    req = urllib.request.Request(url, binary_data, method="POST", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -450,7 +453,7 @@ def get_related(titleSTR):
     values = {'private': True, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="GET")
+    req = urllib.request.Request(url, binary_data, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -572,14 +575,16 @@ def test_webpage():
 """
 Data-adding directory default in `Pecha.org/tools/jsondata`
 """
-def add_by_file(fileSTR):
+def add_by_file(fileSTR, textType):
     """
     Read a text file and add.
     """
     success = True
+    file = "{}/jsondata/texts/{}/{}".format(BASEPATH,textType, fileSTR)
     print("==========={}===========".format(fileSTR))
+    
     try:
-        with open("{}/jsondata/texts/{}".format(BASEPATH, fileSTR), mode='r', encoding='utf-8') as f:
+        with open(file, mode='r', encoding='utf-8') as f:
             data = json.load(f)
     except Exception as e:
         print('[Error] opening file: ', e)
@@ -849,11 +854,11 @@ def get_list_depth(lst):
 
 
 
-def add_texts():
+def add_texts(textType):
     """
     Add all text files in `/jsondata/texts`.
     """
-    dataLIST = os.listdir("{}/jsondata/texts".format(BASEPATH))
+    dataLIST = os.listdir("{}/jsondata/texts/{}".format(BASEPATH, textType))
     try:    # Added text save to `success.txt`
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
@@ -868,7 +873,7 @@ def add_texts():
             continue
         elif data == "success.txt":
             continue
-        successBOOL = add_by_file(data)
+        successBOOL = add_by_file(data, textType)
         # 有錯誤先終止
         if not successBOOL:
             print("=== [Failed] ===")
@@ -951,7 +956,7 @@ def remove_links(textTitle):
     }
     data = urllib.parse.urlencode(values)
     binary_key = data.encode('ascii')
-    req = urllib.request.Request(url, binary_key, method="DELETE")
+    req = urllib.request.Request(url, binary_key, method="DELETE", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         linkData = response.read().decode("utf-8")
@@ -1038,8 +1043,10 @@ def main():
     """
     print("========= texts =========")
     if not os.path.exists("{}/jsondata/texts".format(BASEPATH)):
-        os.mkdir("{}/jsondata/texts".format(BASEPATH))
-    add_texts()
+        os.mkdir("{}/jsondata/texts/baseText".format(BASEPATH))
+        os.mkdir("{}/jsondata/texts/commentaryText".format(BASEPATH))
+    add_texts("baseText")
+    add_texts("commentaryText")
     
     print("========= sheets =========")
     if not os.path.exists("{}/jsondata/sheets".format(BASEPATH)):
