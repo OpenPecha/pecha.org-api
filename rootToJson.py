@@ -1,6 +1,7 @@
 import os
 import json
 import yaml
+import re
 
 BASEPATH = os.path.dirname(os.path.abspath(__file__))  
 
@@ -21,23 +22,49 @@ def parseBook(url, file):
         'content': []
     }
     content = []
+    chapter = []
+    line_breaker = ["། །","ག །","ག།","།།","ཤ །","ཤ།","ཀ།","ཀ །"]
     try:
         with open(f'{url}/{file}', mode='r', encoding='utf-8') as f:
             text = f.read()
             # Split the text into paragraphs
             paragraphs = text.split('\n\n')
 
-            book['versionSource'] = paragraphs[0].replace('source: ', '')
+            book['versionSource'] = paragraphs[0].replace('source:', '')
             book['direction'] = paragraphs[1].replace('direction: ', '')
             book['title'] = paragraphs[2].replace('# ', '') if file.startswith('bo') or file.startswith('en') else paragraphs[2].replace('# ', '')+f'[{file.replace(".md", "")}]'
             book['language'] = file.replace('.md', '')
 
             for paragraph in paragraphs[3:]:
+                found_breaker = [breaker for breaker in line_breaker if breaker in paragraph]
+
                 # Split the stanza into lines, remove spaces and tabs from each line, then join back with a space
+                if "|" in paragraph:
+                    paragraph = paragraph.replace('|',' <br> ')
+                #if len(found_breaker) > 0:
+                #    for breaker in found_breaker:
+                #       paragraph = paragraph.replace(breaker, breaker+' <br> ')
                 processed_lines = [line.strip().replace('\t', '') + ' <br>' for line in paragraph.replace('\t', '').split('\n') if line.strip()]
                 processed_stanza = ' '.join(processed_lines)
-                content.append(processed_stanza)
-                book['content'] = [content]
+                #chapter
+                if paragraph.startswith("CH"):
+                    processed_stanza = re.sub("CH-\d+ ", "", processed_stanza)
+                    processed_stanza = re.sub("<\d+> ", "", processed_stanza)
+                    content = []
+                    content.append(processed_stanza)
+                    chapter.append(content)
+                    book['content'] = chapter
+                else: 
+                    processed_stanza = re.sub("<\d+> ", "", processed_stanza)
+                    content.append(processed_stanza)
+
+                
+
+
+                
+
+                
+                
                 
             return book
     except FileNotFoundError:
@@ -47,7 +74,7 @@ def parseBook(url, file):
 
 def txtToJson():
     #where all the text files are located
-    sourcePATH = BASEPATH + "/sources"
+    sourcePATH = BASEPATH + "/sources/root_texts"
     # structure of the JSON file requiered by the API
     jsonPayload = {
         "source": {
@@ -61,7 +88,8 @@ def txtToJson():
     }
     # Walk through the source directory
     for root, dirs, files in os.walk(sourcePATH):
-        if(os.path.basename(root) != "sources"): # skip the sources directory
+        print(root)
+        if(os.path.basename(root) != "root_texts"): # skip the sources directory
 
             #BOOKS: 
             for file in files:

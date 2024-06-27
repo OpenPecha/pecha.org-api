@@ -1,13 +1,16 @@
 import urllib.request, urllib.error, urllib.parse
 from urllib.error import HTTPError
 import json
+import re
 import os
 from pprint import pprint
 from time import sleep
 from datetime import datetime
-from bson import json_util
 
-apikey = "myadminsecretkey"
+apikey = "qqQdIZAFJ03fpUB71eTW4kCIxa7mGgi2indvdkXMzGA"
+headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
 #baseURL = "https://pecha.org/"
@@ -20,7 +23,7 @@ def get_term(termSTR):
         `termSTR`: str, term name
     """
     url = baseURL + "api/terms/" + urllib.parse.quote(termSTR)
-    req = urllib.request.Request(url)
+    req = urllib.request.Request(url, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -59,7 +62,7 @@ def post_term(termEnSTR, termHeSTR):
     }
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="POST")
+    req = urllib.request.Request(url, binary_data, method="POST", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -79,7 +82,7 @@ def get_category(pathSTR):
         `pathSTR`: str, example: "Indian Treatises/Madyamika/The way of the bodhisattvas"
     """
     url = baseURL + "api/category/" + urllib.parse.quote(pathSTR)
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
 
     try:
         response = urllib.request.urlopen(req)
@@ -123,20 +126,19 @@ def post_category(enPathList, hePathList):
 
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
 
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
+        print("categories response: ", res)
         if "error" not in res:
             return True
         elif "already exists" in res:
             return True
         return False
     except HTTPError as e:
-        print('Error code: ', e.code)
-        print(e.read())
+        print('Error code: ', e)
         return False
 
 
@@ -146,7 +148,7 @@ def get_index(indexSTR):
         `indexSTR`: str, article en name
     """
     url = "%s/%s?with_content_counts=1" % (baseURL + "api/v2/raw/index", indexSTR.replace(" ", "_"))
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         pprint(json.loads(response.read().decode('utf-8')))
@@ -155,7 +157,7 @@ def get_index(indexSTR):
         print(e.read().decode('utf-8'))
 
 
-def post_index(indexSTR, pathLIST, titleLIST):
+def post_index(indexSTR, pathLIST, nodes, text_depth):
     """"
     Post index value for article settings.
         `indexSTR`: str, article title,
@@ -168,27 +170,43 @@ def post_index(indexSTR, pathLIST, titleLIST):
             }
     """
     url =  baseURL + "api/v2/raw/index/" + urllib.parse.quote(indexSTR.replace(" ", "_"))
+
+
+
+     # "titles" : titleLIST,
+            # "key" : indexSTR,
+            # "nodeType" : "JaggedArrayNode",
+            # # "lengths" : [4, 50],
+            # "depth" : 2,
+            # "sectionNames" : ["Chapter", "Verse"],
+                        # "addressTypes" : ["Integer", "Integer"],
+    
+    sectionNames = ['Chapters', 'Verses', 'Paragrahs', 'Lines']
     index = {
-        "title" : indexSTR,
-        "categories": list(map(lambda x: x["name"], pathLIST)),
-        "schema" : {
-            "titles" : titleLIST,
-            "key" : indexSTR,
-            "nodeType" : "JaggedArrayNode",
-            # "lengths" : [4, 50],
-            "depth" : len(pathLIST) - 1 ,
-            "sectionNames" : ["Chapter", "Verse"],
-            "addressTypes" : ["Integer", "Integer"],
-        }
-    }    
-    indexJSON = json.dumps(index)
+        "title" : '',
+        "categories": [],
+        "schema" : {}
+    }     
+    index["title"] = indexSTR
+    index["categories"] = list(map(lambda x: x["name"], pathLIST))
+    index["schema"] = nodes
+    
+    # if text is commentary
+    if 'base_text_mapping' in pathLIST[-1].keys(): 
+        index["base_text_titles"] = pathLIST[-1]['base_text_titles']
+        index["base_text_mapping"] = pathLIST[-1]['base_text_mapping']
+        index["collective_title"] = indexSTR
+        index["dependence"] = pathLIST[-1]['link']
+            
+    
+    indexJSON = json.dumps(index, indent=4, ensure_ascii=False)
     values = {
         'json': indexJSON, 
         'apikey': apikey,
     }
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -207,7 +225,7 @@ def get_text(indexSTR):
         `indexSTR`: str, article name
     """
     url = "%s/%s?pad=0" % (baseURL + "api/texts", urllib.parse.quote(indexSTR))
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -242,18 +260,23 @@ def post_text(indexSTR, textDICT):
         }
     """
     textJSON = json.dumps(textDICT)
-    indexSTR = indexSTR.replace(" ", "_")
+    # indexSTR = indexSTR.replace(" ", "_")
+    
     url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(indexSTR))
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
-        print(res)
         if "error" not in res:
+            print(f"\n{res}\n")
             return True
+        elif "Failed to parse sections for ref" in res:
+            print('\n{"status": "ok"}\n')
+            return True
+        
         return False
     except HTTPError as e:
         print('Error code: ', e.code)
@@ -279,7 +302,7 @@ def get_link(linkSTR, with_text=1):
         else:
             linkURL += c
     url = baseURL + "api/links/%s?with_text=%d" % (linkURL, with_text)
-    req = urllib.request.Request(url, method="GET")
+    req = urllib.request.Request(url, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode("utf-8"))
@@ -314,20 +337,20 @@ def post_link(refLIST, typeSTR):
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
         print(res)
         if "error" not in res:
-            return True
-        elif "Link already exists" in res["error"]:
-            return True
-        return False
+            return {"status": True, "res": res}
+        elif "Link already exists" in res:
+            return {"status": False, "res": res}
+        return {"status": True, "res": res}
     except (HTTPError) as e:
         print('Error code: ', e.code)
         print(e.read())
-        return False
+        return {"status": False, "res": e.read()}
 
 def post_sheet(titleSTR, sourceLIST):
     """
@@ -377,7 +400,7 @@ def post_sheet(titleSTR, sourceLIST):
     values = {'json': sheetDumpJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data)
+    req = urllib.request.Request(url, binary_data, headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -411,7 +434,7 @@ def post_webpage(webpage):
     values = {'json': webpageJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="POST")
+    req = urllib.request.Request(url, binary_data, method="POST", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         res = response.read().decode('utf-8')
@@ -434,7 +457,7 @@ def get_related(titleSTR):
     values = {'private': True, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
-    req = urllib.request.Request(url, binary_data, method="GET")
+    req = urllib.request.Request(url, binary_data, method="GET", headers=headers)
     try:
         response = urllib.request.urlopen(req)
         print(response.read().decode('utf-8'))
@@ -556,14 +579,16 @@ def test_webpage():
 """
 Data-adding directory default in `Pecha.org/tools/jsondata`
 """
-def add_by_file(fileSTR):
+def add_by_file(fileSTR, textType):
     """
     Read a text file and add.
     """
     success = True
+    file = "{}/jsondata/texts/{}/{}".format(BASEPATH,textType, fileSTR)
     print("==========={}===========".format(fileSTR))
+    
     try:
-        with open("{}/jsondata/texts/{}".format(BASEPATH, fileSTR), mode='r', encoding='utf-8') as f:
+        with open(file, mode='r', encoding='utf-8') as f:
             data = json.load(f)
     except Exception as e:
         print('[Error] opening file: ', e)
@@ -577,9 +602,12 @@ def add_by_file(fileSTR):
         "textHe": [],
         "bookDepth": 0
     }
+    
+    schemaNodes = []
 
     for lang in data:
-        if lang == "source":   
+        
+        if lang == "source":  
             for i in range(len(data[lang]["categories"])):
                 payload["categoryEn"].append(data[lang]["categories"][:i+1])
             for book in data[lang]["books"]:
@@ -593,7 +621,6 @@ def add_by_file(fileSTR):
         else:
             print("[Error] Unknown language")
             return 
-        
     # 先新增每一個路徑
     print("==post_category==")
     for i in range(len(payload["categoryEn"])):
@@ -606,53 +633,72 @@ def add_by_file(fileSTR):
         if not post_category(payload["categoryEn"][i], payload["categoryHe"][i]):
             success = False
 
-    # # 新增書的資料
     print("==post_index==")
     titleLIST = []
-    
-    for i in range(len(payload["textEn"])):
-        if i == 0:
-            titleLIST.append({"lang": "en", "text": payload["textEn"][0]["title"], "primary": True, })
-        else:   # 如果有不只一個版本
-            titleLIST.append({"lang": "en", "text": payload["textEn"][i]["title"], })
-    for i in range(len(payload["textHe"])):
-        if i == 0:
-            titleLIST.append({"lang": "he", "text": payload["textHe"][0]["title"], "primary": True,})
-        else:   # 如果有不只一個版本
-            titleLIST.append({"lang": "he", "text": payload["textHe"][i]["title"], })
-    if not post_index(payload["bookKey"], payload["categoryEn"][-1], titleLIST):
-       success = False
+    result = {}
+   
+    '''
+    Generate schema nodes form text and create index.
+    '''
+    schema = generate_schema(payload["textEn"][0],payload["textHe"][0])
+    # j = json.dumps(schema, indent=4, ensure_ascii=False)
+    # print(j)
 
-    # 新增內文
+    if not post_index(payload["bookKey"], payload["categoryEn"][-1] , schema[0], text_depth=1):
+        success = False
+
+    '''
+    
+    '''
     print("==post_text==")
-    for i in range(len(payload["textEn"])):
-        enKey = payload["textEn"][i]["title"]
+    
+    for i, book in enumerate(payload["textHe"]):
+        boText = {
+                "versionTitle": book['title'],
+                "versionSource": book["versionSource"],
+                "language": "he",
+                "actualLanguage": book["language"],
+                "text": []
+            }
+        if i == 0:
+            boText["isBaseText"] = True
+        # for complex text
+        if isinstance(book['content'], dict):
+            result = generate_chapters(book['content'], book["language"])
+            for key, value in result.items():
+                boText['text'] = value
+                if not post_text(key, boText):
+                    success = False
+                
+        if isinstance(book['content'], list):
+            boText['text'] = book['content']
+
+            if not post_text(book['title'], boText):
+                success = False
+    
+    for i, book in enumerate(payload["textEn"]):
         enText = {
-            "versionTitle": enKey,
-            "versionSource": payload["textEn"][i]["versionSource"],
-            "language": "en",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text": payload["textEn"][i]["content"], 
-            "direction": payload["textEn"][i]["direction"]
-        }
+                "versionTitle": book['title'],
+                "versionSource": book["versionSource"],
+                "language": "en",
+                "actualLanguage": book["language"],
+                "text": []
+            }
         if i == 0:
             enText["isBaseText"] = True
-        if not post_text(payload["bookKey"], enText):
-            success = False
-    for i in range(len(payload["textHe"])):
-        heKey = payload["textHe"][i]["title"]
-        heText = {
-            "versionTitle": heKey,
-            "versionSource": payload["textHe"][i]["versionSource"],
-            "language": "he",
-            "actualLanguage": payload["textEn"][i]["language"],
-            "text":payload["textHe"][i]["content"],
-            "direction": payload["textHe"][i]["direction"]
-        }
-        if i == 0:
-            heText["isBaseText"] = True
-        if not post_text(payload["bookKey"], heText):
-            success = False
+        # for complex text
+        if isinstance(book['content'], dict):
+            result = generate_chapters(book['content'], book["language"])
+            for key, value in result.items():
+                enText['text'] = value
+                if not post_text(key, enText):
+                    success = False
+                
+        if isinstance(book['content'], list):
+            enText['text'] = book['content']
+
+            if not post_text(book['title'], enText):
+                success = False
 
     if success:
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
@@ -661,12 +707,163 @@ def add_by_file(fileSTR):
     else:
         return False
 
+def generate_schema(enbook, bobook, en_key="", bo_key=""):
 
-def add_texts():
+    nodes = []
+    # generate schema node for complex text
+    if 'content' in bobook:
+        botext = bobook["content"]
+        entext = enbook["content"]
+    else:
+        botext = bobook
+        entext = enbook
+
+    if isinstance(entext, dict):
+        for (enkey, envalue), (bokey, bovalue) in zip(entext.items(), botext.items()):
+            en_full_key = enkey.strip() if en_key else enkey
+            bo_full_key = bokey.strip() if bo_key else bokey
+            if isinstance(envalue, dict) and enkey != "data":
+                # Check if the dictionary has any children other than 'data'
+
+                has_children = any(sub_key != 'data' for sub_key in envalue.keys())
+                child_nodes = generate_schema(envalue, bovalue, en_full_key, bo_full_key)
+                # if data is only 
+                if not has_children:
+                    data_node = create_data_node(en_full_key, bo_full_key, envalue['data'], bovalue['data'])
+                    nodes.append(data_node)
+                else:
+                    node = {
+                        "nodes": child_nodes,
+                        "titles": [
+                            {"lang": "he", "text": bo_full_key, "primary": True},
+                            {"lang": "en", "text": en_full_key, "primary": True}
+                        ],
+                        "key": en_full_key
+                    }
+                    nodes.append(node)
+
+            elif enkey == "data":
+                data_node = create_data_node(enkey, 'གནས་བབས', envalue, bovalue)
+                nodes.append(data_node)
+    if isinstance(entext, list):
+        data_node = create_data_node(enbook['title'], bobook['title'], entext, botext)
+        nodes.append(data_node)
+    return nodes
+
+def create_data_node(en_key, bo_key, envalue, bovalue):
+    text_depth = None
+    sectionNames = ['Chapters', 'Verses', 'Paragraphs']
+
+    if len(envalue) > 0:
+        text_depth = get_list_depth(envalue) 
+    if len(bovalue) > 0:
+        text_depth = get_list_depth(bovalue)
+
+    return {
+        "nodeType": "JaggedArrayNode",
+        "depth": text_depth,
+        "addressTypes": list(map(lambda x: 'Integer', sectionNames[:text_depth])),
+        "sectionNames": sectionNames[:text_depth],
+        "titles": [
+            {"lang": "he", "text": bo_key, "primary": True},
+            {"lang": "en", "text": en_key, "primary": True}
+        ],
+        "key": en_key
+    }
+def clean_content(value):
+    result = []
+    for val in value:
+        if isinstance(val, list):
+            chapters = []
+            for v in val:
+                if "|" in v:
+                    v = v.replace('|',' <br> ')
+                # Quotation
+                if "[" in v:
+                    v = v.replace('[',' <i> ')
+                    v = v.replace(']',' </i> ')
+                # Citation
+                if "{" in v:  
+                    v = v.replace('{',' <b> ')
+                    v = v.replace('}',' </b> ')
+                # Sapche
+                if "(" in v:  
+                    v = v.replace("(",' <u> ')
+                    v = v.replace(")",' </u> ')
+                v = re.sub("<\d+>", "", v.strip())
+                chapters.append(v)
+            result.append(chapters)
+        else:
+            if "|" in val:
+                val = val.replace('|',' <br> ')
+            # Quotation
+            if "[" in val:
+                val = val.replace('[',' <i> ')
+                val = val.replace(']',' </i> ')
+            # Citation
+            if "{" in val:  
+                val = val.replace('{',' <b> ')
+                val = val.replace('}',' </b> ')
+            # Sapche
+            if "(" in val:  
+                val = val.replace("(",' <u> ')
+                val = val.replace(")",' </u> ')
+            val = re.sub("<\d+>", "", val.strip())
+            result.append(val)
+
+    return result
+
+
+def generate_chapters(book, language, current_key="", parent_keys=[]):
+    result = {}
+    for key, value in book.items():
+        full_key = key if current_key else key
+        new_parent_keys = parent_keys + [key.strip()]  # Update list of parent key
+        clean_value = []
+        if isinstance(value, dict):
+            
+            # Check if the dictionary has any children other than 'data'
+            has_children = any(sub_key != 'data' for sub_key in value.keys())    
+            child_data = generate_chapters(value, language, full_key, new_parent_keys)
+            result.update(child_data)  # Merge results from children
+            
+            # Determine the key for 'data' depending on whether there are other children
+            if 'data' in value:
+                clean_value = clean_content(value['data'])
+
+                # If there are other children, include 'data' in the key, else exclude it
+            if has_children:
+                if language == 'bo':
+                    data_key = ', '.join(new_parent_keys) + ', གནས་བབས' 
+                else: 
+                     data_key = ', '.join(new_parent_keys) + ', data'
+            else:
+                data_key = ', '.join(new_parent_keys)  # Exclude 'data' from the key if no other children
+            result[data_key] = clean_value
+
+    return result
+
+
+def get_list_depth(lst):
+    """
+    Function to calculate the depth of a nested list.
+    """
+    if not isinstance(lst, list):  # Base case: not a list, no depth
+        return 0
+    else:
+        max_depth = 0
+        for item in lst:
+            max_depth = max(max_depth, get_list_depth(item))  # Recurse and update max depth
+        return max_depth + 1  # Add one to include the current depth level
+
+
+
+
+def add_texts(textType):
     """
     Add all text files in `/jsondata/texts`.
     """
-    dataLIST = os.listdir("{}/jsondata/texts".format(BASEPATH))
+    dataLIST = os.listdir("{}/jsondata/texts/{}".format(BASEPATH, textType))
     try:    # Added text save to `success.txt`
         with open("{}/jsondata/texts/success.txt".format(BASEPATH), mode='r', encoding='utf-8') as f:
             successLIST = f.read().split("\n")
@@ -681,13 +878,12 @@ def add_texts():
             continue
         elif data == "success.txt":
             continue
-        successBOOL = add_by_file(data)
+        successBOOL = add_by_file(data, textType)
         # 有錯誤先終止
         if not successBOOL:
             print("=== [Failed] ===")
             return
         print("=== [Finished] {} ===".format(data))
-        sleep(3)
 
 def add_sheets():
     """
@@ -710,7 +906,6 @@ def add_sheets():
         with open("{}/jsondata/sheets/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             sheet= json.load(f)
         post_sheet(sheet["title"], sheet["sheet"])
-        sleep(3)
     
 
 def add_refs():
@@ -736,20 +931,44 @@ def add_refs():
         
         with open("{}/jsondata/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             refLIST = json.load(f)
+            #remove_links(refLIST[0]["refs"][1])
         for ref in refLIST:
             # Separate refs since the API only support adding 2 refs at the same time.
             for i in range(0, len(ref["refs"])-1):
                 for j in range(i+1, len(ref["refs"])):
                     successBOOL = post_link([ref["refs"][i], ref["refs"][j]], ref["type"])
+
                     # Failed
-                    if not successBOOL:
-                        failedLIST.append({[ref["refs"][i], ref["refs"][j]], ref["type"]})
+                    if not successBOOL['status']:
+                        failedLIST.append(successBOOL['res'])
         with open("{}/jsondata/refs/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
-        sleep(3)
     with open("{}/jsondata/refs/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
+
+def remove_links(textTitle):
+    #remove section range number from text title. e.g Prayer 1:1, Prayer 1:1-2 
+    pattern = r"\s\d+:\d+(-\d+)?"
+    clean_title = re.sub(pattern, "", textTitle)
+
+    ref = clean_title.replace(' ', '_')
+    url = baseURL + f"api/links/{ref}"
+    values = { 
+        'apikey': apikey
+    }
+    data = urllib.parse.urlencode(values)
+    binary_key = data.encode('ascii')
+    req = urllib.request.Request(url, binary_key, method="DELETE", headers=headers)
+    try:
+        response = urllib.request.urlopen(req)
+        linkData = response.read().decode("utf-8")
+        print(linkData)
+
+    except (HTTPError) as e:
+        print('Error code: ', e.code)
+        print("error",e.read())
+
 def add_webpages():
     """
     Add all webpage files in `/jsondata/webpages`.
@@ -783,7 +1002,6 @@ def add_webpages():
         with open("{}/jsondata/webpages/success.txt".format(BASEPATH), mode='a', encoding='utf-8') as f:
             f.write(file+"\n")
         print("=== [Finished] {} ===".format(file))
-        sleep(5)
     with open("{}/jsondata/webpages/failed.txt".format(BASEPATH), mode='w+', encoding='utf-8') as f:
         json.dump(failedLIST, f, indent=4, ensure_ascii=False)
 
@@ -827,8 +1045,10 @@ def main():
     """
     print("========= texts =========")
     if not os.path.exists("{}/jsondata/texts".format(BASEPATH)):
-        os.mkdir("{}/jsondata/texts".format(BASEPATH))
-    add_texts()
+        os.mkdir("{}/jsondata/texts/baseText".format(BASEPATH))
+        os.mkdir("{}/jsondata/texts/commentaryText".format(BASEPATH))
+    add_texts("baseText")
+    add_texts("commentaryText")
     
     print("========= sheets =========")
     if not os.path.exists("{}/jsondata/sheets".format(BASEPATH)):
