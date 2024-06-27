@@ -19,9 +19,11 @@ The Pecha.org API is a tool designed to facilitate the uploading and management 
 - **Sheets**: JSON files for additional notes and annotations.
 
 ### Usage Workflow:
-1. **Prepare JSON Files**: Ensure that the data files follow the specific formats required by the API.
-2. **Organize Files**: Place book json data files in /jsondata/texts and links data files in /jsondata/refs.
-3. **Execute Scripts**: Run the commentaryToJson.py script to create links, followed by executing pechaAPI.py to upload the data to Pecha.org.
+1. **Prepare JSON Files**: Ensure that the data files follow the specific formats required by the PechaAPI (look below json sample text format).
+2. **Organize Files**:
+    - **_Books/text json_**: Book/texts json file are need to be stored in folder `/jsondata/texts`
+    - **_Links between books_**: links/refs json file is created by using/running `commentaryToJson.py` and stored in `/jsondata/refs`
+3. **Execute Scripts**: Run the `commentaryToJson.py` script to create links, followed by executing `pechaAPI.py` to upload the data to Pecha.org.
 
 ## Useful links
 - 
@@ -36,12 +38,15 @@ Put your JSON files (file name is arbitrary) into `/jsondata/texts` and execute 
 For commentary text add bellow key-value in categories 
 ```
 "base_text_titles": [
-    "Prayer of Kuntuzangpo"
+    "Title of root text (English)"
 ],
-"base_text_mapping": "many_to_one",
+"base_text_mapping": "many_to_one | one_to_one",
 "link": "Commentary"
+
 ```
-**The sample/example file description for complext text**:
+[More detail on commentary](https://developers.sefaria.org/docs/commentaries)
+
+**The sample/example file description for complext Commentary text**:
 
 ```
 {
@@ -167,7 +172,8 @@ For commentary text add bellow key-value in categories
 }
 
 ```
-A sample file for simple text (ie. booking having only one level): 
+**The sample/example file description for simple Root/base text**:
+
 ```
 {
     "source": {
