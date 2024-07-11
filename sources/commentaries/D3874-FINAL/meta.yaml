@@ -1,0 +1,37 @@
+# every text should have a category, and the last category should be the name of the book
+#every category have a name in English, a name in Tibetan, a description in English, a short description in English, a description in Tibetan, and a short description in Tibetan
+
+categories:
+  - enName: "Madyamika"
+    boName: "དབུ་མ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "Commentaries"
+    boName: "འགྲེལ་པ།"
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+
+  - enName: "The Way of the Boddhisattva" # last category should be the name of the book
+    boName: "སྤྱོད་འཇུག།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
+  - enName: "This is the well-composed entrance to the bodhisattvas way of life" # last category should be the name of the book
+    boName: "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་ལེགས་པར་སྦྱར་བ།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+    base_text_titles: ["The Way of the Boddhisattva"]
+    linker_pair: "many_to_one"
+    link: "Commentary"
+
+

@@ -13,8 +13,8 @@ headers = {
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-#baseURL = "https://pecha.org/"
-baseURL = "http://127.0.0.1:8000/"
+baseURL = "https://pecha.org/"
+#baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -276,6 +276,7 @@ def post_text(indexSTR, textDICT):
         elif "Failed to parse sections for ref" in res:
             print('\n{"status": "ok"}\n')
             return True
+        print("res:>>>>>", res)
         
         return False
     except HTTPError as e:
@@ -658,6 +659,7 @@ def add_by_file(fileSTR, textType):
                 "versionSource": book["versionSource"],
                 "language": "he",
                 "actualLanguage": book["language"],
+                "completestatus": book["completestatus"],
                 "text": []
             }
         if i == 0:
@@ -672,7 +674,7 @@ def add_by_file(fileSTR, textType):
                 
         if isinstance(book['content'], list):
             boText['text'] = book['content']
-
+            print("title : ", book['title'])
             if not post_text(book['title'], boText):
                 success = False
     
@@ -682,6 +684,7 @@ def add_by_file(fileSTR, textType):
                 "versionSource": book["versionSource"],
                 "language": "en",
                 "actualLanguage": book["language"],
+                "completestatus": book["completestatus"],
                 "text": []
             }
         if i == 0:
