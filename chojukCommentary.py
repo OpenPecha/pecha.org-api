@@ -44,14 +44,18 @@ def parseBook(url, file):
                 if len(found_breaker) > 0:
                    for breaker in found_breaker:
                       paragraph = paragraph.replace(breaker, breaker+' <br> ')
-                processed_lines = [line.strip().replace('\t', '') + ' <br>' for line in paragraph.replace('\t', '').split('\n') if line.strip()]
+                processed_lines = [line.strip().replace('\t', '') for line in paragraph.replace('\t', '').split('\n') if line ]
                 processed_stanza = ' '.join(processed_lines)
+
                 #chapter
                 if paragraph.startswith("ch"):
-                    processed_stanza = re.sub("ch-\d+ ", "", processed_stanza)
-                    processed_stanza = re.sub("<\d+> ", "", processed_stanza)
                     content = []
-                    content.append([processed_stanza])
+                    processed_stanza = re.sub(r'ch-\d+', "", processed_stanza)
+                    processed_stanza = re.sub(r'<\d+>', "", processed_stanza)
+                    if(processed_stanza == ""):
+                        content.append([])  
+                    else: 
+                        content.append([processed_stanza])
                     chapter.append(content)
                     book['content'] = chapter
                 else: 
@@ -129,9 +133,11 @@ def create_links(text):
             map_list = []
             total_map = len(commentary_content[i][j])
             map_list.append(f'{root_text_title} {i+1}:{j+1}')
-            if(total_map > 1):
+            if (total_map == 0): # no mapping
+                continue
+            elif(total_map > 1): # one mapping
                 map_list.append(f'{commentary_title} {i+1}:{j+1}:1-{total_map}')
-            else: 
+            else:  #many mapping
                 map_list.append(f'{commentary_title} {i+1}:{j+1}:1')
             ref['refs'] = map_list
             ref['type'] = link_type.lower()

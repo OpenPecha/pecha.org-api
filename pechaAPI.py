@@ -652,7 +652,7 @@ def add_by_file(fileSTR, textType):
     
     '''
     print("==post_text==")
-    
+    text_index_STR = payload["bookKey"]
     for i, book in enumerate(payload["textHe"]):
         boText = {
                 "versionTitle": book['title'],
@@ -675,7 +675,7 @@ def add_by_file(fileSTR, textType):
         if isinstance(book['content'], list):
             boText['text'] = book['content']
             print("title : ", book['title'])
-            if not post_text(book['title'], boText):
+            if not post_text(text_index_STR, boText):
                 success = False
     
     for i, book in enumerate(payload["textEn"]):
@@ -700,7 +700,7 @@ def add_by_file(fileSTR, textType):
         if isinstance(book['content'], list):
             enText['text'] = book['content']
 
-            if not post_text(book['title'], enText):
+            if not post_text(text_index_STR, enText):
                 success = False
 
     if success:

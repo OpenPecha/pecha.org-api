@@ -9,8 +9,7 @@ categories:
     boDesc: ""
     boShortDesc: ""
 
-  - enName: "Commentaries
-"
+  - enName: "Commentaries"
     boName: "འགྲེལ་པ།"
     enDesc: ""
     enShortDesc: ""
@@ -18,8 +17,8 @@ categories:
     boShortDesc: ""
 
 
-  - enName: "The Way of the Boddhisattva" # last category should be the name of the book
-    boName: "སྤྱོད་འཇུག།" # name of the book in Tibetan
+  - enName: "The Way of the Buddhisattva" # last category should be the name of the book
+    boName: "སྤྱོད་འཇུག" # name of the book in Tibetan
     enDesc: ""
     enShortDesc: ""
     boDesc: ""
@@ -32,7 +31,7 @@ categories:
     boDesc: ""
     boShortDesc: ""
     base_text_titles: ["The Way of the Boddhisattva"]
-    linker_pair: "many_to_one"
+    base_text_mapping: "many_to_one"
     link: "Commentary"
 
 
