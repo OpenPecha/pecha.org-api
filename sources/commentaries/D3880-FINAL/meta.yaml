@@ -9,6 +9,13 @@ categories:
     boDesc: ""
     boShortDesc: ""
 
+  - enName: "The Way of the Boddhisattva" # last category should be the name of the book
+    boName: "སྤྱོད་འཇུག།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
   - enName: "Commentaries"
     boName: "འགྲེལ་པ།"
     enDesc: ""
@@ -16,16 +23,8 @@ categories:
     boDesc: ""
     boShortDesc: ""
 
-
-  - enName: "The Way of the Boddhisattva" # last category should be the name of the book
-    boName: "སྤྱོད་འཇུག" # name of the book in Tibetan
-    enDesc: ""
-    enShortDesc: ""
-    boDesc: ""
-    boShortDesc: ""
-
-  - enName: "D3880" # last category should be the name of the book
-    boName: "D3880།" # name of the book in Tibetan
+  - enName: "The commentary on the intention of the Introduction to the Bodhisattvas Way of Life called the Clarification of the Distinctions" # last category should be the name of the book
+    boName: "བྱང་ཆུབ་ཀྱི་སྤྱོད་པ་ལ་འཇུག་པའི་དགོངས་པའི་འགྲེལ་པ་ཁྱད་པར་གསལ་བྱེད་ཅེས་བྱ་བ།" # name of the book in Tibetan
     enDesc: ""
     enShortDesc: ""
     boDesc: ""

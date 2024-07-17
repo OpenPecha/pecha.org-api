@@ -7,17 +7,17 @@
                 "enShortDesc": ""
             },
             {
-                "name": "Commentaries",
-                "enDesc": "",
-                "enShortDesc": ""
-            },
-            {
                 "name": "The Way of the Boddhisattva",
                 "enDesc": "",
                 "enShortDesc": ""
             },
             {
-                "name": "D3876",
+                "name": "Commentaries",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "The commentary on the difficult points of the wisdom chapter",
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
@@ -27,7 +27,16 @@
                 "link": "Commentary"
             }
         ],
-        "books": []
+        "books": [
+            {
+                "title": "The commentary on the difficult points of the wisdom chapter",
+                "language": "en",
+                "versionSource": "",
+                "completestatus": "in_progress",
+                "content": [],
+                "direction":"ltr"
+            }
+        ]
     },
     "target": {
         "categories": [
@@ -37,17 +46,17 @@
                 "heShortDesc": ""
             },
             {
+                "name": "སྤྱོད་འཇུག།",
+                "heDesc": "",
+                "heShortDesc": ""
+            },
+            {
                 "name": "འགྲེལ་པ།",
                 "heDesc": "",
                 "heShortDesc": ""
             },
             {
-                "name": "སྤྱོད་འཇུག",
-                "heDesc": "",
-                "heShortDesc": ""
-            },
-            {
-                "name": "D3876།",
+                "name": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ་བཞུགས།",
                 "heDesc": "",
                 "heShortDesc": "",
                 "base_text_titles": [
@@ -59,7 +68,7 @@
         ],
         "books": [
             {
-                "title": "D3876།",
+                "title": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ་བཞུགས།",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",

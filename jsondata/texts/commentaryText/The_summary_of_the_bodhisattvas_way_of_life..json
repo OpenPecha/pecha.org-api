@@ -7,17 +7,17 @@
                 "enShortDesc": ""
             },
             {
-                "name": "Commentaries",
-                "enDesc": "",
-                "enShortDesc": ""
-            },
-            {
                 "name": "The Way of the Boddhisattva",
                 "enDesc": "",
                 "enShortDesc": ""
             },
             {
-                "name": "D3879",
+                "name": "Commentaries",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "The summary of the bodhisattvas way of life",
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
@@ -29,7 +29,7 @@
         ],
         "books": [
             {
-                "title": "D3879",
+                "title": "The summary of the bodhisattvas way of life",
                 "language": "en",
                 "versionSource": "",
                 "completestatus": "in_progress",
@@ -46,17 +46,17 @@
                 "heShortDesc": ""
             },
             {
+                "name": "སྤྱོད་འཇུག།",
+                "heDesc": "",
+                "heShortDesc": ""
+            },
+            {
                 "name": "འགྲེལ་པ།",
                 "heDesc": "",
                 "heShortDesc": ""
             },
             {
-                "name": "སྤྱོད་འཇུག",
-                "heDesc": "",
-                "heShortDesc": ""
-            },
-            {
-                "name": "D3879།",
+                "name": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་དོན་བསྡུས་པ།",
                 "heDesc": "",
                 "heShortDesc": "",
                 "base_text_titles": [
@@ -68,7 +68,7 @@
         ],
         "books": [
             {
-                "title": "D3879།",
+                "title": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་དོན་བསྡུས་པ།",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",

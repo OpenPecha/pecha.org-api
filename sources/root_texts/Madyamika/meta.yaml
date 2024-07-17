@@ -9,6 +9,13 @@ categories:
     boDesc: ""
     boShortDesc: ""
 
+  - enName: "The Way of the Boddhisattva" # last category should be the name of the book
+    boName: "སྤྱོད་འཇུག།" # name of the book in Tibetan
+    enDesc: ""
+    enShortDesc: ""
+    boDesc: ""
+    boShortDesc: ""
+
   - enName: "Root text"
     boName: "རྩ་བ།"
     enDesc: ""

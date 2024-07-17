@@ -7,12 +7,12 @@
                 "enShortDesc": ""
             },
             {
-                "name": "Commentaries",
+                "name": "The Way of the Boddhisattva",
                 "enDesc": "",
                 "enShortDesc": ""
             },
             {
-                "name": "The Way of the Buddhisattva",
+                "name": "Commentaries",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -27,7 +27,16 @@
                 "link": "Commentary"
             }
         ],
-        "books": []
+        "books": [
+            {
+                "title": "The commentary on the difficult points of the Introduction to the Bodhisattvas Way of Life",
+                "language": "en",
+                "versionSource": "",
+                "completestatus": "in_progress",
+                "content": [],
+                "direction":"ltr"
+            }
+        ]
     },
     "target": {
         "categories": [
@@ -37,12 +46,12 @@
                 "heShortDesc": ""
             },
             {
-                "name": "འགྲེལ་པ།",
+                "name": "སྤྱོད་འཇུག།",
                 "heDesc": "",
                 "heShortDesc": ""
             },
             {
-                "name": "སྤྱོད་འཇུག",
+                "name": "འགྲེལ་པ།",
                 "heDesc": "",
                 "heShortDesc": ""
             },
