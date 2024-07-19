@@ -14,6 +14,16 @@
             {
                 "name": "Prayer of Kuntuzangpo",
                 "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "Root text",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "Prayer of Kuntuzangpo",
+                "enDesc": "",
                 "enShortDesc": "The Powerful Aspiration"
             }
         ],
@@ -31,12 +41,22 @@
     "target": {
         "categories": [
             {
-                "name": "ཆོ་ག",
+                "name": "ཁ་འདོན།",
                 "heDesc": "",
                 "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
             },
             {
                 "name": "སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": ""
+            },
+            {
+                "name": "ཀུན་བཟང་སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
+            },
+            {
+                "name": "རྩ་བ།",
                 "heDesc": "",
                 "heShortDesc": ""
             },
