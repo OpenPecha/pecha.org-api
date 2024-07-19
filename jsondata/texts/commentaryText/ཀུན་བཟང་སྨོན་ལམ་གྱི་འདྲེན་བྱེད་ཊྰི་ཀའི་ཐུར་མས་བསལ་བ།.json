@@ -7,6 +7,16 @@
                 "enShortDesc": "Prayers and rituals"
             },
             {
+                "name": "Prayers",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
+                "name": "Prayer of Kuntuzangpo",
+                "enDesc": "",
+                "enShortDesc": ""
+            },
+            {
                 "name": "Commentaries",
                 "enDesc": "",
                 "enShortDesc": ""
@@ -127,6 +137,16 @@
                 "name": "ཆོ་ག",
                 "heDesc": "",
                 "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
+            },
+            {
+                "name": "སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": ""
+            },
+            {
+                "name": "ཀུན་བཟང་སྨོན་ལམ།",
+                "heDesc": "",
+                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
             },
             {
                 "name": "འགྲེལ་པ།",
