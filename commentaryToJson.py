@@ -256,6 +256,10 @@ BASEPATH = os.path.dirname(os.path.abspath(__file__))
 #     with open(f'{BASEPATH}/jsondata/refs/{commentary_title.replace(" ", "_")}.json', 'w') as file:
 #        json.dump(total_link,file, indent=4, ensure_ascii=False) 
 
+
+
+
+#-----------------------------------commentary link from jsonfile----------------------------------------
      
 def commentaryToRoot(textType):
     print(BASEPATH)

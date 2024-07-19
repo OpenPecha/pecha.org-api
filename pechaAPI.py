@@ -13,8 +13,8 @@ headers = {
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-#baseURL = "https://pecha.org/"
-baseURL = "http://127.0.0.1:8000/"
+baseURL = "https://pecha.org/"
+#baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -276,6 +276,7 @@ def post_text(indexSTR, textDICT):
         elif "Failed to parse sections for ref" in res:
             print('\n{"status": "ok"}\n')
             return True
+        print("res:>>>>>", res)
         
         return False
     except HTTPError as e:
@@ -651,13 +652,14 @@ def add_by_file(fileSTR, textType):
     
     '''
     print("==post_text==")
-    
+    text_index_STR = payload["bookKey"]
     for i, book in enumerate(payload["textHe"]):
         boText = {
                 "versionTitle": book['title'],
                 "versionSource": book["versionSource"],
                 "language": "he",
                 "actualLanguage": book["language"],
+                "completestatus": book["completestatus"],
                 "text": []
             }
         if i == 0:
@@ -672,8 +674,8 @@ def add_by_file(fileSTR, textType):
                 
         if isinstance(book['content'], list):
             boText['text'] = book['content']
-
-            if not post_text(book['title'], boText):
+            print("title : ", book['title'])
+            if not post_text(text_index_STR, boText):
                 success = False
     
     for i, book in enumerate(payload["textEn"]):
@@ -682,6 +684,7 @@ def add_by_file(fileSTR, textType):
                 "versionSource": book["versionSource"],
                 "language": "en",
                 "actualLanguage": book["language"],
+                "completestatus": book["completestatus"],
                 "text": []
             }
         if i == 0:
@@ -697,7 +700,7 @@ def add_by_file(fileSTR, textType):
         if isinstance(book['content'], list):
             enText['text'] = book['content']
 
-            if not post_text(book['title'], enText):
+            if not post_text(text_index_STR, enText):
                 success = False
 
     if success:
