@@ -5,9 +5,15 @@ import re
 
 BASEPATH = os.path.dirname(os.path.abspath(__file__))
 
-def read_file_lines(filepath):
-    with open(filepath, 'r', encoding='utf-8') as file:
-        return file.readlines()
+def createMessageFile(is_success, message, com_title, root_title):
+
+    if is_success:
+        with open(f'{BASEPATH}/sanityMessage/success--{com_title}.json', 'w') as file:
+            json.dump([f'{root_title} matched with {com_title}'],file, indent=4, ensure_ascii=False) 
+    else:
+        with open(f'{BASEPATH}/sanityMessage/failed--{com_title}.json', 'w') as file:
+            json.dump(message,file, indent=4, ensure_ascii=False) 
+        print("hello")
     
 
 def find_commentary_files(commentary_folder):
@@ -36,9 +42,9 @@ def find_commentary_files(commentary_folder):
                             paragraphs = text.split('\n')
                             for i, para in enumerate(paragraphs):
                                 para = para.strip()
-                                if (para):
-                                    if((i + 1)%2 != 0):
-                                        commentary.append([i+1, para])
+                               
+                                # if((i + 1)%2 != 0):
+                                commentary.append([i+1, para])
                                 
                             commentary_file[f'{root_title}-{commentary_title}'] = commentary  
     commentaries_index_data.append(commentary_file)
@@ -49,7 +55,6 @@ def find_commentary_files(commentary_folder):
 
 def find_root_files(filepath, root_title):
     root_content = []
-    isRootMatch = False
     for root, dirs, files in os.walk(filepath):
         for dir in dirs:
             for subroot, subdirs, subfiles in os.walk(f'{root}/{dir}'):
@@ -58,30 +63,29 @@ def find_root_files(filepath, root_title):
                         with open(f'{subroot}/meta.yaml', 'r') as file:
                             yamlCategories = (yaml.safe_load(file))
                         bookCat = yamlCategories['categories'][-1]
-                        if bookCat['enName'] == root_title:
-                            isRootMatch = True
                     elif (file.endswith('.md')):
                         with open(f'{subroot}/{file}', mode='r', encoding='utf-8') as f:
                             text = f.read()
                             paragraphs = text.split('\n')
                             for i, para in enumerate(paragraphs):
                                 para = para.strip()
-                                if (para):
-                                    if((i + 1)%2 != 0):
-                                        root_content.append([i+1, para])
+                                # if((i + 1)%2 != 0):
+                                root_content.append([i+1, para])
     return root_content
 
 def match(root_data, commentary_data, root_title, commentary_title):
-    result = {}
-    errorMessageList = []
-    for i , rootline in enumerate(root_data):
-        pass
+    messageList = []
+    message = {}
+    rootline = []
+    success = True
+    print(commentary_data)
     for i, line in enumerate(commentary_data):
-        print(line)
-        if(line[0] == root_data[i][0]):
-            print(line[0] ,">>>>>>>>>>>>>>>>>>",  root_data[i][0])    
-        else: 
-            print(line[0] ,"-----------------",  root_data[i][0])               
+        #find mismatch line
+        if(line[0]%2 == 0 and line[1]):
+            success = False
+            message[f'{commentary_title}  {line[0]}'] = f'line no: {line[0]} of Commentary<`{commentary_title}`> does not match with Root: <`{root_title}`>'
+            messageList.append(message)
+    return success, messageList      
 
 def compare_files(root_folder, commentary_folder):
     root_title = ""
@@ -92,6 +96,7 @@ def compare_files(root_folder, commentary_folder):
     # print(j)
     root_data = []
     commentary_data = []
+    is_matched_commentaries = []
     for commentary_file in commentary_files:
         for (key, values) in commentary_file.items():
             commentary_data = values
@@ -99,47 +104,17 @@ def compare_files(root_folder, commentary_folder):
             # Check if there's a match and retrieve the desired substrings
             root_title = result.group(1).strip()
             commentary_title = result.group(2).strip()
-            if root_title not in root_titles:
+            
+            if root_title not in root_titles: #avoid fetching same root text content
                 root_data = find_root_files(BASEPATH+root_folder, root_title)
-            data = match(root_data, commentary_data, root_title, commentary_title )
+            success, messageList = match(root_data, commentary_data, root_title, commentary_title )
+            #crete failed and success file 
+            if commentary_title not in is_matched_commentaries:
+                createMessageFile(success, messageList, commentary_title, root_title)
+                is_matched_commentaries.append(commentary_title)
             root_titles.append(root_title)
 
-    #     root_filepath = os.path.join(root_folder, root_name)
-    #     if not os.path.exists(root_filepath):
-    #         print(f"Root file {root_filepath} does not exist for commentary file {commentary_file}")
-    #         continue
-
-    #     root_lines = read_file_lines(root_filepath)
-    #     commentary_lines = commentary_content.splitlines()
-
-    #     for i, (root_line, commentary_line) in enumerate(zip(root_lines, commentary_lines)):
-    #         if root_line.strip() != commentary_line.strip():
-    #             print(f"Root and commentary line not match at line {i+1}")
-    #             print(f"Root line: {root_line.strip()}")
-    #             print(f"Commentary line: {commentary_line.strip()}")
-    #             return root_line.strip()
-
-    #     # Check if root file has more lines than commentary file
-    #     if len(root_lines) > len(commentary_lines):
-    #         for i in range(len(commentary_lines), len(root_lines)):
-    #             print(f"Root and commentary line not match at line {i+1}")
-    #             print(f"Root line: {root_lines[i].strip()}")
-    #             print(f"Commentary line: (no line)")
-    #             return root_lines[i].strip()
-        
-    #     # Check if commentary file has more lines than root file
-    #     if len(commentary_lines) > len(root_lines):
-    #         for i in range(len(root_lines), len(commentary_lines)):
-    #             print(f"Root and commentary line not match at line {i+1}")
-    #             print(f"Root line: (no line)")
-    #             print(f"Commentary line: {commentary_lines[i].strip()}")
-    #             return commentary_lines[i].strip()
-
-    # print("All files matched successfully.")
-    # return None
-
-
-
+   
 
 def main():
 
