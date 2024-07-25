@@ -8,12 +8,13 @@ BASEPATH = os.path.dirname(os.path.abspath(__file__))
 def createMessageFile(is_success, message, com_title, root_title):
 
     if is_success:
+        print(f'SUCCESS: {com_title}` and `{root_title}` are linked properly\n')
         with open(f'{BASEPATH}/sanityMessage/success--{com_title}.json', 'w') as file:
             json.dump([f'{root_title} matched with {com_title}'],file, indent=4, ensure_ascii=False) 
     else:
+        print(f'ERROR: Please Check `sanityMessage/failed--{com_title}.json` File\n')
         with open(f'{BASEPATH}/sanityMessage/failed--{com_title}.json', 'w') as file:
             json.dump(message,file, indent=4, ensure_ascii=False) 
-        print("hello")
     
 
 def find_commentary_files(commentary_folder):
@@ -78,7 +79,6 @@ def match(root_data, commentary_data, root_title, commentary_title):
     message = {}
     rootline = []
     success = True
-    print(commentary_data)
     for i, line in enumerate(commentary_data):
         #find mismatch line
         if(line[0]%2 == 0 and line[1]):
