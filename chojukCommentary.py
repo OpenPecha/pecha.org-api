@@ -41,11 +41,14 @@ def parseBook(url, file):
                 paragraph = paragraph.strip()
                 found_breaker = [breaker for breaker in line_breaker if breaker in paragraph]
 
-                if len(found_breaker) > 0:
-                   for breaker in found_breaker:
-                      paragraph = paragraph.replace(breaker, breaker+' <br> ')
                 processed_lines = [line.strip().replace('\t', '') for line in paragraph.replace('\t', '').split('\n') if line ]
                 processed_stanza = ' '.join(processed_lines)
+
+                # if len(found_breaker) > 0:
+                #    for breaker in found_breaker:
+                #       paragraph = paragraph.replace(breaker, breaker+' <br> ')
+                # processed_lines = [line.strip().replace('\t', '') for line in paragraph.replace('\t', '').split('\n') if line ]
+                # processed_stanza = ' '.join(processed_lines)
 
                 #chapter
                 if paragraph.startswith("ch"):

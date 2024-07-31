@@ -13,8 +13,8 @@ headers = {
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
