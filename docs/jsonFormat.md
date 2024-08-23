@@ -64,6 +64,7 @@
             {
                 "title": "book title",
                 "language": "bo",
+               "author": "author name",
                 "versionSource": "",
                 "base_text_titles": "root text title"
                 "content": {
