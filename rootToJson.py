@@ -23,7 +23,7 @@ def parseBook(url, file):
     }
     content = []
     chapter = []
-    line_breaker = ["། །","ག །","ག།","།།","ཤ །","ཤ།","ཀ།","ཀ །"]
+    line_breaker = ["། །","ག །","ག།","།།","ཤ །","ཤ།","ཀ།","ཀ །", "།། །།", "། །།", "།།།"]
     try:
         with open(f'{url}/{file}', mode='r', encoding='utf-8') as f:
             text = f.read()
