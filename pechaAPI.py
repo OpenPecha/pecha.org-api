@@ -71,8 +71,7 @@ def post_term(termEnSTR, termHeSTR):
             return {"status": False, "term_conflict": res}
         return {"status": True}
     except HTTPError as e:
-        print('Error code: ', e.code)
-        print(e.read())
+        print('[term] Error code: ', e.code)
         return {"status": False, "error": e.read()}
 
 
@@ -94,7 +93,7 @@ def get_category(pathSTR):
             return True
         return False
     except HTTPError as e:
-        print('Error code: ', e.code)
+        print('[categories] Error code: ', e.code)
         print(e.read())
         return False
 
@@ -273,15 +272,11 @@ def post_text(indexSTR, textDICT):
         if "error" not in res:
             print(f"\n{res}\n")
             return True
-        elif "Failed to parse sections for ref" in res:
-            print('\n{"status": "ok"}\n')
-            return True
         print("res:>>>>>", res)
         
         return False
     except HTTPError as e:
-        print('Error code: ', e.code)
-        print(e.read().decode("utf-8"))
+        print('Error code: ', e)
         return False
 
 
@@ -673,9 +668,9 @@ def add_by_file(fileSTR, textType):
                     success = False
                 
         if isinstance(book['content'], list):
-            boText['text'] = book['content']
             print("title : ", book['title'])
-            if not post_text(text_index_STR, boText):
+            boText['text'] = clean_content(book['content'])
+            if not post_text(text_index_STR,  boText):
                 success = False
     
     for i, book in enumerate(payload["textEn"]):
@@ -698,8 +693,8 @@ def add_by_file(fileSTR, textType):
                     success = False
                 
         if isinstance(book['content'], list):
-            enText['text'] = book['content']
-
+            print("title : ", book['title'])
+            enText['text'] = clean_content(book['content'])
             if not post_text(text_index_STR, enText):
                 success = False
 
@@ -779,12 +774,12 @@ def clean_content(value):
         if isinstance(val, list):
             chapters = []
             for v in val:
-                if "|" in v:
-                    v = v.replace('|',' <br> ')
+                if '\n' in v:
+                    v = v.replace('\n',' <br> ')
                 # Quotation
-                if "[" in v:
-                    v = v.replace('[',' <i> ')
-                    v = v.replace(']',' </i> ')
+                if '<sapche>' in v:
+                    v = v.replace('<sapche>',' <i> ')
+                    v = v.replace('</sapche>',' </i> ')
                 # Citation
                 if "{" in v:  
                     v = v.replace('{',' <b> ')
@@ -797,12 +792,12 @@ def clean_content(value):
                 chapters.append(v)
             result.append(chapters)
         else:
-            if "|" in val:
-                val = val.replace('|',' <br> ')
+            if '\n' in val:
+                val = val.replace('\n',' <br> ')
             # Quotation
-            if "[" in val:
-                val = val.replace('[',' <i> ')
-                val = val.replace(']',' </i> ')
+            if '<sapche>' in val:
+                val = val.replace('<sapche>',' <i> ')
+                val = val.replace('</sapche>',' </i> ')
             # Citation
             if "{" in val:  
                 val = val.replace('{',' <b> ')
@@ -934,7 +929,7 @@ def add_refs():
         
         with open("{}/jsondata/refs/{}".format(BASEPATH, file), "r", encoding="utf-8") as f:
             refLIST = json.load(f)
-            #remove_links(refLIST[0]["refs"][1])
+            remove_links(refLIST[0]["refs"][1])
         for ref in refLIST:
             # Separate refs since the API only support adding 2 refs at the same time.
             for i in range(0, len(ref["refs"])-1):

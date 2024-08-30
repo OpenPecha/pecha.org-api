@@ -4,7 +4,7 @@ direction: ltr
 
 # Prière pour l’avenir du Dharma
 
-Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū
+ch-1 Ô bouddhas, Vipaśyin, Śikhin, Viśvabhū
 Krakucchanda, Kanakamuni et Kāśyapa,
 Et Śākyamuni – Gautama, déité de toutes les déités :
 Je rends hommage aux sept bouddhas héroïques !

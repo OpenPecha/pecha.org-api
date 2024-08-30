@@ -375,6 +375,7 @@ def createLinks(data):
         for bobook in jsonData['target']['books']:
             chapters = generate_chapters(bobook, jsonData['source']['books'][0], bobook['language'])
             # j = json.dumps(chapters, indent=4, ensure_ascii=False)
+
             # print(j)
 
             for key, value in chapters.items():
@@ -383,11 +384,15 @@ def createLinks(data):
 
 
 def generate_chapters(botext, entext, language, current_key="", parent_keys=[]):
+    
     result = {}
+    enbook = []
+    bobook = []
     if 'content' in entext:
+        enbook = entext['content']
         if botext:
             bobook = botext['content']
-        enbook = entext['content']
+        
     else:
         if botext:
             bobook = botext
@@ -434,7 +439,10 @@ def generate_chapters(botext, entext, language, current_key="", parent_keys=[]):
 
             
     if isinstance(enbook, list):
-        result[enbook['title']] = enbook['content']
+        if len(enbook) > 0:
+            result[entext['title']] = enbook
+        else:
+            result[entext['title']] = bobook
     
     return result
 
@@ -455,7 +463,7 @@ def get_list_depth(lst):
 def main():
     print("------ TXT TO JSON -----")
     #txtToJson()
-    commentaryToRoot('baseText')
+    #commentaryToRoot('baseText')
     commentaryToRoot('commentaryText')
     
 main()

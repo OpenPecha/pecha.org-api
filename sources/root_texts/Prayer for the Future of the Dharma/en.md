@@ -4,7 +4,7 @@ direction: ltr
 
 # Prayer for the Future of the Dharma
 
-To the buddhas: Vipaśyin, Śikhin, Viśvabhū,
+ch-1 To the buddhas: Vipaśyin, Śikhin, Viśvabhū,
 Krakucchanda, Kanakamuni, and Kāśyapa,
 And Śākyamuni—Gautama, deity of all deities,
 To the seven warrior-like buddhas, I pay homage!

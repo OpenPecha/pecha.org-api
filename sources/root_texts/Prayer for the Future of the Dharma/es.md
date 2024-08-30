@@ -4,7 +4,7 @@ direction: ltr
 
 # Una oración para el futuro del Dharma
 
-Ante los budas: Vipaśyin, Śikhin, Viśvabhukra
+ch-1 Ante los budas: Vipaśyin, Śikhin, Viśvabhukra
 Krakucchanda, Kanakamuni, and Kāśyapa
 y Śākyamuni Gautama, el dios de dioses
 ¡ante estos siete budas que son como guerreros nos postramos!
