@@ -21,6 +21,7 @@
             {
                 "title": "Una oración para el futuro del Dharma[es]",
                 "language": "es",
+                "completestatus": "done",
                 "versionSource": "source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
                 "content": [
                     [
@@ -47,6 +48,7 @@
             {
                 "title": "Prière pour l’avenir du Dharma[fr]",
                 "language": "fr",
+                "completestatus": "done",
                 "versionSource": "source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
                 "content": [
                     [
@@ -73,6 +75,7 @@
             {
                 "title": "Prayer for the Future of the Dharma",
                 "language": "en",
+                "completestatus": "done",
                 "versionSource": "source : https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
                 "content": [
                     [
@@ -94,6 +97,411 @@
                         "I freed tīrthikas and others <br> From the rivers of different views <br> And led them to the correct view; through this <br> May my followers always have devotion! <br> May the teachings blaze, long into the future!” <br>"
                     ]
                 ],
+                "direction": "ltr"
+            },
+            {
+                "title": "བསྟན་འབར་མ། ཕྲུ་གུའི་ཆེད་སྟབས་བདེར་བཏང་བ།[bo]",
+                "language": "bo",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "སངས་རྒྱས་བདུན་ལ་ཕྱག་འཚལ་ལོ། ། <br> ཁྱེད་ཚོ་ཡག་པོ་དང་སྙིང་རྗེ་ཅན།། <br> ང་ཚོར་བྱམས་པ་གནང་རོགས་གནང་།། <br> ཁྱེད་ཀྱི་མིང་རྣམས་དྲན་མི་ཐུབ།།",
+                      "སེམས་ཅན་ཚང་མ་བདེ་བ་ཡོང་།། <br> ང་ཡིས་དཀའ་ལས་མང་པོ་བརྒྱབ།། <br> རང་གི་བདེ་བ་གཞན་ལ་སྤྲད།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "ནད་པ་ཚོ་ལ་རོགས་པ་བྱས།། <br> རང་གི་ལུས་པོ་སྦྱིན་པ་བཏང་།། <br> དཀའ་ངལ་ཡོད་མཁན་སྐྱོབ་པའི་ཕྱིར།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "ཕ་མ་བུ་ཕྲུག་ནོར་རྫས་དང་།། <br> གླང་ཆེན་ཤིང་རྟ་ཡག་ཤོས་རྣམས།། <br> བྱང་ཆུབ་དོན་དུ་བཏང་བ་ཡིས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "སངས་རྒྱས་རང་རྒྱལ་ཉན་ཐོས་དང་།། <br> ཕ་མ་དྲང་སྲོང་ཆེན་པོ་ལ།། <br> མཆོད་པ་ཕུལ་བས་དགེ་བ་དེས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "དུས་ཡུན་རིང་པོར་སྡུག་བསྔལ་མྱངས།། <br> བྱང་ཆུབ་ཐོབ་ཕྱིར་སློབ་སྦྱོང་བྱས།། <br> དཀའ་ལས་མང་པོ་བརྒྱབ་པ་ཡིས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "ཚུལ་ཁྲིམས་བསྲུངས་ཤིང་དཀའ་ཐུབ་སྤྱད།། <br> ཕྱོགས་བཅུའི་སངས་རྒྱས་མཆོད་པ་ཕུལ།། <br> དགེ་བ་བསགས་པའི་མཐུ་ཡིས་ནི།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "བརྩོན་འགྲུས་ཆེན་པོས་ལས་ཀ་བྱས།། <br> གཞན་གྱིས་བར་ཆད་བྱས་ཀྱང་བཟོད།། <br> སེམས་ཅན་ཀུན་ལ་ཕན་པའི་ཕྱིར།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "བཟོད་པ་སྒོམ་ཞིང་གཞན་ལ་བྱམས།། <br> སེམས་ཅན་ཚོ་ཡིས་གནོད་པ་བྱས།། <br> དེ་ལ་ཁོང་ཁྲོ་མ་བྱས་པས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "བསམ་གཏན་སྒོམ་དང་ཏིང་འཛིན་བསྒྲུབས།། <br> གངྒཱའི་བྱེ་མ་ཇི་སྙེད་པ།། <br> དེ་སྙེད་ཏིང་འཛིན་བསྒོམས་པ་ཡིས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "ཡེ་ཤེས་སྒྲུབ་ཕྱིར་དཀའ་ཐུབ་སྤྱད།། <br> ནགས་ཚལ་ནང་དུ་སྒོམ་པ་བྱས།། <br> ཆོས་མང་པོ་ཞིག་བསླབས་པ་ཡིས།། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།",
+                      "བྱམས་པའི་སེམས་ཀྱིས་ལུས་སྲོག་བཏང་།། <br> གཞན་ལ་ཤ་ཁྲག་སྦྱིན་པ་བཏང་།། <br> ལག་པ་རྐང་པ་བཏང་བ་ཡིས།། <br> ཆོས་ཀྱི་ལམ་ནི་རྒྱས་པར་ཤོག།",
+                      "སྡིག་ཅན་རྣམས་ལ་བྱམས་པ་བསྐྱེད།། <br> ཐེག་པ་གསུམ་ལ་འགོད་པར་བྱས།། <br> སེམས་ཅན་རྣམས་ལ་ཕན་བཏགས་པས།། <br> ཆོས་ཀྱི་སྦྱིན་པ་དར་བར་ཤོག།",
+                      "ཐབས་དང་ཤེས་རབ་ལྡན་པ་ཡིས།། <br> ལོག་ལྟ་ཅན་རྣམས་ཐར་བར་བྱས།། <br> ཡང་དག་ལྟ་བར་བཀོད་པ་ཡིས།། <br> ཆོས་ནི་ཕྱོགས་ཀུན་དར་བར་ཤོག།",
+                      "བསྡུ་བའི་དངོས་པོ་བཞི་ཡི་སྒོ།། <br> ཉོན་མོངས་མེ་ལས་ཐར་བར་བྱས།། <br> སྡིག་པ་སྤངས་པའི་མཐུ་ཡིས་ནི།། <br> སློབ་མ་རྣམས་ནི་གནས་པར་ཤོག།",
+                      "མུ་སྟེགས་ཅན་རྣམས་ཐར་བར་བྱས།། <br> ལོག་པའི་ལྟ་བ་སྤངས་སུ་བཅུག། <br> ཡང་དག་ལྟ་བར་བཀོད་པ་ཡིས།། <br> སློབ་མ་དད་ལྡན་འཕེལ་བར་ཤོག། <br> ཆོས་ཀྱི་འོད་ནི་གསལ་བར་ཤོག།"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Prayer for the future of the Dharma - adapted for children[en]",
+                "language": "en",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "To the seven special buddhas, <br> We say hello and thank you! <br> You are like heroes who help everyone, <br> And we bow to show we care.",
+                      "I did hard things to help others, <br> And didn't think about myself. <br> I hope this makes the teachings <br> Shine bright for a long time!",
+                      "I gave my life to help sick people, <br> So they could feel better. <br> I hope this helps the poor too, <br> And makes the teachings last!",
+                      "I gave away my family and toys, <br> My animals and things I ride, <br> To find something very special. <br> May the teachings stay strong!",
+                      "I gave gifts to many wise people, <br> Who teach us how to be good. <br> They are called buddhas and other names, <br> May their words help everyone!",
+                      "I had a hard time for a long while, <br> But I kept learning to be better. <br> I hope this helps the teachings <br> Stay bright for many years!",
+                      "I followed rules and did tough things, <br> For a very long time. <br> I gave gifts to buddhas everywhere, <br> May their words spread far!",
+                      "I worked hard and never gave up, <br> Even when things were tough. <br> I want to help all living things, <br> May the teachings grow strong!",
+                      "I was patient when others were mean, <br> Because they felt sad or angry. <br> I didn't get mad at them, <br> May kindness spread everywhere!",
+                      "I sat still and thought deeply, <br> About many important things. <br> I hope this makes the teachings <br> Last for a very long time!",
+                      "I lived in the forest to learn, <br> And shared what I knew with others. <br> I taught them many good things, <br> May wisdom grow and grow!",
+                      "I gave my body to help others, <br> Because I cared about them so much. <br> I even gave my arms and legs, <br> May goodness spread all around!",
+                      "I helped mean people become nice, <br> With lots of love and kindness. <br> I showed them three ways to be good, <br> May more people learn these ways!",
+                      "I helped people think better thoughts, <br> When they had silly ideas. <br> I showed them the right way to think, <br> May good thoughts spread far!",
+                      "I made friends in four special ways, <br> To help them not feel so sad. <br> I stopped bad things from growing, <br> May my friends stay for a long time!",
+                      "I helped people with wrong ideas, <br> To see things in a better way. <br> I showed them the right path to follow, <br> May my friends always be happy! <br> May the teachings shine bright forever!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "法教未來祈願文 - 兒童版[zh]",
+                "language": "zh",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "向七位佛陀问好：维巴斯温、尸弃、毗舍浮、 <br> 拘留孙、迦那迦牟尼、迦叶， <br> 还有释迦牟尼——所有神中的神， <br> 向这七位勇士佛陀，我鞠躬！",
+                      "过去，为了帮助大家， <br> 我经历了很多困难， <br> 放弃了自己的快乐， <br> 愿佛法的光芒长存！",
+                      "以前，为了照顾生病的人， <br> 我付出了自己的生命， <br> 为了保护需要帮助的人， <br> 愿佛法的光芒长存！",
+                      "我放弃了儿子、女儿和妻子， <br> 还有财富、大象和马车， <br> 为了获得觉悟的宝藏， <br> 愿佛法的光芒长存！",
+                      "我向佛陀、独觉、 <br> 声闻、男女修行者， <br> 和伟大的圣人献礼， <br> 愿佛法的光芒长存！",
+                      "我忍受了很多苦难， <br> 经历了很长很长的时间， <br> 为了学习成为觉者， <br> 愿佛法的光芒长存！",
+                      "我遵守戒律， <br> 长期修行苦行， <br> 向十方佛陀献礼， <br> 愿佛法的光芒长存！",
+                      "过去我一直很努力， <br> 保持稳定，克服困难， <br> 为了帮助所有的人， <br> 愿佛法的光芒长存！",
+                      "我一直保持耐心， <br> 容忍他人的坏行为， <br> 即使他们有不好的情绪， <br> 愿佛法的光芒长存！",
+                      "我修习禅定和神通， <br> 像恒河沙那么多， <br> 通过我的冥想力量， <br> 愿佛法的光芒长存！",
+                      "为了寻求智慧， <br> 我在森林里修行， <br> 教导很多佛法， <br> 愿佛法的光芒长存！",
+                      "我用爱心奉献血肉， <br> 献出我的全部生命， <br> 给出手臂、腿和身体， <br> 愿佛法之道兴盛！",
+                      "过去，我用慈爱帮助 <br> 伤害他人的人变好， <br> 引导他们修行； <br> 愿佛法的礼物茁壮成长！",
+                      "过去，用智慧和方法， <br> 我帮助人摆脱错误想法， <br> 引导他们正确思考； <br> 愿佛法在各方面增长！",
+                      "用四种吸引弟子的方法， <br> 我帮人摆脱情绪之火， <br> 战胜了负面情绪； <br> 愿我的追随者长久相伴！",
+                      "我帮助其他信仰的人 <br> 摆脱不同的错误观点， <br> 引导他们正确思考； <br> 愿我的追随者永远虔诚！ <br> 愿佛法的光芒长存！"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "ཆོས་ཀྱི་མ་འོངས་པའི་དོན་ལུ་ཨིན་པའི་སྨོན་ལམ།[dz]",
+                "language": "dz",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "སངས་རྒྱས་རྣམས་ལ། རྣམ་པར་གཟིགས་དང་། གཙུག་ཏོར་ཅན་དང་། ཐམས་ཅད་སྐྱོབ་དང་། <br> འཁོར་བ་འཇིག་དང་། གསེར་ཐུབ་དང་། འོད་སྲུང་དང་། <br> ཤཱཀྱ་ཐུབ་པ་གཽ་ཏ་མ། ལྷ་ཡི་ལྷ། <br> དཔའ་བོ་བདུན་པོ་འདི་དག་ལ་ཕྱག་འཚལ་ལོ།",
+                      "འདས་པའི་དུས་སུ། སེམས་ཅན་གྱི་དོན་དུ། <br> ང་གིས་དཀའ་བ་ཚུ་ག་ར་བཟོད་པ་སྒོམས་ཅི། <br> རང་གི་བདེ་བ་སྤངས་ཏེ། དེའི་ཐོག་ལས། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "འདས་པའི་དུས་སུ། ནདཔ་ཚུ་གི་དོན་ལུ། <br> ང་གིས་རང་གི་སྲོག་བློས་བཏང་ཡི། <br> དེ་ཡང་དབུལ་ཕོངས་དང་ཉམ་ཆུང་ཚུ་སྲུང་སྐྱོབ་འབད་ནིའི་དོན་ལུ། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "བུ་དང་བུམོ་དང་ཨམ་སྲུ་ཚུ་སྤངས་ཏེ། <br> ནོར་དང་གླང་ཆེན་དང་ཤིང་རྟ་ཚུ། <br> བྱང་ཆུབ་ཀྱི་གཏེར་གྱི་དོན་ལུ་བཏང་སྟེ། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "སངས་རྒྱས་དང་རང་རྒྱལ་དང་། <br> ཉན་ཐོས་ཕོ་མོ་ཚུ་དང་། <br> དྲང་སྲོང་ཆེན་པོ་ཚུ་ལུ་མཆོད་པ་ཕུལ་བའི་ཐོག་ལས། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "ང་གིས་མྱོང་བའི་སྡུག་བསྔལ་གྱི་ཐོག་ལས། <br> བསྐལ་པ་ས་ཡ་མང་པོའི་རིང་ལུ། <br> བྱང་ཆུབ་ཀྱི་དོན་ལུ་གདམས་ངག་འཚོལ་ཏེ། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "ང་གི་ཚུལ་ཁྲིམས་ཀྱི་སྤྱོད་པ་དང་། <br> ཡུན་རིང་པོའི་དཀའ་ཐུབ་དང་། <br> ཕྱོགས་བཅུའི་སངས་རྒྱས་ཚུ་ལུ་མཆོད་པ་ཕུལ་བའི་ཐོག་ལས། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "འདས་པའི་དུས་ཀྱི་ང་གི་བརྩོན་འགྲུས་ཀྱི་ཐོག་ལས། <br> རྟག་ཏུ་བརྟན་པོ་དང་། གཞན་གྱི་བར་ཆད་ལས་རྒྱལ་ཏེ། <br> སེམས་ཅན་ཐམས་ཅད་གྲོལ་བར་བྱ་བའི་ཕྱིར། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "ང་གི་བཟོད་པའི་རྒྱུན་གྱི་ཉམས་ལེན་དང་། <br> སེམས་ཅན་ཚུ་གི་གནོད་པའི་བྱ་བ་ཚུ་བཟོད་པའི་ཐོག་ལས། <br> ཁོང་ཚུ་གི་ཉོན་མོངས་པའི་ཉམས་ཆག་གི་རྐྱེན་ལས་བྱུང་བ། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "བསམ་གཏན་དང་རྣམ་ཐར་དང་གཟུགས་མེད་ཀྱི་སྙོམས་འཇུག་དང་། <br> གངྒཱའི་ཀླུང་གི་བྱེ་མ་སྙེད་ཀྱི་ཏིང་ངེ་འཛིན་གྱི་ཐོག་ལས། <br> ང་གི་སྒོམ་གྱི་ནུས་པའི་ཐོག་ལས། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "འདས་པའི་དུས་སུ་ཤེས་རབ་འཚོལ་བའི་ཐོག་ལས། <br> ནགས་ཚལ་ནང་དཀའ་ཐུབ་སྤྱད་དེ། <br> གཞན་ལུ་བསྟན་བཅོས་གྲངས་མེད་པ་བསྟན་པའི་ཐོག་ལས། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།",
+                      "བྱམས་པའི་སྒོ་ལས། རང་གི་ཤ་དང་ཁྲག་བྱིན་ཏེ། <br> རང་གི་སྲོག་ཡོངས་སུ་བཏང་སྟེ། <br> ལག་པ་དང་རྐང་པ་དང་ལུས་ཀྱི་ཆ་ཤས་ཚུ་བྱིན་པའི་ཐོག་ལས། <br> ཆོས་ཀྱི་ལམ་རྒྱས་ཤིང་འཕེལ་བར་ཤོག།",
+                      "འདས་པའི་དུས་སུ། བྱམས་པ་དང་སྙིང་རྗེའི་ཐོག་ལས། <br> གནོད་པ་བྱེད་པའི་སེམས་ཅན་ཚུ་ཡོངས་སུ་སྨིན་པར་བྱས་ཏེ། <br> ཁོང་ཆ་ཁྱབ་ཐེག་པ་གསུམ་ལུ་ཁྲིད་པའི་ཐོག་ལས། <br> ཆོས་ཀྱི་སྦྱིན་པ་འཕེལ་ཞིང་རྒྱས་པར་ཤོག།",
+                      "འདས་པའི་དུས་སུ། ཐབས་མཁས་དང་ཤེས་རབ་ཀྱི་ཐོག་ལས། <br> སེམས་ཅན་ཚུ་ལོག་ལྟ་ལས་གྲོལ་བར་བྱས་ཏེ། <br> ཡང་དག་པའི་ལྟ་བ་ལུ་ཁྲིད་པའི་ཐོག་ལས། <br> ཆོས་རྣམ་པ་ཀུན་ཏུ་འཕེལ་བར་ཤོག།",
+                      "སློབ་མ་སྡུད་པའི་དངོས་པོ་བཞིའི་ཐོག་ལས། <br> སེམས་ཅན་ཚུ་ཉོན་མོངས་པའི་མེ་ལས་གྲོལ་བར་བྱས་ཏེ། <br> ཉེས་སྤྱོད་ཚད་མེད་པ་ལས་རྒྱལ་བའི་ཐོག་ལས། <br> ང་གི་རྗེས་འབྲང་པ་ཚུ་ཡུན་རིང་གནས་པར་ཤོག།",
+                      "མུ་སྟེགས་པ་དང་གཞན་ཚུ་ <br> ལྟ་བ་སྣ་ཚོགས་ཀྱི་ཆུ་བོ་ལས་གྲོལ་བར་བྱས་ཏེ། <br> ཡང་དག་པའི་ལྟ་བ་ལུ་ཁྲིད་པའི་ཐོག་ལས། <br> ང་གི་རྗེས་འབྲང་པ་ཚུ་རྟག་ཏུ་མོས་གུས་དང་ལྡན་པར་ཤོག། <br> བསྟན་པ་ཡུན་རིང་འབར་བར་ཤོག།"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "धर्म के भविष्य के लिए प्रार्थना[hi]",
+                "language": "hi",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "बुद्धों को: विपश्यी, शिखी, विश्वभू, <br> ककुच्छंद, कनकमुनि और काश्यप, <br> और शाक्यमुनि - गौतम, सभी देवताओं के देवता, <br> इन सात योद्धा-जैसे बुद्धों को, मैं नमन करता हूं!",
+                      "पूर्व में, प्राणियों के हित के लिए, <br> मैंने सभी प्रकार के कष्ट सहे, <br> और अपना सुख त्याग दिया, इससे, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "पूर्व में, रोगियों के लिए, <br> मैंने अपना जीवन दे दिया, <br> जरूरतमंदों और गरीबों की रक्षा के लिए <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "पुत्रों, पुत्रियों और पत्नियों को त्यागकर, <br> धन और हाथी और रथों को, <br> बोधि के खजाने के लिए, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "बुद्धों, प्रत्येकबुद्धों, <br> श्रावकों, पुरुष और स्त्री, <br> और महान ऋषियों को किए गए अर्पण से, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "मेरे द्वारा सहे गए कष्टों से, <br> कई लाखों कल्पों तक, <br> बोधि के लिए शिक्षा की खोज में, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "मेरे अनुशासन के आचरण से, <br> और दीर्घकालीन तपस्या से, <br> और दस दिशाओं के बुद्धों को किए गए अर्पण से, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "अतीत में मेरे परिश्रम से, <br> निरंतर स्थिर, और दूसरों के व्यवधान पर विजय पाकर, <br> सभी प्राणियों को मुक्त करने के लिए, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "क्षमा के निरंतर अभ्यास से, <br> और प्राणियों के हानिकारक कृत्यों को सहन करके, <br> उनके क्लेशों के पतन के कारण, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "ध्यान, पूर्ण विमुक्तियों, अरूप समाधियों, <br> और गंगा नदी की रेत के कणों जितनी समाधियों से, <br> मेरे ध्यान की शक्ति से, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "अतीत में ज्ञान की खोज में, <br> वन में तपस्या का अभ्यास करके, <br> और असंख्य शास्त्रों को दूसरों को सिखाकर, <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!",
+                      "प्रेम से, अपना मांस और रक्त देकर, <br> अपना जीवन पूरी तरह से त्यागकर, <br> और हाथ-पैर और शरीर का हर अंग देकर, <br> धर्म का मार्ग फले-फूले और विस्तृत हो!",
+                      "अतीत में, प्रेम से मैंने <br> हानिकारक प्राणियों को पूरी तरह से परिपक्व किया, <br> और उन्हें तीन यानों की ओर ले गया; इससे <br> धर्म का उपहार समृद्ध हो और बढ़े!",
+                      "अतीत में, कौशल और प्रज्ञा से, <br> मैंने प्राणियों को विपरीत दृष्टि से मुक्त किया, <br> और उन्हें सही दृष्टि की ओर ले गया; इससे, <br> धर्म हर तरह से बढ़े!",
+                      "शिष्यों को आकर्षित करने के चार उपायों से, <br> मैंने प्राणियों को क्लेशों की आग से मुक्त किया, <br> और व्यापक नकारात्मकता को परास्त किया; इससे, <br> मेरे अनुयायी दीर्घकाल तक बने रहें!",
+                      "मैंने तीर्थिकों और अन्य लोगों को <br> विभिन्न दृष्टियों की नदियों से मुक्त किया <br> और उन्हें सही दृष्टि की ओर ले गया; इससे <br> मेरे अनुयायियों में हमेशा भक्ति रहे! <br> शिक्षाएं दीर्घकाल तक प्रज्वलित रहें!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "「仏法の未来のための祈り」[ja]",
+                "language": "ja",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "諸仏：毘婆尸仏、尸棄仏、毘舍浮仏、 <br> 拘留孫仏、拘那含牟尼仏、迦葉仏、 <br> そして釈迦牟尼仏—ゴータマ、諸天の天に、 <br> この七人の勇者のような仏陀たちに礼拝いたします！",
+                      "過去において、衆生の利益のために、 <br> 私はあらゆる苦難に耐え、 <br> 自らの幸福を捨てました。これによって、 <br> 教えが長く輝き続けますように！",
+                      "過去において、病める者たちのために、 <br> 私は自らの命を捧げました。 <br> 貧しく弱い者たちを守るために、 <br> 教えが長く輝き続けますように！",
+                      "息子、娘、妻を手放し、 <br> 富と象と戦車を、 <br> 悟りという宝のために捨てました。 <br> 教えが長く輝き続けますように！",
+                      "仏陀たち、縁覚仏たち、 <br> 声聞たち、男女を問わず、 <br> そして偉大な聖者たちへの供養によって、 <br> 教えが長く輝き続けますように！",
+                      "幾百万もの劫にわたり、 <br> 様々な苦しみに耐え、 <br> 悟りのために教えを求めたことで、 <br> 教えが長く輝き続けますように！",
+                      "私の戒律の遵守と、 <br> 長期にわたる苦行、 <br> そして十方の仏への供養によって、 <br> 教えが長く輝き続けますように！",
+                      "過去における私の精進、 <br> 常に安定し、他の妨害に打ち勝ち、 <br> すべての衆生を解脱させるために、 <br> 教えが長く輝き続けますように！",
+                      "絶え間ない忍耐の実践、 <br> 衆生たちの有害な行為を許し、 <br> 彼らの煩悩の退廃によるものだと理解し、 <br> 教えが長く輝き続けますように！",
+                      "禅定、完全なる解脱、無色界定、 <br> そしてガンジス川の砂粒ほど多くの三昧によって、 <br> 私の瞑想の力によって、 <br> 教えが長く輝き続けますように！",
+                      "過去に智慧を求めて、 <br> 森で苦行を実践し、 <br> 無数の論書を他者に教えたことで、 <br> 教えが長く輝き続けますように！",
+                      "愛のために、私の肉と血を与え、 <br> 命を全て捧げ、 <br> 手足と体のあらゆる部分を与えたことで、 <br> 法の道が栄え、広がりますように！",
+                      "過去に、慈愛を持って <br> 害ある衆生たちを完全に成熟させ、 <br> 彼らを三乗へと導きました。これによって <br> 法の贈り物が繁栄し、成長しますように！",
+                      "過去に、方便と智慧を持って、 <br> 衆生たちを誤った見解から解放し、 <br> 正しい見解へと導きました。これによって、 <br> 法があらゆる面で増長しますように！",
+                      "四摂法によって、 <br> 衆生たちを煩悩の火から救い、 <br> 蔓延する否定性を打ち負かしました。これによって、 <br> 私の追随者たちが長く存続しますように！",
+                      "外道やその他の者たちを <br> 様々な見解の川から解放し、 <br> 正しい見解へと導きました。これによって <br> 私の弟子たちが常に devotion を持ちますように！ <br> 教えが長く輝き続けますように！"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "법의 미래를 위한 기도[ko]",
+                "language": "ko",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "비파시불, 시기불, 비사부불, <br> 구류손불, 구나함모니불, 가섭불, <br> 그리고 석가모니불 - 고타마, 모든 신들의 신께, <br> 이 일곱 용사 같은 부처님들께 예배드립니다!",
+                      "과거에, 중생들을 위하여, <br> 저는 온갖 고난을 견디었으며, <br> 제 자신의 행복을 버렸습니다. 이를 통해, <br> 가르침이 오래도록 빛나기를!",
+                      "과거에, 병든 이들을 위해, <br> 제 생명을 바쳤으니, <br> 가난하고 약한 이들을 보호하기 위해, <br> 가르침이 오래도록 빛나기를!",
+                      "아들과 딸, 아내를 포기하고, <br> 재물과 코끼리와 수레를, <br> 깨달음의 보물을 위해 버렸으니, <br> 가르침이 오래도록 빛나기를!",
+                      "부처님들, 연각불, <br> 성문제자들, 남녀를 불문하고, <br> 그리고 위대한 성자들께 공양 올림으로써, <br> 가르침이 오래도록 빛나기를!",
+                      "수백만 겁 동안 <br> 온갖 고통을 겪으며, <br> 깨달음을 위해 가르침을 구했으니, <br> 가르침이 오래도록 빛나기를!",
+                      "제 계율 수행과, <br> 오랜 고행, <br> 그리고 시방 부처님들께 공양 올림으로써, <br> 가르침이 오래도록 빛나기를!",
+                      "과거의 정진으로, <br> 항상 굳건하고, 방해를 극복하며, <br> 모든 중생을 해탈시키고자, <br> 가르침이 오래도록 빛나기를!",
+                      "끊임없는 인내의 수행으로, <br> 중생들의 해로운 행위를 용납하며, <br> 그들의 퇴폐한 번뇌로 인한 것이니, <br> 가르침이 오래도록 빛나기를!",
+                      "선정, 완전한 해탈, 무색계 삼매, <br> 그리고 갠지스 강의 모래알만큼 많은 삼매를, <br> 제 명상의 힘으로, <br> 가르침이 오래도록 빛나기를!",
+                      "과거에 지혜를 구하고자, <br> 숲에서 고행을 실천하며, <br> 수많은 논서를 남에게 가르침으로써, <br> 가르침이 오래도록 빛나기를!",
+                      "사랑으로, 제 살과 피를 주고, <br> 제 생명을 온전히 바치며, <br> 팔다리와 온몸의 모든 부분을 바침으로써, <br> 법의 길이 번창하고 확장되기를!",
+                      "과거에, 자비로, <br> 해로운 중생들을 완전히 성숙케 하고, <br> 그들을 삼승으로 인도했으니, <br> 법의 선물이 번성하고 성장하기를!",
+                      "과거에, 방편과 지혜로, <br> 중생들을 그릇된 견해에서 해방시키고, <br> 올바른 견해로 인도했으니, <br> 법이 모든 면에서 증장하기를!",
+                      "사섭법으로, <br> 중생들을 번뇌의 불에서 구하고, <br> 만연한 부정을 물리쳤으니, <br> 제 추종자들이 오래도록 남아있기를!",
+                      "외도와 다른 이들을 <br> 다양한 견해의 강에서 해방시키고 <br> 올바른 견해로 인도했으니, <br> 제 추종자들이 항상 신심을 가지기를! <br> 가르침이 오래도록 빛나기를!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Номын Ирээдүйн Төлөөх Залбирал[mn]",
+                "language": "ko",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "Бурхан багш нар: Вибашин, Шихин, Вишвабу, <br> Кракуччанда, Канакамуни, Кашьяпа, <br> Мөн Шакьямуни—Гаутама, бүх бурхадын бурхан, <br> Эдгээр долоон баатарлаг бурхан багш нарт би мөргөн залбирна!",
+                      "Өнгөрсөн цагт, амьтдын тусын тулд, <br> Би бүх төрлийн зовлонг тэвчсэн, <br> Өөрийн жаргалыг орхисон, үүгээр, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Өнгөрсөн цагт, өвчтөний төлөө, <br> Би амиа өгсөн, <br> Тийнхүү, гачигдагсад ба ядуусыг хамгаалахын тулд, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Хөвгүүд, охид, эхнэрүүдээ орхиж, <br> Баялаг, заан, тэрэг хөсгийг, <br> Гэгээрлийн эрдэнийн төлөө орхисноор, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Бурхан багш нар, прадекабудда нар, <br> Шравак нар, эр, эм хүмүүс, <br> Мөн их мэргэд нарт өргөл өргөснөөр, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Миний туулсан зовлонгуудаар, <br> Олон сая галавын туршид, <br> Гэгээрлийн төлөө сургаал эрэлхийлснээр, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Миний сахилга батын зан төлөвөөр, <br> Мөн урт хугацааны даяанчлалаар, <br> Мөн арван зүгийн бурхан багш нарт өргөл өргөснөөр, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Өнгөрсөн цагийн минь хичээл зүтгэлээр, <br> Үргэлж тогтвортой, бусдын саад тотгорыг даван туулж, <br> Бүх амьтдыг чөлөөлөхийн тулд, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Миний тэвчээрийн байнгын дадлагаар, <br> Мөн амьтдын хорт үйлийг тэвчсэнээр, <br> Тэдгээрийн сөрөг сэтгэл хорослын доройтлоос үүдэлтэй, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Төвлөрөл, төгс чөлөөлөлт, хэлбэргүй шингээлт, <br> Мөн Ганга мөрний элс мэт тооны самадиудаар, <br> Миний бясалгалын хүчээр, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Өнгөрсөн цагт билгийг эрэлхийлснээр, <br> Ойд чанга нандин дадал хийж, <br> Мөн тоолшгүй олон шастрыг бусдад заасны учир, <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!",
+                      "Хайр энэрлээр, махан биеэ цусаа өгч, <br> Амиа бүрэн зориулж, <br> Мөн гар, хөл, бие махбодын бүх хэсгээ өгснөөр, <br> Номын зам цэцэглэн дэлгэрэх болтугай!",
+                      "Өнгөрсөн цагт, энэрэнгүй сэтгэлээр би <br> Хорт амьтдыг бүрэн төлөвшүүлж, <br> Тэднийг гурван хөлгөнд хөтөлсөн; үүгээр <br> Номын бэлэг дэлгэрч, өсөх болтугай!",
+                      "Өнгөрсөн цагт, ур чадвар, билгүүнээр, <br> Би амьтдыг буруу үзлээс чөлөөлж, <br> Тэднийг зөв үзэлд хөтөлсөн; үүгээр, <br> Ном бүх талаар өсөн нэмэгдэх болтугай!",
+                      "Шавь нарыг татах дөрвөн аргаар, <br> Би амьтдыг хорт мэдрэмжийн галаас чөлөөлж, <br> Хязгааргүй сөрөг байдлыг ялан дийлсэн; үүгээр, <br> Миний дагалдагчид удаан оршин тогтнох болтугай!",
+                      "Би тиртикүүд болон бусдыг <br> Өөр өөр үзлийн голоос чөлөөлж <br> Тэднийг зөв үзэлд хөтөлсөн; үүгээр <br> Миний дагалдагчид үргэлж бишрэлтэй байх болтугай! <br> Сургаал удаан хугацаанд гэрэлтэх болтугай!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "धर्माच्या भविष्यासाठी प्रार्थना[mr]",
+                "language": "mr",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "बुद्धांना: विपश्यी, शिखी, विश्वभू, <br> ककुच्छंद, कनकमुनि आणि काश्यप, <br> आणि शाक्यमुनी - गौतम, सर्व देवतांचे देवता, <br> या सात योद्ध्यासारख्या बुद्धांना मी नमस्कार करतो!",
+                      "पूर्वी, प्राण्यांच्या हितासाठी, <br> मी सर्व प्रकारचे कष्ट सहन केले, <br> आणि माझे स्वतःचे सुख त्यागले, याद्वारे, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "पूर्वी, आजारी लोकांसाठी, <br> मी माझे जीवन दान केले, <br> गरजू आणि गरीबांचे रक्षण करण्यासाठी <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "माझे पुत्र, कन्या आणि पत्नी, <br> संपत्ती आणि हत्ती आणि रथ, <br> बोधिसत्त्वाच्या खजिन्यासाठी त्यागून, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "बुद्ध, प्रत्येकबुद्ध, <br> श्रावक, पुरुष आणि स्त्री, <br> आणि महान ऋषींना केलेल्या अर्पणांद्वारे, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "मी सहन केलेल्या यातनांद्वारे, <br> अनेक दशलक्ष कल्पांसाठी, <br> बोधिसत्त्वासाठी शिक्षण शोधत, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "माझ्या शिस्तबद्ध आचरणाद्वारे, <br> आणि दीर्घकालीन तपश्चर्येद्वारे, <br> आणि दहा दिशांच्या बुद्धांना केलेल्या अर्पणांद्वारे, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "भूतकाळातील माझ्या परिश्रमाद्वारे, <br> सतत स्थिर, आणि इतरांच्या व्यत्ययावर मात करत, <br> सर्व प्राण्यांना मुक्त करण्यासाठी, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "सहनशीलतेच्या सतत सरावाद्वारे, <br> आणि प्राण्यांच्या हानिकारक कृत्यांना सहन करून, <br> त्यांच्या क्लेशांच्या ऱ्हासामुळे झालेल्या, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "ध्यान, परिपूर्ण मुक्ती, अरूप समाधी, <br> आणि गंगा नदीच्या वाळूएवढ्या समाधींद्वारे, <br> माझ्या ध्यानाच्या शक्तीने, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "भूतकाळात ज्ञान शोधण्यासाठी, <br> जंगलात तपश्चर्या करून, <br> आणि असंख्य शास्त्रे इतरांना शिकवून, <br> शिकवण दीर्घकाळ तेजस्वी राहो!",
+                      "प्रेमापोटी, माझे मांस आणि रक्त देऊन, <br> माझे संपूर्ण जीवन अर्पण करून, <br> आणि हात-पाय आणि शरीराचा प्रत्येक भाग देऊन, <br> धर्माचा मार्ग समृद्ध होवो आणि विस्तारित होवो!",
+                      "भूतकाळात, प्रेमळपणाने मी <br> हानिकारक प्राण्यांना पूर्णपणे परिपक्व केले, <br> आणि त्यांना तीन यानांकडे नेले; याद्वारे <br> धर्माची देणगी समृद्ध होवो आणि वाढो!",
+                      "भूतकाळात, कौशल्य आणि प्रज्ञेने, <br> मी प्राण्यांना विपरीत दृष्टीपासून मुक्त केले, <br> आणि त्यांना योग्य दृष्टीकडे नेले; याद्वारे, <br> धर्म सर्व प्रकारे वाढो!",
+                      "शिष्य आकर्षित करण्याच्या चार मार्गांनी, <br> मी प्राण्यांना क्लेशांच्या अग्नीपासून मुक्त केले, <br> आणि प्रबळ नकारात्मकतेचा पराभव केला; याद्वारे, <br> माझे अनुयायी दीर्घकाळ टिकून राहोत!",
+                      "मी तीर्थिक आणि इतरांना <br> विविध दृष्टींच्या नद्यांपासून मुक्त केले <br> आणि त्यांना योग्य दृष्टीकडे नेले; याद्वारे <br> माझ्या अनुयायांना नेहमी भक्ती असो! <br> शिकवण दीर्घकाळ तेजस्वी राहो!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Doa untuk Masa Depan Dharma[ms]",
+                "language": "ms",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "Kepada para Buddha: Vipaśyin, Śikhin, Viśvabhū, <br> Krakucchanda, Kanakamuni, dan Kāśyapa, <br> Dan Śākyamuni—Gautama, dewa dari semua dewa, <br> Kepada tujuh Buddha yang seperti pejuang ini, saya memberi penghormatan!",
+                      "Pada masa lalu, untuk memberi manfaat kepada makhluk hidup, <br> Saya menanggung segala jenis kesukaran, <br> Dan melepaskan kebahagiaan saya sendiri, melalui ini, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Pada masa lalu, demi orang yang sakit, <br> Saya memberikan nyawa saya, <br> Maka, untuk melindungi yang memerlukan dan yang miskin, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Dengan melepaskan anak lelaki, anak perempuan, dan isteri, <br> Kekayaan dan gajah dan kereta kuda, <br> Demi harta karun pencerahan, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui persembahan yang saya buat kepada para Buddha, pratyekabuddha, <br> Śrāvaka, lelaki dan perempuan, <br> Dan kepada orang bijak yang agung, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui penderitaan yang saya tanggung, <br> Selama berjuta-juta kalpa, <br> Mencari pengajaran demi pencerahan, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui tingkah laku disiplin saya, <br> Dan pertapaan yang lama, <br> Dan persembahan saya kepada para Buddha dari sepuluh penjuru, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui ketekunan saya di masa lalu, <br> Selalu stabil, dan mengatasi gangguan orang lain, <br> Untuk membebaskan semua makhluk, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui amalan kesabaran saya yang berterusan, <br> Dan toleransi saya terhadap tindakan berbahaya makhluk, <br> Yang disebabkan oleh kemerosotan emosi negatif mereka, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui konsentrasi, pembebasan sempurna, penyerapan tanpa bentuk, <br> Dan samādhi sebanyak butiran pasir di Sungai Gangga, <br> Melalui kekuatan meditasi saya, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Melalui pencarian kebijaksanaan di masa lalu, <br> Dengan berlatih pertapaan di hutan, <br> Dan mengajar śāstra yang tak terhitung jumlahnya kepada orang lain, <br> Semoga ajaran bersinar untuk waktu yang lama!",
+                      "Dengan memberi, atas dasar cinta, daging dan darah saya, <br> Memberikan hidup saya sepenuhnya, <br> Dan memberikan lengan dan kaki dan setiap bagian tubuh saya, <br> Semoga jalan Dharma berkembang dan meluas!",
+                      "Di masa lalu, dengan kasih sayang, saya menyebabkan <br> Makhluk berbahaya menjadi matang sepenuhnya, <br> Dan saya memimpin mereka ke tiga kenderaan; melalui ini <br> Semoga pemberian Dharma berkembang dan tumbuh!",
+                      "Di masa lalu, dengan cara terampil dan kebijaksanaan, <br> Saya membebaskan makhluk dari pandangan sesat, <br> Dan memimpin mereka ke pandangan yang benar; melalui ini, <br> Semoga Dharma meningkat dalam segala cara!",
+                      "Dengan empat cara untuk menarik murid, <br> Saya membebaskan makhluk dari api emosi, <br> Dan mengalahkan negativitas yang merajalela; melalui ini, <br> Semoga pengikut saya tetap ada untuk waktu yang lama!",
+                      "Saya membebaskan tīrthika dan yang lainnya <br> Dari sungai pandangan yang berbeda <br> Dan memimpin mereka ke pandangan yang benar; melalui ini <br> Semoga pengikut saya selalu memiliki pengabdian! <br> Semoga ajaran bersinar untuk waktu yang lama!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "धर्मको भविष्यको लागि प्रार्थना[ne]",
+                "language": "he",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "बुद्धहरूलाई: विपश्यी, शिखी, विश्वभू, <br> ककुच्छन्द, कनकमुनि र काश्यप, <br> र शाक्यमुनि—गौतम, सबै देवताहरूका देवता, <br> यी सात योद्धा जस्ता बुद्धहरूलाई म श्रद्धाञ्जली अर्पण गर्दछु!",
+                      "अतीतमा, प्राणीहरूको हितको लागि, <br> मैले सबै प्रकारका कठिनाइहरू सहन गरें, <br> र आफ्नै खुशी त्यागें, यसको माध्यमबाट, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "अतीतमा, बिरामीहरूको लागि, <br> मैले आफ्नो जीवन दिएँ, <br> त्यसैले, दरिद्र र गरीबहरूको रक्षा गर्न, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "छोराहरू, छोरीहरू र पत्नीहरू त्यागेर, <br> धन-सम्पत्ति र हात्ती र रथहरू, <br> बोधिको खजानाको लागि, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "बुद्धहरू, प्रत्येकबुद्धहरू, <br> श्रावकहरू, पुरुष र महिला, <br> र महान ऋषिहरूलाई गरेको भेटीहरू मार्फत, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "मैले सहन गरेका कष्टहरू मार्फत, <br> धेरै लाखौं कल्पहरूको लागि, <br> बोधिको लागि निर्देशन खोज्दै, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "मेरो अनुशासित आचरण मार्फत, <br> र लामो समयको तपस्या मार्फत, <br> र दश दिशाका बुद्धहरूलाई मेरो भेटीहरू मार्फत, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "अतीतमा मेरो परिश्रम मार्फत, <br> सधैं स्थिर, र अरूको बाधाहरू पार गर्दै, <br> सबै प्राणीहरूलाई मुक्त गर्न, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "मेरो धैर्यको निरन्तर अभ्यास मार्फत, <br> र प्राणीहरूको हानिकारक कार्यहरूको सहनशीलता मार्फत, <br> उनीहरूको नकारात्मक भावनाहरूको पतनको कारण, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "एकाग्रता, सिद्ध मुक्तिहरू, अरूपी समाधिहरू, <br> र गंगा नदीको बालुवाका कणहरू जत्तिकै समाधिहरू मार्फत, <br> मेरो ध्यानको शक्तिद्वारा, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "अतीतमा ज्ञान खोज्ने मार्फत, <br> जंगलमा कठोर तपस्या गर्दै, <br> र अनगिन्ती शास्त्रहरू अरूलाई सिकाउँदै, <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!",
+                      "प्रेमले, मेरो मासु र रगत दिएर, <br> मेरो जीवन पूर्णतया समर्पण गरेर, <br> र हात र खुट्टा र मेरो शरीरको हरेक भाग दिएर, <br> धर्मको मार्ग फूलोस् र फैलियोस्!",
+                      "अतीतमा, करुणाले, मैले <br> हानिकारक प्राणीहरूलाई पूर्णतया परिपक्व बनाएँ, <br> र उनीहरूलाई तीन यानहरूमा डोर्याएँ; यसको माध्यमबाट <br> धर्मको उपहार समृद्ध होस् र बढोस्!",
+                      "अतीतमा, कुशल उपायहरू र प्रज्ञाको साथ, <br> मैले प्राणीहरूलाई विकृत दृष्टिबाट मुक्त गराएँ, <br> र उनीहरूलाई सही दृष्टिमा डोर्याएँ; यसको माध्यमबाट, <br> धर्म सबै तरिकाले बढोस्!",
+                      "शिष्यहरूलाई आकर्षित गर्ने चार उपायहरूको साथ, <br> मैले प्राणीहरूलाई भावनाहरूको आगोबाट मुक्त गराएँ, <br> र अनियन्त्रित नकारात्मकतालाई जितें; यसको माध्यमबाट, <br> मेरा अनुयायीहरू लामो समयसम्म रहून्!",
+                      "मैले तीर्थिकहरू र अन्यहरूलाई <br> विभिन्न दृष्टिकोणहरूका नदीहरूबाट मुक्त गराएँ <br> र उनीहरूलाई सही दृष्टिमा डोर्याएँ; यसको माध्यमबाट <br> मेरा अनुयायीहरूसँग सधैं भक्ति रहोस्! <br> शिक्षाहरू लामो समयसम्म चम्कियोस्!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Oração pelo futuro do Dharma[pt]",
+                "language": "pt",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "Aos budas: Vipaśyin, Śikhin, Viśvabhū, <br> Krakucchanda, Kanakamuni e Kāśyapa, <br> E Śākyamuni—Gautama, divindade de todas as divindades, <br> A estes sete budas semelhantes a guerreiros, eu presto homenagem!",
+                      "No passado, para beneficiar os seres, <br> Suportei todos os tipos de dificuldades, <br> E renunciei à minha própria felicidade, através disso, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "No passado, pelo bem dos doentes, <br> Dei a minha vida, <br> Assim, para proteger os necessitados e os pobres, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Ao renunciar a filhos, filhas e esposas, <br> Riquezas, elefantes e carruagens, <br> Pelo tesouro da iluminação, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através das oferendas que fiz aos budas, pratyekabuddhas, <br> Śrāvakas, homens e mulheres, <br> E aos grandes sábios, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através dos sofrimentos que suportei, <br> Por muitos milhões de éons, <br> Buscando instrução para a iluminação, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através da minha conduta disciplinada, <br> E do ascetismo duradouro, <br> E minhas oferendas aos budas das dez direções, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através da minha diligência no passado, <br> Constantemente estável e superando as perturbações dos outros, <br> Para libertar todos os seres, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através da minha prática constante de paciência, <br> E da tolerância aos atos prejudiciais dos seres, <br> Causados pela degeneração de suas emoções negativas, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através da concentração, libertações perfeitas, absorções sem forma, <br> E samādhis tão numerosos quanto os grãos de areia do rio Ganges, <br> Pelo poder da minha meditação, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Através da busca pela sabedoria no passado, <br> Praticando austeridades na floresta, <br> E ensinando inúmeros śāstras aos outros, <br> Que os ensinamentos resplandeçam por muito tempo!",
+                      "Ao dar, por amor, minha carne e sangue, <br> Entregando minha vida inteiramente, <br> E dando braços e pernas e cada parte do meu corpo, <br> Que o caminho do Dharma floresça e se expanda!",
+                      "No passado, com bondade amorosa, fiz com que <br> Seres prejudiciais amadurecessem completamente, <br> E os conduzi aos três veículos; através disso, <br> Que o dom do Dharma prospere e cresça!",
+                      "No passado, com meios hábeis e sabedoria, <br> Libertei seres de visões perversas, <br> E os conduzi à visão correta; através disso, <br> Que o Dharma aumente de todas as formas!",
+                      "Com os quatro meios de atrair discípulos, <br> Libertei seres do fogo das emoções, <br> E venci a negatividade desenfreada; através disso, <br> Que meus seguidores permaneçam por muito tempo!",
+                      "Libertei tīrthikas e outros <br> Dos rios de diferentes visões <br> E os conduzi à visão correta; através disso, <br> Que meus seguidores tenham sempre devoção! <br> Que os ensinamentos resplandeçam por muito tempo!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Молитва о будущем Дхармы[ru]",
+                "language": "ru",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "Буддам: Випашьину, Шикхину, Вишвабху, <br> Кракуччханде, Канакамуни и Кашьяпе, <br> И Шакьямуни—Гаутаме, божеству всех божеств, <br> Этим семи буддам, подобным воинам, я поклоняюсь!",
+                      "В прошлом, ради блага существ, <br> Я претерпел всевозможные трудности, <br> И отказался от собственного счастья, через это, <br> Пусть учение долго сияет!",
+                      "В прошлом, ради больных, <br> Я отдал свою жизнь, <br> Так, чтобы защитить нуждающихся и бедных, <br> Пусть учение долго сияет!",
+                      "Отказавшись от сыновей, дочерей и жён, <br> Богатств, слонов и колесниц, <br> Ради сокровища просветления, <br> Пусть учение долго сияет!",
+                      "Через подношения, которые я сделал буддам, пратьекабуддам, <br> Шравакам, мужчинам и женщинам, <br> И великим мудрецам, <br> Пусть учение долго сияет!",
+                      "Через страдания, которые я перенёс, <br> На протяжении многих миллионов кальп, <br> Ища наставлений ради просветления, <br> Пусть учение долго сияет!",
+                      "Через мое дисциплинированное поведение, <br> И долгий аскетизм, <br> И мои подношения буддам десяти направлений, <br> Пусть учение долго сияет!",
+                      "Через мое усердие в прошлом, <br> Постоянно стабильное и преодолевающее помехи других, <br> Чтобы освободить всех существ, <br> Пусть учение долго сияет!",
+                      "Через мою постоянную практику терпения, <br> И терпимость к вредным действиям существ, <br> Вызванным вырождением их негативных эмоций, <br> Пусть учение долго сияет!",
+                      "Через сосредоточение, совершенные освобождения, бесформенные поглощения, <br> И самадхи, столь же многочисленные, как песчинки в реке Ганг, <br> Силой моей медитации, <br> Пусть учение долго сияет!",
+                      "Через поиск мудрости в прошлом, <br> Практикуя аскезу в лесу, <br> И обучая бесчисленным шастрам других, <br> Пусть учение долго сияет!",
+                      "Отдавая, из любви, свою плоть и кровь, <br> Полностью жертвуя своей жизнью, <br> И отдавая руки и ноги и каждую часть своего тела, <br> Пусть путь Дхармы процветает и расширяется!",
+                      "В прошлом, с любящей добротой, я заставил <br> Вредоносных существ полностью созреть, <br> И привёл их к трём колесницам; через это <br> Пусть дар Дхармы процветает и растёт!",
+                      "В прошлом, с искусными средствами и мудростью, <br> Я освободил существ от извращённых взглядов, <br> И привёл их к правильному взгляду; через это, <br> Пусть Дхарма увеличивается во всех отношениях!",
+                      "С четырьмя способами привлечения учеников, <br> Я освободил существ от огня эмоций, <br> И победил безудержную негативность; через это, <br> Пусть мои последователи существуют долго!",
+                      "Я освободил тиртхиков и других <br> От рек различных взглядов <br> И привёл их к правильному взгляду; через это <br> Пусть мои последователи всегда имеют преданность! <br> Пусть учение долго сияет!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "บทสวดมนต์เพื่ออนาคตของพระธรรม[th]",
+                "language": "th",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "ขอนอบน้อมแด่พระพุทธเจ้า: วิปัสสี ศิขี วิศวภู <br> กกุสันธะ โกนาคมนะ กัสสปะ <br> และศากยมุนี—เคาตมะ เทพเหนือเทพทั้งปวง <br> ข้าพเจ้าขอกราบไหว้พระพุทธเจ้าทั้งเจ็ดพระองค์ผู้ทรงเป็นดั่งนักรบ!",
+                      "ในอดีตกาล เพื่อประโยชน์แก่สรรพสัตว์ <br> ข้าพเจ้าได้อดทนต่อความยากลำบากทุกรูปแบบ <br> และสละความสุขส่วนตน ด้วยการกระทำนี้ <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ในอดีตกาล เพื่อประโยชน์แก่ผู้เจ็บป่วย <br> ข้าพเจ้าได้สละชีวิตของตน <br> ดังนั้น เพื่อปกป้องผู้ขัดสนและยากไร้ <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ด้วยการสละบุตร ธิดา และภรรยา <br> ทรัพย์สมบัติ ช้าง และราชรถ <br> เพื่อขุมทรัพย์แห่งการตรัสรู้ <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านการถวายทานแด่พระพุทธเจ้า พระปัจเจกพุทธเจ้า <br> พระสาวก ทั้งบุรุษและสตรี <br> และแด่มหาฤๅษีทั้งหลาย <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านความทุกข์ทรมานที่ข้าพเจ้าได้อดทน <br> ตลอดหลายล้านกัลป์ <br> แสวงหาคำสอนเพื่อการตรัสรู้ <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านการประพฤติตนอย่างมีวินัยของข้าพเจ้า <br> และการบำเพ็ญตบะอันยาวนาน <br> และการถวายทานแด่พระพุทธเจ้าในทศทิศ <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านความเพียรของข้าพเจ้าในอดีต <br> มั่นคงไม่หวั่นไหว และเอาชนะอุปสรรคจากผู้อื่น <br> เพื่อปลดปล่อยสรรพสัตว์ทั้งปวง <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านการฝึกฝนขันติอย่างต่อเนื่องของข้าพเจ้า <br> และการอดทนต่อการกระทำที่เป็นอันตรายของสรรพสัตว์ <br> อันเกิดจากความเสื่อมถอยของอารมณ์ด้านลบของพวกเขา <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านสมาธิ วิมุตติอันสมบูรณ์ อรูปฌาน <br> และสมาธิมากมายดั่งเม็ดทรายในแม่น้ำคงคา <br> ด้วยพลังแห่งการภาวนาของข้าพเจ้า <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ผ่านการแสวงหาปัญญาในอดีต <br> ด้วยการปฏิบัติตบะในป่า <br> และการสอนคัมภีร์นับไม่ถ้วนแก่ผู้อื่น <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!",
+                      "ด้วยการให้เนื้อและเลือดของข้าพเจ้าด้วยความรัก <br> สละชีวิตทั้งหมดของข้าพเจ้า <br> และให้แขน ขา และทุกส่วนของร่างกายข้าพเจ้า <br> ขอให้หนทางแห่งธรรมจงเบ่งบานและแผ่ขยาย!",
+                      "ในอดีตกาล ด้วยความเมตตา ข้าพเจ้าได้ทำให้ <br> สัตว์ร้ายเติบโตเต็มที่ <br> และนำพวกเขาสู่ยานทั้งสาม ด้วยการกระทำนี้ <br> ขอให้ของขวัญแห่งธรรมจงรุ่งเรืองและเติบโต!",
+                      "ในอดีตกาล ด้วยอุบายและปัญญา <br> ข้าพเจ้าได้ปลดปล่อยสัตว์จากทิฏฐิที่ผิด <br> และนำพวกเขาสู่สัมมาทิฏฐิ ด้วยการกระทำนี้ <br> ขอให้ธรรมจงเพิ่มพูนในทุกทาง!",
+                      "ด้วยวิธีการสี่ประการในการดึงดูดสาวก <br> ข้าพเจ้าได้ปลดปล่อยสัตว์จากไฟแห่งกิเลส <br> และเอาชนะความเลวร้ายที่แพร่หลาย ด้วยการกระทำนี้ <br> ขอให้ผู้ติดตามของข้าพเจ้าจงดำรงอยู่ตราบนานเท่านาน!",
+                      "ข้าพเจ้าได้ปลดปล่อยเดียรถีย์และผู้อื่น <br> จากแม่น้ำแห่งทิฏฐิที่แตกต่าง <br> และนำพวกเขาสู่สัมมาทิฏฐิ ด้วยการกระทำนี้ <br> ขอให้ผู้ติดตามของข้าพเจ้าจงมีศรัทธาตลอดกาล! <br> ขอให้คำสอนจงรุ่งเรืองตราบนานเท่านาน!"
+                    ]
+                  ],
+                "direction": "ltr"
+            },
+            {
+                "title": "Lời Cầu Nguyện cho Tương Lai của Phật Pháp[vi]",
+                "language": "vi",
+                "versionSource": "",
+                "completestatus": "AI draft",
+                "content": [
+                    [
+                      "Kính lễ chư Phật: Tỳ-bà-thi, Thi-khí, Tỳ-xá-phù, <br> Câu-lưu-tôn, Câu-na-hàm Mâu-ni, và Ca-diếp, <br> Cùng Thích-ca Mâu-ni - Cồ-đàm, bậc tối thượng trong chư thiên, <br> Con xin đảnh lễ bảy vị Phật dũng mãnh!",
+                      "Trong quá khứ, vì lợi ích chúng sinh, <br> Con đã chịu đựng mọi gian khổ, <br> Từ bỏ hạnh phúc của bản thân, qua đó, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Trong quá khứ, vì những người bệnh tật, <br> Con đã hiến dâng mạng sống của mình, <br> Để bảo vệ những kẻ nghèo khó và thiếu thốn, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Bằng cách từ bỏ con trai, con gái và vợ, <br> Của cải, voi và xe ngựa, <br> Vì kho báu giác ngộ, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua những cúng dường con đã dâng lên chư Phật, Độc Giác Phật, <br> Thanh Văn, nam và nữ, <br> Và các bậc đại hiền triết, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua những khổ đau con đã chịu đựng, <br> Trong nhiều triệu kiếp, <br> Tìm cầu giáo huấn vì giác ngộ, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua việc giữ gìn giới luật của con, <br> Và khổ hạnh lâu dài, <br> Cùng cúng dường chư Phật mười phương, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua sự tinh tấn trong quá khứ của con, <br> Luôn kiên định, vượt qua mọi chướng ngại, <br> Để giải thoát tất cả chúng sinh, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua việc thường xuyên tu tập nhẫn nhục, <br> Và chịu đựng những hành vi gây hại của chúng sinh, <br> Do phiền não suy đồi của họ gây ra, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua thiền định, giải thoát hoàn hảo, định vô sắc, <br> Và các tam-muội nhiều như cát sông Hằng, <br> Bằng sức mạnh thiền định của con, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Qua việc tìm cầu trí tuệ trong quá khứ, <br> Bằng cách tu khổ hạnh trong rừng sâu, <br> Và giảng dạy vô số luận thuyết cho người khác, <br> Nguyện cho giáo pháp rực sáng lâu dài!",
+                      "Bằng cách hiến dâng, vì lòng từ bi, thịt và máu của mình, <br> Hoàn toàn từ bỏ cuộc sống, <br> Và hiến dâng tay chân cùng mọi bộ phận cơ thể, <br> Nguyện cho con đường Pháp phát triển và mở rộng!",
+                      "Trong quá khứ, với lòng từ ái, con đã khiến <br> Những chúng sinh có hại trưởng thành hoàn toàn, <br> Và dẫn dắt họ đến ba thừa; qua điều này <br> Nguyện cho món quà Pháp thịnh vượng và phát triển!",
+                      "Trong quá khứ, với phương tiện thiện xảo và trí tuệ, <br> Con đã giải thoát chúng sinh khỏi tà kiến, <br> Và dẫn dắt họ đến chánh kiến; qua điều này, <br> Nguyện cho Pháp tăng trưởng theo mọi cách!",
+                      "Với bốn phương pháp nhiếp phục đệ tử, <br> Con đã giải thoát chúng sinh khỏi ngọn lửa phiền não, <br> Và chiến thắng sự tiêu cực tràn lan; qua điều này, <br> Nguyện cho đệ tử của con tồn tại lâu dài!",
+                      "Con đã giải thoát ngoại đạo và những người khác <br> Khỏi dòng sông của các kiến chấp khác nhau <br> Và dẫn dắt họ đến chánh kiến; qua điều này <br> Nguyện cho đệ tử của con luôn có lòng sùng kính! <br> Nguyện cho giáo pháp rực sáng lâu dài!"
+                    ]
+                  ],
                 "direction": "ltr"
             }
         ]
@@ -120,29 +528,57 @@
             {
                 "title": "བསྟན་འབར་མ།",
                 "language": "bo",
+                "completestatus": "done",
                 "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
                 "content": [
                     [
-                        "སངས་རྒྱས་རྣམ་གཟིགས་གཙུག་ཏོར་ཐམས་ཅད་སྐྱོབ། ། <br> <br> འཁོར་བ་འཇིག་དང་གསེར་ཐུབ་འོད་སྲུང་དང་། ། <br> <br> ཤཱཀྱ་ཐུབ་པ་གོའུ་ཏཾ་ལྷ་ཡི་ལྷ། ། <br> <br> སངས་རྒྱས་དཔའ་བོ་བདུན་ལ་ཕྱག་འཚལ་ལོ། ། <br> <br>",
-                        "སེམས་ཅན་དོན་དུ་བདག་གིས་སྔོན། ། <br> <br> དཀའ་བ་གང་ཞིག་སྤྱད་གྱུར་དང་། ། <br> <br> བདག་གི་བདེ་བ་བཏང་བ་ཡིས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "ངས་སྔོན་ནད་པའི་ཆེད་དག་ཏུ། ། <br> <br> རང་གི་འཚོ་བ་ཡོངས་བཏང་བས། ། <br> <br> སེམས་ཅན་ཕོངས་པ་བསྐྱབ་པའི་ཕྱིར། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བུ་དང་བུ་མོ་ཆུང་མ་དང་། ། <br> <br> ནོར་དང་གླང་ཆེན་ཤིང་རྟ་དང་། ། <br> <br> རིན་ཆེན་བྱང་ཆུབ་ཕྱིར་བཏང་བས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་གིས་སངས་རྒྱས་རང་སངས་རྒྱས། ། <br> <br> ཉན་ཐོས་ཕ་དང་མ་དང་ནི། ། <br> <br> དྲང་སྲོང་དག་ལ་མཆོད་བྱས་པས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བསྐལ་པ་བྱེ་བ་དུ་མར་བདག ། <br> <br> སྡུག་བསྔལ་སྣ་ཚོགས་མྱོང་གྱུར་ཅིང་། ། <br> <br> བྱང་ཆུབ་དོན་དུ་ཐོས་བཙལ་བས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་གིས་ཚུལ་ཁྲིམས་བརྟུལ་ཞུགས་དང་། ། <br> <br> དཀའ་ཐུབ་ཡུན་རིང་བསྟེན་བྱས་ཤིང་། ། <br> <br> ཕྱོགས་བཅུའི་སངས་རྒྱས་ངས་མཆོད་པས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་སྔོན་བརྩོན་འགྲུས་དང་ལྡན་པས། ། <br> <br> རྟག་ཏུ་བརྟན་ཅིང་ཕ་རོལ་གནོན། ། <br> <br> སེམས་ཅན་ཐམས་ཅད་བསྒྲལ་དོན་དུ། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བཟོད་བརྟུལ་རྟག་ཏུ་བསྟེན་བྱས་ཤིང་། ། <br> <br> སེམས་ཅན་ཉོན་མོངས་སྙིགས་མ་ཡིས། ། <br> <br> སེམས་ཅན་ངན་བྱས་བཟོད་གྱུར་པས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བསམ་གཏན་རྣམ་ཐར་གཟུགས་མེད་དང་། ། <br> <br> ཏིང་འཛིན་གང་གཱའི་བྱེ་སྙེད་པ། ། <br> <br> བསྒོམས་པས་དེ་མཐུས་བདག་གི་ནི། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "ཡེ་ཤེས་དོན་དུ་བདག་གིས་སྔོན། ། <br> <br> དཀའ་ཐུབ་ནགས་དག་བསྟེན་བྱས་ཤིང་། ། <br> <br> བསྟན་བཅོས་དུ་མ་ཉེར་བསྟེན་པས། ། <br> <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག ། <br> <br>",
-                        "བརྩེ་བའི་རྒྱུ་ཡིས་ཤ་ཁྲག་དང་། ། <br> <br> འཚོ་བ་ཡོངས་སུ་བཏང་གྱུར་ཅིང་། ། <br> <br> ཡན་ལག་ཉིང་ལག་བཏང་པ་ཡིས། ། <br> <br> ཆོས་ཚུལ་རྣམ་པར་འཕེལ་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་སྔོན་སྡིག་པའི་སེམས་ཅན་རྣམས། ། <br> <br> བྱམས་པས་གསལ་བར་སྨིན་བྱས་ཤིང་། ། <br> <br> ཐེག་པ་གསུམ་ལ་རབ་བཀོད་པས། ། <br> <br> ཆོས་ཀྱི་མཆོད་སྦྱིན་རྒྱས་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་སྔོན་ཐབས་ཤེས་གྱུར་པ་ན། <br> སེམས་ཅན་ལྟ་ངན་ལས་བསྒྲལ་ཞིང་། ། <br> <br> ཡང་དག་ལྟ་ལ་བཀོད་བྱས་པས། ། <br> <br> ཆོས་ནི་རྣམ་པར་འཕེལ་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་གིས་སེམས་ཅན་བསྡུ་དངོས་བཞིས། ། <br> <br> ཉོན་མོངས་མེ་ལས་ཐར་བྱས་ཤིང་། ། <br> <br> བདག་གིས་འཕེལ་སྡིག་ཕམ་བྱས་པས། ། <br> <br> བདག་འཁོར་ཡུན་རིང་གནས་གྱུར་ཅིག ། <br> <br>",
-                        "བདག་གིས་མུ་སྟེགས་ཅན་གཞན་དག ། <br> <br> ལྟ་བའི་ཆུ་ལས་བསྒྲལ་བྱས་ཏེ། ། <br> <br> ཡང་དག་ལྟ་ལ་བཀོད་གྱུར་པས། ། <br> <br> བདག་འཁོར་རྟག་ཏུ་གུས་གྱུར་ཅིག ། <br> <br> ཡུན་རིང་བསྟན་པ་འབར་གྱུར་ཅིག ། <br> <br>"
+                        "སངས་རྒྱས་རྣམ་གཟིགས་གཙུག་ཏོར་ཐམས་ཅད་སྐྱོབ། །  <br> འཁོར་བ་འཇིག་དང་གསེར་ཐུབ་འོད་སྲུང་དང་། །  <br> ཤཱཀྱ་ཐུབ་པ་གོའུ་ཏཾ་ལྷ་ཡི་ལྷ། །  <br> སངས་རྒྱས་དཔའ་བོ་བདུན་ལ་ཕྱག་འཚལ་ལོ། །  <br>",
+                        "སེམས་ཅན་དོན་དུ་བདག་གིས་སྔོན། །  <br> དཀའ་བ་གང་ཞིག་སྤྱད་གྱུར་དང་། །  <br> བདག་གི་བདེ་བ་བཏང་བ་ཡིས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "ངས་སྔོན་ནད་པའི་ཆེད་དག་ཏུ། །  <br> རང་གི་འཚོ་བ་ཡོངས་བཏང་བས། །  <br> སེམས་ཅན་ཕོངས་པ་བསྐྱབ་པའི་ཕྱིར། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བུ་དང་བུ་མོ་ཆུང་མ་དང་། །  <br> ནོར་དང་གླང་ཆེན་ཤིང་རྟ་དང་། །  <br> རིན་ཆེན་བྱང་ཆུབ་ཕྱིར་བཏང་བས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བདག་གིས་སངས་རྒྱས་རང་སངས་རྒྱས། །  <br> ཉན་ཐོས་ཕ་དང་མ་དང་ནི། །  <br> དྲང་སྲོང་དག་ལ་མཆོད་བྱས་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བསྐལ་པ་བྱེ་བ་དུ་མར་བདག །  <br> སྡུག་བསྔལ་སྣ་ཚོགས་མྱོང་གྱུར་ཅིང་། །  <br> བྱང་ཆུབ་དོན་དུ་ཐོས་བཙལ་བས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བདག་གིས་ཚུལ་ཁྲིམས་བརྟུལ་ཞུགས་དང་། །  <br> དཀའ་ཐུབ་ཡུན་རིང་བསྟེན་བྱས་ཤིང་། །  <br> ཕྱོགས་བཅུའི་སངས་རྒྱས་ངས་མཆོད་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བདག་སྔོན་བརྩོན་འགྲུས་དང་ལྡན་པས། །  <br> རྟག་ཏུ་བརྟན་ཅིང་ཕ་རོལ་གནོན། །  <br> སེམས་ཅན་ཐམས་ཅད་བསྒྲལ་དོན་དུ། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བཟོད་བརྟུལ་རྟག་ཏུ་བསྟེན་བྱས་ཤིང་། །  <br> སེམས་ཅན་ཉོན་མོངས་སྙིགས་མ་ཡིས། །  <br> སེམས་ཅན་ངན་བྱས་བཟོད་གྱུར་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བསམ་གཏན་རྣམ་ཐར་གཟུགས་མེད་དང་། །  <br> ཏིང་འཛིན་གང་གཱའི་བྱེ་སྙེད་པ། །  <br> བསྒོམས་པས་དེ་མཐུས་བདག་གི་ནི། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "ཡེ་ཤེས་དོན་དུ་བདག་གིས་སྔོན། །  <br> དཀའ་ཐུབ་ནགས་དག་བསྟེན་བྱས་ཤིང་། །  <br> བསྟན་བཅོས་དུ་མ་ཉེར་བསྟེན་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                        "བརྩེ་བའི་རྒྱུ་ཡིས་ཤ་ཁྲག་དང་། །  <br> འཚོ་བ་ཡོངས་སུ་བཏང་གྱུར་ཅིང་། །  <br> ཡན་ལག་ཉིང་ལག་བཏང་པ་ཡིས། །  <br> ཆོས་ཚུལ་རྣམ་པར་འཕེལ་གྱུར་ཅིག །  <br>",
+                        "བདག་སྔོན་སྡིག་པའི་སེམས་ཅན་རྣམས། །  <br> བྱམས་པས་གསལ་བར་སྨིན་བྱས་ཤིང་། །  <br> ཐེག་པ་གསུམ་ལ་རབ་བཀོད་པས། །  <br> ཆོས་ཀྱི་མཆོད་སྦྱིན་རྒྱས་གྱུར་ཅིག །  <br>",
+                        "བདག་སྔོན་ཐབས་ཤེས་གྱུར་པ་ན། <br> སེམས་ཅན་ལྟ་ངན་ལས་བསྒྲལ་ཞིང་། །  <br> ཡང་དག་ལྟ་ལ་བཀོད་བྱས་པས། །  <br> ཆོས་ནི་རྣམ་པར་འཕེལ་གྱུར་ཅིག །  <br>",
+                        "བདག་གིས་སེམས་ཅན་བསྡུ་དངོས་བཞིས། །  <br> ཉོན་མོངས་མེ་ལས་ཐར་བྱས་ཤིང་། །  <br> བདག་གིས་འཕེལ་སྡིག་ཕམ་བྱས་པས། །  <br> བདག་འཁོར་ཡུན་རིང་གནས་གྱུར་ཅིག །  <br>",
+                        "བདག་གིས་མུ་སྟེགས་ཅན་གཞན་དག །  <br> ལྟ་བའི་ཆུ་ལས་བསྒྲལ་བྱས་ཏེ། །  <br> ཡང་དག་ལྟ་ལ་བཀོད་གྱུར་པས། །  <br> བདག་འཁོར་རྟག་ཏུ་གུས་གྱུར་ཅིག །  <br> ཡུན་རིང་བསྟན་པ་འབར་གྱུར་ཅིག །  <br>"
                     ]
                 ],
                 "direction": "ltr"
-            }
+            },
+            {
+              "title": "བསྟན་འབར་མ།",
+              "language": "",
+              "completestatus": "done",
+              "versionSource": "https://www.lotsawahouse.org/words-of-the-buddha/prayer-future-dharma",
+              "content": [
+                  [
+                      "སངས་རྒྱས་རྣམ་གཟིགས་གཙུག་ཏོར་ཐམས་ཅད་སྐྱོབ། །  <br> འཁོར་བ་འཇིག་དང་གསེར་ཐུབ་འོད་སྲུང་དང་། །  <br> ཤཱཀྱ་ཐུབ་པ་གོའུ་ཏཾ་ལྷ་ཡི་ལྷ། །  <br> སངས་རྒྱས་དཔའ་བོ་བདུན་ལ་ཕྱག་འཚལ་ལོ། །  <br>",
+                      "སེམས་ཅན་དོན་དུ་བདག་གིས་སྔོན། །  <br> དཀའ་བ་གང་ཞིག་སྤྱད་གྱུར་དང་། །  <br> བདག་གི་བདེ་བ་བཏང་བ་ཡིས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "ངས་སྔོན་ནད་པའི་ཆེད་དག་ཏུ། །  <br> རང་གི་འཚོ་བ་ཡོངས་བཏང་བས། །  <br> སེམས་ཅན་ཕོངས་པ་བསྐྱབ་པའི་ཕྱིར། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བུ་དང་བུ་མོ་ཆུང་མ་དང་། །  <br> ནོར་དང་གླང་ཆེན་ཤིང་རྟ་དང་། །  <br> རིན་ཆེན་བྱང་ཆུབ་ཕྱིར་བཏང་བས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བདག་གིས་སངས་རྒྱས་རང་སངས་རྒྱས། །  <br> ཉན་ཐོས་ཕ་དང་མ་དང་ནི། །  <br> དྲང་སྲོང་དག་ལ་མཆོད་བྱས་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བསྐལ་པ་བྱེ་བ་དུ་མར་བདག །  <br> སྡུག་བསྔལ་སྣ་ཚོགས་མྱོང་གྱུར་ཅིང་། །  <br> བྱང་ཆུབ་དོན་དུ་ཐོས་བཙལ་བས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བདག་གིས་ཚུལ་ཁྲིམས་བརྟུལ་ཞུགས་དང་། །  <br> དཀའ་ཐུབ་ཡུན་རིང་བསྟེན་བྱས་ཤིང་། །  <br> ཕྱོགས་བཅུའི་སངས་རྒྱས་ངས་མཆོད་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བདག་སྔོན་བརྩོན་འགྲུས་དང་ལྡན་པས། །  <br> རྟག་ཏུ་བརྟན་ཅིང་ཕ་རོལ་གནོན། །  <br> སེམས་ཅན་ཐམས་ཅད་བསྒྲལ་དོན་དུ། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བཟོད་བརྟུལ་རྟག་ཏུ་བསྟེན་བྱས་ཤིང་། །  <br> སེམས་ཅན་ཉོན་མོངས་སྙིགས་མ་ཡིས། །  <br> སེམས་ཅན་ངན་བྱས་བཟོད་གྱུར་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བསམ་གཏན་རྣམ་ཐར་གཟུགས་མེད་དང་། །  <br> ཏིང་འཛིན་གང་གཱའི་བྱེ་སྙེད་པ། །  <br> བསྒོམས་པས་དེ་མཐུས་བདག་གི་ནི། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "ཡེ་ཤེས་དོན་དུ་བདག་གིས་སྔོན། །  <br> དཀའ་ཐུབ་ནགས་དག་བསྟེན་བྱས་ཤིང་། །  <br> བསྟན་བཅོས་དུ་མ་ཉེར་བསྟེན་པས། །  <br> བསྟན་པ་ཡུན་རིང་འབར་གྱུར་ཅིག །  <br>",
+                      "བརྩེ་བའི་རྒྱུ་ཡིས་ཤ་ཁྲག་དང་། །  <br> འཚོ་བ་ཡོངས་སུ་བཏང་གྱུར་ཅིང་། །  <br> ཡན་ལག་ཉིང་ལག་བཏང་པ་ཡིས། །  <br> ཆོས་ཚུལ་རྣམ་པར་འཕེལ་གྱུར་ཅིག །  <br>",
+                      "བདག་སྔོན་སྡིག་པའི་སེམས་ཅན་རྣམས། །  <br> བྱམས་པས་གསལ་བར་སྨིན་བྱས་ཤིང་། །  <br> ཐེག་པ་གསུམ་ལ་རབ་བཀོད་པས། །  <br> ཆོས་ཀྱི་མཆོད་སྦྱིན་རྒྱས་གྱུར་ཅིག །  <br>",
+                      "བདག་སྔོན་ཐབས་ཤེས་གྱུར་པ་ན། <br> སེམས་ཅན་ལྟ་ངན་ལས་བསྒྲལ་ཞིང་། །  <br> ཡང་དག་ལྟ་ལ་བཀོད་བྱས་པས། །  <br> ཆོས་ནི་རྣམ་པར་འཕེལ་གྱུར་ཅིག །  <br>",
+                      "བདག་གིས་སེམས་ཅན་བསྡུ་དངོས་བཞིས། །  <br> ཉོན་མོངས་མེ་ལས་ཐར་བྱས་ཤིང་། །  <br> བདག་གིས་འཕེལ་སྡིག་ཕམ་བྱས་པས། །  <br> བདག་འཁོར་ཡུན་རིང་གནས་གྱུར་ཅིག །  <br>",
+                      "བདག་གིས་མུ་སྟེགས་ཅན་གཞན་དག །  <br> ལྟ་བའི་ཆུ་ལས་བསྒྲལ་བྱས་ཏེ། །  <br> ཡང་དག་ལྟ་ལ་བཀོད་གྱུར་པས། །  <br> བདག་འཁོར་རྟག་ཏུ་གུས་གྱུར་ཅིག །  <br> ཡུན་རིང་བསྟན་པ་འབར་གྱུར་ཅིག །  <br>"
+                  ]
+              ],
+              "direction": "ltr"
+          }
         ]
     }
 }
