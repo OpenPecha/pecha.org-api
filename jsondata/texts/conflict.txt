@@ -6,3 +6,12 @@ The_commentary_on_the_difficult_points_of_the_Introduction_to_the_Bodhisattvas_W
 The_commentary_on_the_difficult_points_of_the_Introduction_to_the_Bodhisattvas_Way_of_Life.json: {"error": "A Term with the title འགྲེལ་པ། in it already exists"}
 D3877.json: {"error": "A Term with the title འགྲེལ་པ། in it already exists"}
 D3877.json: {"error": "A Term with the title འགྲེལ་པ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}
+{Example}ROOT_TEXT_WITH_VERSION.json: {"error": "A Term with the title འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ། in it already exists"}

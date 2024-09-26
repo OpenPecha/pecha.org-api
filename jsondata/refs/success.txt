@@ -34,3 +34,5 @@ e King of Aspirations Prayer 3.json
 e King of Aspirations Prayer 2.json
 e King of Aspirations Prayer 5.json
 
+The commentary on the Bodhicaryavatara the drop of Nectar and the words of Manjusri and the guru.json
+The summary of the bodhisattvas way of life.json

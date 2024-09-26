@@ -16,4 +16,9 @@ The_Wisdom_Chapter_of_the_Bodhicharyavatara.json
 004.ch5.json
 004.ch2.json
 
-trisaranagama-toh0225-kpzhangjm-021-wm-01.jsonPrayer_for_the_Future_of_the_Dharma.json
+trisaranagama-toh0225-kpzhangjm-021-wm-01.json
+Prayer_for_the_Future_of_the_Dharma.json
+The_commentary_on_the_Bodhicaryavatara_the_drop_of_Nectar_and_the_words_of_Manjusri_and_the_guru.json
+The_summary_of_the_bodhisattvas_way_of_life.json
+
+anotation_styling_test.json

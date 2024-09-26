@@ -13,8 +13,8 @@ headers = {
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -669,7 +669,7 @@ def add_by_file(fileSTR, textType):
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
-            boText['text'] = clean_content(book['content'])
+            boText['text'] = parse_anotation(book['content'])
             if not post_text(text_index_STR,  boText):
                 success = False
     
@@ -694,7 +694,7 @@ def add_by_file(fileSTR, textType):
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
-            enText['text'] = clean_content(book['content'])
+            enText['text'] = parse_anotation(book['content'])
             if not post_text(text_index_STR, enText):
                 success = False
 
@@ -768,7 +768,7 @@ def create_data_node(en_key, bo_key, envalue, bovalue):
         ],
         "key": en_key
     }
-def clean_content(value):
+def parse_anotation(value):
     result = []
     for val in value:
         if isinstance(val, list):
@@ -776,36 +776,36 @@ def clean_content(value):
             for v in val:
                 if '\n' in v:
                     v = v.replace('\n',' <br> ')
-                # Quotation
-                if '<sapche>' in v:
-                    v = v.replace('<sapche>',' <i> ')
-                    v = v.replace('</sapche>',' </i> ')
-                # Citation
-                if "{" in v:  
-                    v = v.replace('{',' <b> ')
-                    v = v.replace('}',' </b> ')
                 # Sapche
+                if '<sapche>' in v:
+                    v = v.replace('<sapche>','<span class="text-subche-style">')
+                    v = v.replace('</sapche>','</span>')
+                # Citation 
+                if "{" in v:  
+                    v = v.replace('{','<span class="text-citation-style">')
+                    v = v.replace('}',' </span> ')
+                # Quotation
                 if "(" in v:  
-                    v = v.replace("(",' <u> ')
-                    v = v.replace(")",' </u> ')
+                    v = v.replace("(",'<span class="text-quotation-style">')
+                    v = v.replace(")",'</span>')
                 v = re.sub("<\d+>", "", v.strip())
                 chapters.append(v)
             result.append(chapters)
         else:
             if '\n' in val:
                 val = val.replace('\n',' <br> ')
-            # Quotation
+            # Sapche
             if '<sapche>' in val:
-                val = val.replace('<sapche>',' <i> ')
-                val = val.replace('</sapche>',' </i> ')
+                val = val.replace('<sapche>','<span class="text-subche-style">')
+                val = val.replace('</sapche>','</span>')
             # Citation
             if "{" in val:  
-                val = val.replace('{',' <b> ')
-                val = val.replace('}',' </b> ')
-            # Sapche
+                val = val.replace('{','<span class="text-citation-style">')
+                val = val.replace('}','</span>')
+            # Quotation
             if "(" in val:  
-                val = val.replace("(",' <u> ')
-                val = val.replace(")",' </u> ')
+                val = val.replace("(",'<span class="text-quotation-style">')
+                val = val.replace(")",'</span>')
             val = re.sub("<\d+>", "", val.strip())
             result.append(val)
 
@@ -827,7 +827,7 @@ def generate_chapters(book, language, current_key="", parent_keys=[]):
             
             # Determine the key for 'data' depending on whether there are other children
             if 'data' in value:
-                clean_value = clean_content(value['data'])
+                clean_value = parse_anotation(value['data'])
 
                 # If there are other children, include 'data' in the key, else exclude it
             if has_children:
