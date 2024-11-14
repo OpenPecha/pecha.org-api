@@ -1,7 +1,6 @@
 test.json
 Prayer_of_Kuntuzangpo.json
 ཀུན་བཟང་སྨོན་ལམ་གྱི་འདྲེན་བྱེད་ཊྰི་ཀའི་ཐུར་མས་བསལ་བ།.json
-The_Way_of_the_Boddhisattva.json
 The_commentary_on_the_intention_of_the_Introduction_to_the_Bodhisattvas_Way_of_Life_called_the_Clarification_of_the_Distinctions.json
 This_is_the_well_composed_entrance_to_the_bodhisattvas_way_of_life.json
 The_commentary_on_the_difficult_points_of_the_Introduction_to_the_Bodhisattvas_Way_of_Life.json
@@ -23,4 +22,14 @@ The_summary_of_the_bodhisattvas_way_of_life.json
 
 vinayavastu.json
 vinayavastu_test.json
+
+The_Way_of_the_Boddhisattva.json
+
 anotation_styling_test.json
+pedurma.json
+ai_translation.json
+IC2CB69CC.json
+justification_dummy.json
+root_text_dummy.json
+simple_text_translation.json
+Kamalashila_D4267y_nalanda_100.json

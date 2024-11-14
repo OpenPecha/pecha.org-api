@@ -12,9 +12,8 @@ headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
-
-baseURL = "https://staging.pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://staging.pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -261,7 +260,7 @@ def post_text(indexSTR, textDICT):
     textJSON = json.dumps(textDICT)
     # indexSTR = indexSTR.replace(" ", "_")
     
-    url = baseURL + "api/texts/%s?count_after=1" % (urllib.parse.quote(indexSTR))
+    url = baseURL + "api/texts/%s?count_after=1&skip_links=True" % (urllib.parse.quote(indexSTR))
     values = {'json': textJSON, 'apikey': apikey}
     data = urllib.parse.urlencode(values)
     binary_data = data.encode('ascii')
