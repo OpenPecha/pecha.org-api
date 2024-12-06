@@ -2,17 +2,17 @@
     "source": {
        "categories": [
             {
-                "name": "Liturgy",
+                "name": "Recitations",
                 "enDesc": "",
-                "enShortDesc": "Prayers and rituals"
+                "enShortDesc": "Prayers and Rituals"
             },
             {
-                "name": "Prayers",
+                "name": "Aspiration Prayers",
                 "enDesc": "",
                 "enShortDesc": ""
             },
             {
-                "name": "The Prayer of Good Conduct",
+                "name": "Works about The Prayer of Good Conduct",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -22,11 +22,11 @@
                 "enShortDesc": ""
             },
             {
-                "name": "Commentary on Samantabhadras The King of Aspirations Prayer 1",
+                "name": "Commentary on Samantabhadra's King of Aspirations Prayer - 1",
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
-                    "The Noble King of Prayers for Good Conduct"
+                    "The Prayer of Conduct"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -34,10 +34,10 @@
         ],
         "books": [
             {
-                "title": "Commentary on Samantabhadras The King of Aspirations Prayer 1",
+                "title": "Commentary on Samantabhadra's King of Aspirations Prayer - 1",
                 "language": "en",
                 "versionSource": "",
-                "completestatus": "done",
+                "completestatus": "in_progress",
                 "content": [],
                 "direction": "ltr"
             }
@@ -57,9 +57,9 @@
                 "heShortDesc": ""
             },
             {
-                "name": "བཟང་སྤྱོད་སྨོན་ལམ།",
+                "name": "བཟང་སྤྱོད་སྨོན་ལམ་གྱི་སྐོར།",
                 "heDesc": "",
-                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
+                "heShortDesc": ""
             },
             {
                 "name": "འགྲེལ་པ།",

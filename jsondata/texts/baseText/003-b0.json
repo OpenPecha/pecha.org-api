@@ -2,17 +2,17 @@
     "source": {
         "categories": [
             {
-                "name": "Liturgy",
+                "name": "Recitations",
                 "enDesc": "",
-                "enShortDesc": "Prayers and rituals"
+                "enShortDesc": "Prayers and Rituals"
             },
             {
-                "name": "Prayers",
+                "name": "Aspiration Prayers",
                 "enDesc": "",
                 "enShortDesc": ""
             },
             {
-                "name": "The Prayer of Good Conduct",
+                "name": "Works about The Prayer of Good Conduct",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -22,14 +22,14 @@
                 "enShortDesc": ""
             },
             {
-                "name": "The Noble King of Prayers for Good Conduct",
+                "name": "The Prayer of Good Conduct",
                 "enDesc": "",
                 "enShortDesc": ""
             }
         ],
         "books": [
             {
-                "title": "The Noble King of Prayers for Good Conduct",
+                "title": "The Prayer of Good Conduct",
                 "language": "en",
                 "versionSource": "",
                 "completestatus": "done",
@@ -130,9 +130,9 @@
                 "heShortDesc": ""
             },
             {
-                "name": "བཟང་སྤྱོད་སྨོན་ལམ།",
+                "name": "བཟང་སྤྱོད་སྨོན་ལམ་གྱི་སྐོར།",
                 "heDesc": "",
-                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
+                "heShortDesc": ""
             },
             {
                 "name": "རྩ་བ།",
@@ -140,14 +140,14 @@
                 "heShortDesc": ""
             },
             {
-                "name": "འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ།",
+                "name": "བཟང་སྤྱོད་སྨོན་ལམ།",
                 "heDesc": "",
-                "heShortDesc": ""
+                "heShortDesc": "སྨོན་ལམ་སྟོབས་པོ་ཆེ།"
             }
         ],
         "books": [
             {
-                "title": "འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ།",
+                "title": "བཟང་སྤྱོད་སྨོན་ལམ།",
                 "language": "bo",
                 "versionSource": " ",
                 "completestatus": "done",
