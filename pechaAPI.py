@@ -662,10 +662,12 @@ def add_by_file(fileSTR, textType):
         # for complex text
         if isinstance(book['content'], dict):
             result = generate_chapters(book['content'], book["language"])
+            print("Tibetan")
             for key, value in result.items():
                 boText['text'] = value
-                if not post_text(key, boText):
-                    success = False
+                if (value):
+                    if not post_text(key, boText):
+                        success = False
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
@@ -687,10 +689,12 @@ def add_by_file(fileSTR, textType):
         # for complex text
         if isinstance(book['content'], dict):
             result = generate_chapters(book['content'], book["language"])
+            print("English")
             for key, value in result.items():
                 enText['text'] = value
-                if not post_text(key, enText):
-                    success = False
+                if (value):
+                    if not post_text(key, enText):
+                        success = False
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
@@ -753,9 +757,15 @@ def create_data_node(en_key, bo_key, envalue, bovalue):
     sectionNames = ['Chapters', 'Verses', 'Paragraphs']
 
     if len(envalue) > 0:
-        text_depth = get_list_depth(envalue) 
+        text_depth = get_list_depth(envalue)
+    else: 
+        text_depth = 1
+        
     if len(bovalue) > 0:
         text_depth = get_list_depth(bovalue)
+    else: 
+        text_depth = 1
+
 
     return {
         "nodeType": "JaggedArrayNode",

@@ -27,3 +27,5 @@ The_Wisdom_Chapter_of_the_Bodhicharyavatara.json
 This_is_the_well_composed_entrance_to_the_bodhisattvas_way_of_life.json
 
 
+vajra_cutter.json
+vajra_cutter_commentary.json
