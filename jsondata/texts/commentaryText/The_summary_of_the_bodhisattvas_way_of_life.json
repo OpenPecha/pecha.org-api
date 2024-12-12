@@ -17,11 +17,11 @@
                 "enShortDesc": ""
             },
             {
-                "name": "The summary of the bodhisattvas way of life",
+                "name": "Summary of The Way of the Bodhisattva",
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -29,7 +29,7 @@
         ],
         "books": [
             {
-                "title": "The summary of the bodhisattvas way of life",
+                "title": "Summary of The Way of the Bodhisattva",
                 "language": "en",
                 "versionSource": "",
                 "completestatus": "in_progress",
@@ -56,11 +56,11 @@
                 "heShortDesc": ""
             },
             {
-                "name": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་དོན་བསྡུས་པ།",
+                "name": "སྤྱོད་འཇུག་དོན་བསྡུས།",
                 "heDesc": "",
                 "heShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -68,7 +68,7 @@
         ],
         "books": [
             {
-                "title": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་དོན་བསྡུས་པ།",
+                "title": "སྤྱོད་འཇུག་དོན་བསྡུས།",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",

@@ -21,7 +21,7 @@
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -56,11 +56,11 @@
                 "heShortDesc": ""
             },
             {
-                "name": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ་བཞུགས།",
+                "name": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ།",
                 "heDesc": "",
                 "heShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -68,7 +68,7 @@
         ],
         "books": [
             {
-                "title": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ་བཞུགས།",
+                "title": "ཤེས་རབ་ལེའུའི་དཀའ་འགྲེལ།",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",

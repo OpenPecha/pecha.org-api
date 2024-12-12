@@ -17,11 +17,11 @@
                 "enShortDesc": ""
             },
             {
-                "name": "The commentary on the Bodhicaryavatara the drop of Nectar and the words of Manjusri and the guru",
+                "name": "Khenpo Kunpel's commentary on the Bodhicaryavatara",
                 "enDesc": "",
                 "enShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
@@ -29,7 +29,7 @@
         ],
         "books": [
             {
-                "title": "The commentary on the Bodhicaryavatara the drop of Nectar and the words of Manjusri and the guru",
+                "title": "Khenpo Kunpel's commentary on the Bodhicaryavatara",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",
@@ -57,11 +57,11 @@
                 "heShortDesc": ""
             },
             {
-                "name": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་ཚིག་འགྲེལ་འཇམ་དབྱངས་བླ་མའི་ཞལ་ལུང་བདུད་རྩིའི་ཐིག་པ་བཞུགས་སོ།།",
+                "name": "ཀུན་དཔལ་སྤྱོད་འཇུག།",
                 "heDesc": "",
                 "heShortDesc": "",
                 "base_text_titles": [
-                    "The Way of the Boddhisattva"
+                    "The Way of the Bodhisattva"
                 ],
                 "base_text_mapping": "many_to_one",
                 "link": "Commentary"
