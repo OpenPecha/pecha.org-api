@@ -13,8 +13,8 @@ headers = {
     }
 BASEPATH = os.path.dirname(os.path.abspath(__file__))   # path to `Pecha.org/tools`
 
-baseURL = "https://staging.pecha.org/"
-#baseURL = "http://127.0.0.1:8000/"
+#baseURL = "https://staging.pecha.org/"
+baseURL = "http://127.0.0.1:8000/"
 
 #region APIs
 def get_term(termSTR):
@@ -662,14 +662,16 @@ def add_by_file(fileSTR, textType):
         # for complex text
         if isinstance(book['content'], dict):
             result = generate_chapters(book['content'], book["language"])
+            print("Tibetan")
             for key, value in result.items():
                 boText['text'] = value
-                if not post_text(key, boText):
-                    success = False
+                if (value):
+                    if not post_text(key, boText):
+                        success = False
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
-            boText['text'] = parse_anotation(book['content'])
+            boText['text'] = parse_annotation(book['content'])
             if not post_text(text_index_STR,  boText):
                 success = False
     
@@ -687,14 +689,16 @@ def add_by_file(fileSTR, textType):
         # for complex text
         if isinstance(book['content'], dict):
             result = generate_chapters(book['content'], book["language"])
+            print("English")
             for key, value in result.items():
                 enText['text'] = value
-                if not post_text(key, enText):
-                    success = False
+                if (value):
+                    if not post_text(key, enText):
+                        success = False
                 
         if isinstance(book['content'], list):
             print("title : ", book['title'])
-            enText['text'] = parse_anotation(book['content'])
+            enText['text'] = parse_annotation(book['content'])
             if not post_text(text_index_STR, enText):
                 success = False
 
@@ -753,9 +757,15 @@ def create_data_node(en_key, bo_key, envalue, bovalue):
     sectionNames = ['Chapters', 'Verses', 'Paragraphs']
 
     if len(envalue) > 0:
-        text_depth = get_list_depth(envalue) 
+        text_depth = get_list_depth(envalue)
+    else: 
+        text_depth = 1
+        
     if len(bovalue) > 0:
         text_depth = get_list_depth(bovalue)
+    else: 
+        text_depth = 1
+
 
     return {
         "nodeType": "JaggedArrayNode",
@@ -768,49 +778,41 @@ def create_data_node(en_key, bo_key, envalue, bovalue):
         ],
         "key": en_key
     }
-def parse_anotation(value):
-    result = []
-    for val in value:
-        if isinstance(val, list):
-            chapters = []
-            for v in val:
-                if '\n' in v:
-                    v = v.replace('\n',' <br> ')
-                # Sapche
-                if '<sapche>' in v:
-                    v = v.replace('<sapche>','<span class="text-subche-style">')
-                    v = v.replace('</sapche>','</span>')
-                # Citation 
-                if "{" in v:  
-                    v = v.replace('{','<span class="text-citation-style">')
-                    v = v.replace('}',' </span> ')
-                # Quotation
-                if "(" in v:  
-                    v = v.replace("(",'<span class="text-quotation-style">')
-                    v = v.replace(")",'</span>')
-                v = re.sub("<\d+>", "", v.strip())
-                chapters.append(v)
-            result.append(chapters)
-        else:
-            if '\n' in val:
-                val = val.replace('\n',' <br> ')
-            # Sapche
-            if '<sapche>' in val:
-                val = val.replace('<sapche>','<span class="text-subche-style">')
-                val = val.replace('</sapche>','</span>')
-            # Citation
-            if "{" in val:  
-                val = val.replace('{','<span class="text-citation-style">')
-                val = val.replace('}','</span>')
-            # Quotation
-            if "(" in val:  
-                val = val.replace("(",'<span class="text-quotation-style">')
-                val = val.replace(")",'</span>')
-            val = re.sub("<\d+>", "", val.strip())
-            result.append(val)
-
-    return result
-
+def parse_annotation(value):
+    def process_item(item):
+        # If the item is a list, recursively process its contents
+        if isinstance(item, list):
+            return [process_item(sub_item) for sub_item in item]
+        
+        # Convert item to string and apply transformations
+        if not isinstance(item, str):
+            item = str(item)
+        
+        # Replace newlines
+        item = item.replace('\n', '<br>')
+        
+        # Sapche transformation
+        if '<sapche>' in item:
+            item = item.replace('<sapche>', '<span class="text-subche-style">')
+            item = item.replace('</sapche>', '</span>')
+        
+        # Citation transformation
+        if "{" in item:  
+            item = item.replace('{', '<span class="text-citation-style">')
+            item = item.replace('}', '</span>')
+        
+        # Quotation transformation
+        if "(" in item:  
+            item = item.replace("(", '<span class="text-quotation-style">')
+            item = item.replace(")", '</span>')
+        
+        # Remove numbered tags
+        item = re.sub("<\d+>", "", item.strip())
+        
+        return item
+    
+    # Process the entire input recursively
+    return process_item(value)
 
 def generate_chapters(book, language, current_key="", parent_keys=[]):
     result = {}
@@ -827,7 +829,7 @@ def generate_chapters(book, language, current_key="", parent_keys=[]):
             
             # Determine the key for 'data' depending on whether there are other children
             if 'data' in value:
-                clean_value = parse_anotation(value['data'])
+                clean_value = parse_annotation(value['data'])
 
                 # If there are other children, include 'data' in the key, else exclude it
             if has_children:
