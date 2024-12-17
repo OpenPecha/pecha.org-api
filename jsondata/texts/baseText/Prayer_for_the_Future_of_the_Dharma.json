@@ -2,12 +2,12 @@
     "source": {
         "categories": [
             {
-                "name": "Liturgy",
-                "enDesc": "Prayers and rituals",
-                "enShortDesc": "Prayers and rituals"
+                "name": "Recitations",
+                "enDesc": "",
+                "enShortDesc": "Prayers and Rituals"
             },
             {
-                "name": "Prayers",
+                "name": "Aspiration Prayers",
                 "enDesc": "",
                 "enShortDesc": ""
             },
@@ -509,7 +509,7 @@
     "target": {
         "categories": [
             {
-                "name": "ཆོ་ག",
+                "name": "ཁ་འདོན།",
                 "heDesc": "",
                 "heShortDesc": "ཆོ་ག་དང་འདོན་ཆ།"
             },
