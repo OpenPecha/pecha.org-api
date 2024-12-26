@@ -4,12 +4,17 @@
             {
                 "name": "Madhyamaka",
                 "enDesc": "",
-                "enShortDesc": ""
+                "enShortDesc": "Madhyamaka treatises"
             },
             {
-                "name": "Works about The Way of the Boddhisattva",
+                "name": "Prasangika",
                 "enDesc": "",
-                "enShortDesc": ""
+                "enShortDesc": "Prasangika treatises"
+            },
+            {
+                "name": "Bodhicaryavatara",
+                "enDesc": "",
+                "enShortDesc": "Bodhicaryavatara root text and commentaries"
             },
             {
                 "name": "Commentaries",
@@ -44,12 +49,17 @@
             {
                 "name": "དབུ་མ།",
                 "heDesc": "",
-                "heShortDesc": ""
+                "heShortDesc": "དབུ་མའི་གཞུང་སྣ་ཚོགས།"
             },
             {
-                "name": "སྤྱོད་འཇུག་གི་སྐོར།",
+                "name": "ཐལ་འགྱུར་པ།",
                 "heDesc": "",
-                "heShortDesc": ""
+                "heShortDesc": "ཐལ་འགྱུར་པའི་གཞུང་སྣ་ཚོགས།"
+            },
+            {
+                "name": "སྤྱོད་འཇུག",
+                "heDesc": "",
+                "heShortDesc": "སྤྱོད་འཇུག་རྩ་འགྲེལ།"
             },
             {
                 "name": "འགྲེལ་པ།",
@@ -69,7 +79,7 @@
         ],
         "books": [
             {
-                "title": "བྱང་ཆུབ་སེམས་དཔའི་སྤྱོད་པ་ལ་འཇུག་པའི་ཚིག་འགྲེལ་འཇམ་དབྱངས་བླ་མའི་ཞལ་ལུང་བདུད་རྩིའི་ཐིག་པ་བཞུགས་སོ།།",
+                "title": "ཀུན་དཔལ་སྤྱོད་འཇུག།",
                 "language": "bo",
                 "versionSource": "",
                 "completestatus": "in_progress",
