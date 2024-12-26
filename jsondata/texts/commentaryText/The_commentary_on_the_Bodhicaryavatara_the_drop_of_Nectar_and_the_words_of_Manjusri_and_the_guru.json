@@ -36,7 +36,7 @@
             {
                 "title": "Khenpo Kunpel's commentary on the Bodhicaryavatara",
                 "language": "bo",
-                "versionSource": "",
+                "versionSource": "Composed by Gegong Khenpo Kunpel during the 19th century",
                 "completestatus": "in_progress",
                 "content": [],
                 "direction": "ltr"
@@ -67,9 +67,9 @@
                 "heShortDesc": ""
             },
             {
-                "name": "ཀུན་དཔལ་སྤྱོད་འཇུག།",
+                "name": "ཀུན་དཔལ་སྤྱོད་འཇུག",
                 "heDesc": "",
-                "heShortDesc": "",
+                "heShortDesc": "དུས་རབས་ ༡༩ པའི་ནང་གེ་གོང་མཁན་པོ་ཀུན་དཔལ་གྱིས་མཛད་པའོ།",
                 "base_text_titles": [
                     "The Way of the Bodhisattva"
                 ],
